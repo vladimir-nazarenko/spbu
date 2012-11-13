@@ -8,20 +8,21 @@ template <typename T>
 List<T>* mergeList(List<T>* l)
 {
 	List<T>* sorted = merge(l, l->first(), l->size());
-	//delete l;
+//	delete l;
 	return sorted;
 }
 
 template <typename T>
-List<T>* merge(List<T>* input, typename List<T>::Position pos, int listSize)
+List<T>* merge(List<T>* input, typename List<T>::Position firstPos, int listSize)
 {
 	if (listSize == 1)
-		return new List<T>(input->retrieve(pos));
+		return new List<T>(input->retrieve(firstPos));
+
 	int middle = listSize / 2;
-	List<T>* left = merge(input, pos, middle);
+	List<T>* left = merge(input, firstPos, middle);
 	for (int i = 0; i < middle; ++i) 
-		pos = input->next(pos);
-	List<T>* right = merge(input, pos, listSize - middle);
+		firstPos = input->next(firstPos);
+	List<T>* right = merge(input, firstPos, listSize - middle);
 	List<T>* united = new List<T>();
 	int cntl = 0, cntr = 0;
 	typename List<T>::Position posl = left->first(), posr = right->first();
@@ -30,7 +31,7 @@ List<T>* merge(List<T>* input, typename List<T>::Position pos, int listSize)
 	{
 		if (left->retrieve(posl) < right->retrieve(posr))
 		{
-			united->insert(left->retrieve(posl));////////////////////////////////
+			united->insert(left->retrieve(posl));
 			posl = left->next(posl);
 			++cntl;
 		}
@@ -46,7 +47,7 @@ List<T>* merge(List<T>* input, typename List<T>::Position pos, int listSize)
 	{
 		for (int i = cntr; i < listSize - middle; ++i)
 		{
-			united->insert(right->retrieve(posr));/////////////////////////////
+			united->insert(right->retrieve(posr));
 			posr = right->next(posr);
 		}
 	}

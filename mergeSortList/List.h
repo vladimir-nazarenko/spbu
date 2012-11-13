@@ -49,6 +49,7 @@ class List
 			delete stack[i];
 		}
 		delete head;
+//		delete this;
 	}
 
 	void insert(T element, Position p)	//вставка по позиции

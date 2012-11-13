@@ -1,10 +1,18 @@
 #include "List.h"
 #include "Merge.h"
+#include <iostream>
+#include <stdlib.h>
 
 int main()
 {
-	List<int>* l = new List<int>(2);
-	l->insert(1, l->first());
+	srand(0);
+	List<int>* l = new List<int>();
+	for (int i = 0; i < 5; ++i)
+	{
+		l->insert(rand() % 20);
+	}
 	l = mergeList(l);
+	l->printList(std::cout, " ");
+	std::cin.get();
 	return 0;
 }
