@@ -40,16 +40,15 @@ class List
 		Position* stack = new Position[count];
 		stack[0] = first();
 		int cnt = 0;
-		while (stack[cnt]->next != end())
+		for (int i = 1; i < count; ++i)
 		{
-			stack[cnt + 1] = stack[++cnt]->next;
+			stack[i] = stack[i - 1]->next;
 		}
 		for (int i = 0; i < count; ++i)
 		{
 			delete stack[i];
 		}
 		delete head;
-//		delete this;
 	}
 
 	void insert(T element, Position p)	//вставка по позиции
@@ -98,11 +97,11 @@ class List
 		return nullptr;			
 	}
 
-	Position first()	//позиция 1-го элемента(0 в пустом списке)
+	Position first()	//позиция 1-го элемента(head в пустом списке)!!! осторожно с головой!
 	{
 		if (count != 0)
 			return head->next;
-		return nullptr;
+		return head;
 	}
 	
 	void printList(std::ostream &stream, char* separator = "\0")	//печать списка в поток с заданным разделителем
