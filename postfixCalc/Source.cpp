@@ -1,11 +1,11 @@
-#include "List.h"
+#include "Stack.h"
 
 #include <iostream>
 
 int main()
 {
 	const int bufSize = 80;
-	List<double>* stack = new List<double>();
+	Stack<double>* stack = new Stack<double>();
 	std::cout << "Enter expression";
 	unsigned char* buf = new unsigned char[bufSize];
 	std::cin >> buf;
@@ -18,33 +18,32 @@ int main()
 		{
 			if (current >= '0') 
 			{
-				stack->insert(current - '0');
+				stack->push(current - '0');
 			}
 			else
 			{
-				temp2 = stack->retrieve(stack->first());				//Ð²Ð·ÑÑ‚ÑŒ 2 Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÑÐ¾ ÑÑ‚ÐµÐºÐ°
-				temp1 = stack->retrieve(stack->remove(stack->first()));
-				stack->remove(stack->first());
+				temp2 = stack->pop();				//ñíÿòü 2 çíà÷åíèÿ ñî ñòåêà
+				temp1 = stack->pop();
 				switch (current)
 				{
 					case '+':					
-						stack->insert(temp1 + temp2);
+						stack->push(temp1 + temp2);
 						break;
 					case '-':
-						stack->insert(temp1 - temp2);
+						stack->push(temp1 - temp2);
 						break;
 					case '*':
-						stack->insert(temp1 * temp2);
+						stack->push(temp1 * temp2);
 						break;
 					case '/':
-						stack->insert(temp1 / temp2);
+						stack->push(temp1 / temp2);
 						break;
 				}
 			}
 		}
 		current = buf[cnt++];
 	}
-	double result = stack->retrieve(stack->first());
+	double result = stack->pop();
 	delete [] buf;
 	delete stack;
 	std::cout << result;
