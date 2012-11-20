@@ -22,7 +22,7 @@ int main()
 			}
 			else
 			{
-				temp2 = stack->retrieve(stack->first());				//ñíÿòü 2 çíà÷åíèÿ ñî ñòåêà
+				temp2 = stack->retrieve(stack->first());				//Ð²Ð·ÑÑ‚ÑŒ 2 Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÑÐ¾ ÑÑ‚ÐµÐºÐ°
 				temp1 = stack->retrieve(stack->remove(stack->first()));
 				stack->remove(stack->first());
 				switch (current)
