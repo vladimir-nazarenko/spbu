@@ -1,0 +1,4 @@
+Тесты:
+}}} //incorrect
+{[]} //correct
+{(}) //incorrect
