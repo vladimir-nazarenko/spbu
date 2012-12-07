@@ -1,4 +1,4 @@
-Тесты:
+РўРµСЃС‚С‹:
 //input.txt
 (* (+ 1 1) 2)
 //program output
