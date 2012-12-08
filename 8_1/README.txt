@@ -1,0 +1,1 @@
+input.txt contains article from guardian.co.uk, output.txt contains program output with these data 
