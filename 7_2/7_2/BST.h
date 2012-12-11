@@ -1,4 +1,3 @@
-
 template <typename T>
 class BST
 {	
@@ -10,6 +9,13 @@ public:
 		Node* right;
 		Node(T value) : left(nullptr), right(nullptr) {item = value;} 
 		Node() : left(nullptr), right(nullptr) {}
+		~Node()
+		{
+			if (!left) 
+				delete left;
+			if (!right)
+				delete right;
+		}
 	};
 
 	typedef Node* Position;
@@ -22,8 +28,8 @@ public:
 
 	~BST()
 	{
-		while (root != nullptr)
-			root = removeNode(root);
+		//call destructor of Node structure
+		delete head;
 	}
 
 	//add element to the tree
