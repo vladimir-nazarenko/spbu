@@ -29,7 +29,7 @@ public:
 	~BST()
 	{
 		//call destructor of Node structure
-		delete head;
+		delete root;
 	}
 
 	//add element to the tree
