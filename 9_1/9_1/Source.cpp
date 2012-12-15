@@ -1,7 +1,10 @@
 #include <iostream>
+#include <fstream>
 
+//adjacency matrix for undirected graph
 struct AdjacencyMatrix
 {
+
 	AdjacencyMatrix(size_t size)
 	{
 		matrix = new int*[size]();
@@ -26,11 +29,6 @@ struct AdjacencyMatrix
 	void deleteLink(unsigned int first, unsigned int second)
 	{
 		matrix[first][second] = 0;
-	}
-
-	void deleteDoubleLink(unsigned int first, unsigned int second)
-	{
-		matrix[first][second] = 0;
 		matrix[second][first] = 0;
 	}
 
@@ -39,10 +37,20 @@ struct AdjacencyMatrix
 		return matrix[first][second];
 	}
 
+	void printMatrix()
+	{
+		for (unsigned int i = 0; i < matrixSize; ++i)
+		{
+			for (unsigned int j = 0; j < matrixSize; ++j)
+				std::cout << matrix[i][j] << ' ';
+			std::cout << std::endl;
+		}
+	}
 	size_t matrixSize;
 protected:
 	int** matrix;
 };
+
 
 struct Map : public AdjacencyMatrix
 {
@@ -57,6 +65,7 @@ struct Map : public AdjacencyMatrix
 		delete[] country;
 	}
 
+	//let city with number numberOfCity be capital of new country
 	void setCapital(int numberOfCity)
 	{
 		if (country[numberOfCity] == 0)
@@ -65,6 +74,7 @@ struct Map : public AdjacencyMatrix
 			throw std::out_of_range("reset Capital");
 	}
 
+	//add nearest city to Capital
 	bool addToCapital(unsigned int numberOfCapital)
 	{
 		int currentNearest = -1;
@@ -97,8 +107,97 @@ private:
 	unsigned int* country;
 };
 
+int getNext(std::ifstream& f);
+bool hasNext(std::ifstream& f);
+
+Map*& fillMatrix(std::ifstream& input)
+{
+	int numberOfCities = 0;
+	if (hasNext(input))
+		numberOfCities = getNext(input);
+	else 
+		throw std::bad_exception("wrong input");
+	Map* map = new Map(numberOfCities);
+	int numberOfRoads;
+	if (hasNext(input))
+		numberOfRoads = getNext(input);
+	else 
+		throw std::bad_exception("wrong input");
+	for (int i = 0; i < numberOfRoads; ++i)
+	{
+		int firstCity = 0;
+		int secondCity = 0;
+		int length = 0;
+		if (hasNext(input))
+			firstCity = getNext(input);
+		else 
+			throw std::bad_exception("wrong input");
+		if (hasNext(input))
+			secondCity = getNext(input);
+		else 
+			throw std::bad_exception("wrong input");
+		if (hasNext(input))
+			length = getNext(input);
+		else 
+			throw std::bad_exception("wrong input");
+		map->setLink(firstCity, secondCity, length);
+	}
+	return map;
+}
+
 int main(int argc, char* argv[])
 {
-	Map* m = new Map(5);
+	const char* inpPath = "input.txt";
+	std::ios_base::openmode mode = std::ios_base::in;
+	std::ifstream input (inpPath, mode);
+	
+	Map* map = fillMatrix(input);
+
+	int numberOfCapitals = 0;
+	if (hasNext(input))
+		numberOfCapitals = getNext(input);
+	else 
+		throw std::bad_exception("wrong input");
+	for (int i = 0; i < numberOfCapitals; ++i)
+	{
+		if (hasNext(input))
+			map->setCapital(getNext(input));
+		else 
+			throw std::bad_exception("wrong input");
+	}
+	bool hasClearCities = true;
+	int capitalNumber = 0;
+	while (hasClearCities)
+	{
+		hasClearCities = map->addToCapital(capitalNumber);
+		if (++capitalNumber >= numberOfCapitals)
+			capitalNumber = 0;
+	}
+	map->printMatrix();
+	delete map;
 	return 0;
+}
+
+int getNext(std::ifstream& f)
+{
+	const int bSize = 5;
+	char* buf = new char[bSize]();
+	char current = 0;
+	current = f.get();
+	int cnt = 0;
+	while (current >= '0' && current <= '9')
+	{
+		buf[cnt++] = current;
+		current = f.get();
+	}
+	buf[cnt] = '\0';
+	int num = atoi(buf);
+	delete[] buf;
+	return num;
+}
+
+//check if file isn't ended or empty
+bool hasNext(std::ifstream& f)
+{
+	return !f.eof();
 }
