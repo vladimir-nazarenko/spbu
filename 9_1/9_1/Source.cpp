@@ -51,13 +51,14 @@ protected:
 	int** matrix;
 };
 
-
+//structure to work with Adjacency matrix easier in this task
 struct Map : public AdjacencyMatrix
 {
 	Map(size_t size) : AdjacencyMatrix(size)
 	{
 		nextCapitalKey = 1;
 		country = new unsigned int[size]();
+		attackCount = 0;
 	}
 	
 	~Map()
@@ -75,17 +76,19 @@ struct Map : public AdjacencyMatrix
 	}
 
 	//add nearest city to Capital
-	bool addToCapital(unsigned int numberOfCapital)
+	void addToCapital(unsigned int numberOfCapital)
 	{
 		int currentNearest = -1;
 		int currentMinDistance = INT_MAX;
+		//iterate throw cities of given capital
 		for (unsigned int i = 0; i < matrixSize; ++i)
 		{
 			if (country[numberOfCapital] == country[i])
 			{
+				//iterate throw cities connected to city with number i
 				for (unsigned int j = 0; j < matrixSize; ++j)
 				{
-					if (j != i && country[i] == 0)
+					if (matrix[i][j] != 0 && country[j] == 0)
 					{
 						if (matrix[i][j] < currentMinDistance)
 						{
@@ -93,23 +96,40 @@ struct Map : public AdjacencyMatrix
 							currentNearest = j;
 						}
 					}
-
 				}
 			}
 		}
 		if (currentNearest >= 0)
 			country[currentNearest] = country[numberOfCapital];
-		return currentNearest >= 0 ? 1 : 0;
+		++attackCount;
 	}
 
+	//check if there is a city without a country
+	bool hasNeutral()
+	{
+		return attackCount < matrixSize;
+	}
+
+	void printCities(int capital)
+	{
+		std::cout << "country with capital " << capital << ':';
+		for (int i = 0; i < matrixSize; ++i)
+		{
+			if (country[capital] == country[i])
+				std::cout << ' ' << i;
+		}
+	}
+	
 private:
 	unsigned int nextCapitalKey;
 	unsigned int* country;
+	int attackCount;
 };
 
 int getNext(std::ifstream& f);
 bool hasNext(std::ifstream& f);
 
+//fill adjacency matrix from input and return it
 Map*& fillMatrix(std::ifstream& input)
 {
 	int numberOfCities = 0;
@@ -152,29 +172,43 @@ int main(int argc, char* argv[])
 	std::ifstream input (inpPath, mode);
 	
 	Map* map = fillMatrix(input);
-
 	int numberOfCapitals = 0;
 	if (hasNext(input))
 		numberOfCapitals = getNext(input);
 	else 
 		throw std::bad_exception("wrong input");
+	int* capitals = new int[numberOfCapitals]();
+	//read capitals and set them
 	for (int i = 0; i < numberOfCapitals; ++i)
 	{
 		if (hasNext(input))
-			map->setCapital(getNext(input));
+		{
+			capitals[i] = getNext(input);
+			map->setCapital(capitals[i]);
+		}
 		else 
 			throw std::bad_exception("wrong input");
 	}
+	input.close();
 	bool hasClearCities = true;
 	int capitalNumber = 0;
+	//iterate throw capitals to add cities to it
 	while (hasClearCities)
 	{
-		hasClearCities = map->addToCapital(capitalNumber);
+		map->addToCapital(capitals[capitalNumber]);
 		if (++capitalNumber >= numberOfCapitals)
 			capitalNumber = 0;
+		hasClearCities = map->hasNeutral();
 	}
+	//output
 	map->printMatrix();
+	for (int i = 0; i < numberOfCapitals; ++i)
+	{
+		map->printCities(capitals[i]);
+		std::cout << std::endl;
+	}
 	delete map;
+	std::cin >> numberOfCapitals;
 	return 0;
 }
 
