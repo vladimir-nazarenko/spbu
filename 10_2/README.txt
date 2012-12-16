@@ -1,0 +1,1 @@
+The Kruskal. Two test sets are in subdirectory, works with undirected, linked graph. Reads from "input.txt".
