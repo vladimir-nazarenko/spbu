@@ -1,0 +1,4 @@
+fd/f/*		/a*bc* /
+*/j/df*kk
+
+/*abcdef*/

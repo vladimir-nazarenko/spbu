@@ -1,0 +1,1 @@
+Test is in subfolder, it's simple but checks "bad" cases.
