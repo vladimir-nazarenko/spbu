@@ -83,7 +83,7 @@ namespace MyClasses.MyClassesTests
         }
 
         [Test()]
-        public void ReleaseOutput_GetOutputAndSetItBack_Succes()
+        public void ReleaseOutput_GetOutputAndSetItBack_Success()
         {
             //capture
             StringBuilder sb = Parsing.CaptureOutput();
@@ -92,6 +92,32 @@ namespace MyClasses.MyClassesTests
             //check if released
             Console.Write("test");
             Assert.AreEqual("", sb.ToString());
+        }
+
+        [Test]
+        public void WriteInegerMatrix_ReadIntegerMatrix_Success()
+        {
+            //generate matrix
+            int[][] matrix = new int[20][];
+            for (int i = 19; i >= 0; i--)
+            {
+                matrix [i] = new int[5];
+                for (int j = 0; j < 5; j++)
+                {
+                    matrix [i] [j] = i - j;
+                }
+            }
+
+            //write matrix, read it and compare
+            Parsing.WriteIntegerMatrixToFile("test.txt", ref matrix);
+            int[][] readMatrix = Parsing.ReadIntegerMatrixFromFile("test.txt");
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Assert.AreEqual(matrix [i] [j], readMatrix [i] [j]);
+                }
+            }
         }
     }
 }

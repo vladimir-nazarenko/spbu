@@ -109,17 +109,58 @@ namespace MyClasses
         /// </param>
         public static int[][] ReadIntegerMatrixFromFile(string path)
         {
-            string[] data = File.ReadAllLines(path);
-            char[] separators = {' ', '\n'};
-            int rowNumber = Convert.ToInt32(data[0].Split(separators)[0]);
-            int columnNumber = Convert.ToInt32(data[0].Split(separators)[1]);
-            int[][] values = new int[rowNumber][];
-            for (int i = 0; i < rowNumber; i++)
-                values[i] = new int[columnNumber];
-            for (int i = 0; i < rowNumber; i++)
-                for (int j = 0; j < columnNumber; j++)
-                    values[i][j] = Convert.ToInt32(data[i + 1].Split(separators)[j]);
-            return values;
+            try
+            {
+                string[] data = File.ReadAllLines(path);
+                char[] separators = {' ', '\n'};
+                int rowNumber = Convert.ToInt32(data [0].Split(separators) [0]);
+                int columnNumber = Convert.ToInt32(data [0].Split(separators) [1]);
+                int[][] values = new int[rowNumber][];
+                for (int i = 0; i < rowNumber; i++)
+                    values [i] = new int[columnNumber];
+                for (int i = 0; i < rowNumber; i++)
+                    for (int j = 0; j < columnNumber; j++)
+                        values [i] [j] = Convert.ToInt32(data [i + 1].Split(separators) [j]);
+                return values;
+            } catch
+            {
+                throw new IOException("Incorrect input file");
+            }
+        }
+
+        /// <summary>
+        /// Writes the integer matrix to file.
+        /// </summary>
+        /// <param name='path'>
+        /// Full name of the file where matrix will be written.
+        /// </param>
+        /// <param name='values'>
+        /// Matrix.
+        /// </param>
+        public static void WriteIntegerMatrixToFile(string path, ref int[][] values)
+        {
+            try
+            {
+                int rowNumber = values.Length;
+                int columnNumber = values [0].Length;
+                StreamWriter output = new StreamWriter(path, false);
+                output.WriteLine(String.Format("{0} {1}", rowNumber, columnNumber));
+                for (int i = 0; i < rowNumber; i++)
+                {
+                    int j = 0;
+                    for (j = 0; j < columnNumber - 1; j++)
+                    {
+                        output.Write(values [i] [j]);
+                        output.Write(' ');
+                    }
+                    output.WriteLine(values [i] [j]);
+
+                }
+                output.Close();
+            } catch
+            {
+                throw new ArgumentException("wrong data");
+            }
         }
     }
 }

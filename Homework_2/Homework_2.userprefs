@@ -1,29 +1,48 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="matrixSort/MatrixSort.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MatrixSort.Tests/MatrixSortTests.cs">
     <Files>
-      <File FileName="SpiralTraverse/SpiralTraverse.cs" Line="53" Column="14" />
-      <File FileName="matrixSort/MatrixSort.cs" Line="25" Column="13" />
+      <File FileName="SpiralTraverse/SpiralTraverse.cs" Line="7" Column="12" />
+      <File FileName="SpiralTraverse.Tests/SpiralTraverseTests.cs" Line="11" Column="15" />
+      <File FileName="matrixSort/MatrixSort.cs" Line="13" Column="44" />
+      <File FileName="MatrixSort.Tests/MatrixSortTests.cs" Line="39" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="matrixSort" expanded="True">
-            <Node name="MatrixSort.cs" selected="True" />
+          <Node name="MatrixSort" expanded="True" />
+          <Node name="MatrixSort.Tests" expanded="True">
+            <Node name="MatrixSortTests.cs" selected="True" />
+          </Node>
+          <Node name="MyClasses" expanded="True">
+            <Node name="Parsing" expanded="True" />
           </Node>
           <Node name="SpiralTraverse" expanded="True" />
+          <Node name="SpiralTraverse.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State selected="True">
+        <State expanded="True">
           <Option id="PublicApiOnly" value="True" />
+          <Node name="MatrixSort" expanded="True" />
+          <Node name="SpiralTraverse" expanded="True" selected="True" />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="MatrixSort.Tests" expanded="True">
+            <Node name="Homework_2" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="MatrixSortTests" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

@@ -5,14 +5,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiralTraverse", "SpiralTra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "matrixSort", "matrixSort\matrixSort.csproj", "{6A98A728-0EFA-4326-8600-439D343201C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixSort", "matrixSort\MatrixSort.csproj", "{6A98A728-0EFA-4326-8600-439D343201C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixSort.Tests", "MatrixSort.Tests\MatrixSort.Tests.csproj", "{E5286C02-7D94-4E64-8D0D-CDE681C543E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses.Tests", "..\MyClasses\MyClasses.Tests\MyClasses.Tests.csproj", "{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiralTraverse.Tests", "SpiralTraverse.Tests\SpiralTraverse.Tests.csproj", "{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
+		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Debug|x86.ActiveCfg = Debug|x86
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Debug|x86.Build.0 = Debug|x86
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Default|Any CPU.ActiveCfg = Debug|x86
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Default|Any CPU.Build.0 = Debug|x86
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Release|x86.ActiveCfg = Release|x86
+		{14738E23-E20C-4AE9-8F17-7BA0055FFAF7}.Release|x86.Build.0 = Release|x86
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.Build.0 = Debug|Any CPU
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|x86.ActiveCfg = Release|Any CPU
@@ -25,8 +38,20 @@ Global
 		{8C30F698-49D4-4970-97F8-C9F8C1A44E4D}.Debug|x86.Build.0 = Debug|x86
 		{8C30F698-49D4-4970-97F8-C9F8C1A44E4D}.Release|x86.ActiveCfg = Release|x86
 		{8C30F698-49D4-4970-97F8-C9F8C1A44E4D}.Release|x86.Build.0 = Release|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Debug|x86.ActiveCfg = Debug|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Debug|x86.Build.0 = Debug|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Default|Any CPU.ActiveCfg = Debug|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Default|Any CPU.Build.0 = Debug|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Release|x86.ActiveCfg = Release|x86
+		{A7CE9434-BAB0-4EDB-89F3-ACACC6BA863C}.Release|x86.Build.0 = Release|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Debug|x86.ActiveCfg = Debug|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Debug|x86.Build.0 = Debug|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Default|Any CPU.ActiveCfg = Debug|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Default|Any CPU.Build.0 = Debug|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Release|x86.ActiveCfg = Release|x86
+		{E5286C02-7D94-4E64-8D0D-CDE681C543E4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = SpiralTraverse\SpiralTraverse.csproj
+		StartupItem = matrixSort\MatrixSort.csproj
 	EndGlobalSection
 EndGlobal
