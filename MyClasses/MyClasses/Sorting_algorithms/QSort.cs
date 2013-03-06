@@ -112,9 +112,7 @@ namespace MyClasses.SortingAlgorithms
         /// </summary>
         private static bool Less(T first, T second)
         {
-            if (first.CompareTo(second) < 0)
-                return true;
-            return false;
+            return first.CompareTo(second) < 0;
         }
     }
 }

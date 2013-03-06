@@ -38,12 +38,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Parsing\Parsing.cs" />
-    <Compile Include="Parsing\ParsingTests.cs" />
     <Compile Include="Sorting_algorithms\InsertionSort.cs" />
-    <Compile Include="Sorting_algorithms\InsertionSortTests.cs" />
     <Compile Include="Sorting_algorithms\QSort.cs" />
-    <Compile Include="Sorting_algorithms\QSortTests.cs" />
-    <Compile Include="Sorting_algorithms\SortingTestsAuxiliary.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,7 +3,7 @@ using MyClasses;
 
 namespace Homework_1
 {
-    class Fibonacci
+    public static class Fibonacci
     {
         public static void Main(string[] args)
         {

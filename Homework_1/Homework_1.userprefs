@@ -1,25 +1,56 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../MyClasses/MyClasses/ParsingTests.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Factorial.Tests/FactorialTests.cs">
     <Files>
-      <File FileName="../MyClasses/MyClasses/ParsingTests.cs" Line="6" Column="2" />
+      <File FileName="Fibonacci.Tests/FibonacciTests.cs" Line="6" Column="1" />
+      <File FileName="Fibonacci/Fibonacci.cs" Line="3" Column="1" />
+      <File FileName="Factorial.Tests/FactorialTests.cs" Line="18" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Factorial" expanded="True" />
-          <Node name="Fibonacci" expanded="True" selected="True" />
+          <Node name="Factorial" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="Factorial.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="FactorialTests.cs" selected="True" />
+          </Node>
+          <Node name="Fibonacci" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="Fibonacci.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
           <Node name="MyClasses" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Fibonacci" selected="True" />
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Factorial.Tests" expanded="True">
+            <Node name="Homework_1" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="FactorialTests" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Fibonacci.Tests" expanded="True">
+            <Node name="Homework_1" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="FibonacciTests" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="MyClasses" selected="True" />
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

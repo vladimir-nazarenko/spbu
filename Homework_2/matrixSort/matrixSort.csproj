@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FF4E7A54-6332-4325-8A50-3DD150963512}</ProjectGuid>
+    <ProjectGuid>{6A98A728-0EFA-4326-8600-439D343201C4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Factorial</RootNamespace>
-    <AssemblyName>Factorial</AssemblyName>
+    <RootNamespace>matrixSort</RootNamespace>
+    <AssemblyName>matrixSort</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Factorial.cs" />
+    <Compile Include="MatrixSort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FF4E7A54-6332-4325-8A50-3DD150963512}</ProjectGuid>
+    <ProjectGuid>{8C30F698-49D4-4970-97F8-C9F8C1A44E4D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Factorial</RootNamespace>
-    <AssemblyName>Factorial</AssemblyName>
+    <RootNamespace>SpiralTraverse</RootNamespace>
+    <AssemblyName>SpiralTraverse</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +20,7 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <Externalconsole>true</Externalconsole>
+    <Commandlineparameters>test.txt</Commandlineparameters>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -29,13 +30,14 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <Externalconsole>true</Externalconsole>
+    <Commandlineparameters>test.txt</Commandlineparameters>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Factorial.cs" />
+    <Compile Include="SpiralTraverse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

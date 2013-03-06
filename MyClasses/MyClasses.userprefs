@@ -1,23 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Parsing/ParsingTests.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Parsing/Parsing.cs">
     <Files>
-      <File FileName="MyClasses/Parsing/Parsing.cs" Line="1" Column="1" />
-      <File FileName="MyClasses/Parsing/ParsingTests.cs" Line="6" Column="2" />
-      <File FileName="MyClasses/Sorting_algorithms/InsertionSort.cs" Line="9" Column="6" />
-      <File FileName="MyClasses/Sorting_algorithms/InsertionSortTests.cs" Line="1" Column="1" />
-      <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="1" Column="1" />
-      <File FileName="MyClasses/Sorting_algorithms/QSortTests.cs" Line="8" Column="28" />
-      <File FileName="MyClasses/Sorting_algorithms/SortingTestsAuxiliary.cs" Line="12" Column="20" />
+      <File FileName="MyClasses.Tests/QSortTests.cs" Line="19" Column="15" />
+      <File FileName="MyClasses.Tests/InsertionSortTests.cs" Line="21" Column="44" />
+      <File FileName="MyClasses/Parsing/Parsing.cs" Line="102" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Option id="ShowAllFiles" value="True" />
           <Node name="MyClasses" expanded="True">
-            <Node name="References" expanded="True" selected="True" />
-            <Node name="Parsing" expanded="True" />
+            <Node name="Parsing" expanded="True">
+              <Node name="Parsing.cs" selected="True" />
+            </Node>
             <Node name="Sorting_algorithms" expanded="True" />
+          </Node>
+          <Node name="MyClasses.Tests" expanded="True">
+            <Node name="References" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -26,7 +25,6 @@
           <Option id="PublicApiOnly" value="True" />
           <Node name="MyClasses" expanded="True">
             <Node name="MyClasses" expanded="True">
-              <Node name="MyClassesTests" expanded="True" />
               <Node name="SortingAlgorithms" expanded="True" />
             </Node>
           </Node>
@@ -36,14 +34,15 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True">
-          <Node name="MyClasses" expanded="True">
+        <State expanded="True">
+          <Node name="MyClasses.Tests" expanded="True">
             <Node name="MyClasses" expanded="True">
               <Node name="MyClassesTests" expanded="True">
                 <Node name="ParsingTests" expanded="True" />
                 <Node name="SortingTests" expanded="True">
-                  <Node name="InsertionSortTests" expanded="True" />
-                  <Node name="QSortTests" expanded="True" />
+                  <Node name="QSortTests" expanded="True">
+                    <Node name="Sort_EmptyArray_ExceptionThrown" selected="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>

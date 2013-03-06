@@ -39,13 +39,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="FibonacciTests.cs" />
     <Compile Include="Fibonacci.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
-      <Project>{8B3DEBF8-6594-42D4-A17A-828E4F4EB3FD}</Project>
+      <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
       <Name>MyClasses</Name>
     </ProjectReference>
   </ItemGroup>

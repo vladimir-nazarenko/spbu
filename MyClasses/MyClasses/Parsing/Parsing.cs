@@ -96,5 +96,30 @@ namespace MyClasses
         {
             Console.SetOut(old);
         }
+
+        /// <summary>
+        /// Reads the integer matrix from file, uses space 
+        /// as separator of values.
+        /// </summary>
+        /// <returns>
+        /// The 2D array.
+        /// </returns>
+        /// <param name='path'>
+        /// Path to file.
+        /// </param>
+        public static int[][] ReadIntegerMatrixFromFile(string path)
+        {
+            string[] data = File.ReadAllLines(path);
+            char[] separators = {' ', '\n'};
+            int rowNumber = Convert.ToInt32(data[0].Split(separators)[0]);
+            int columnNumber = Convert.ToInt32(data[0].Split(separators)[1]);
+            int[][] values = new int[rowNumber][];
+            for (int i = 0; i < rowNumber; i++)
+                values[i] = new int[columnNumber];
+            for (int i = 0; i < rowNumber; i++)
+                for (int j = 0; j < columnNumber; j++)
+                    values[i][j] = Convert.ToInt32(data[i + 1].Split(separators)[j]);
+            return values;
+        }
     }
 }
