@@ -49,5 +49,6 @@
     <Compile Include="ParsingTests.cs" />
     <Compile Include="QSortTests.cs" />
     <Compile Include="SortingTestsAuxiliary.cs" />
+    <Compile Include="LinkedListTests.cs" />
   </ItemGroup>
 </Project>

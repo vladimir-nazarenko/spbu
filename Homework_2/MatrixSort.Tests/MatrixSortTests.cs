@@ -20,14 +20,14 @@ namespace Homework_2.Tests
                 temp = new int[5];
                 for (int j = 0; j < 5; j++)
                 {
-                    temp [j] = i - j;
+                    temp[j] = i - j;
                 }
-                rows [20 - i] = new MatrixSort.ComparableRow(temp);
+                rows[20 - i] = new MatrixSort.ComparableRow(temp);
 
 
             }
 
-            /*
+            //put in some test
             int[][] matrix = new int[20][];
             for (int i = 0; i < 20; i++)
             {
@@ -42,7 +42,6 @@ namespace Homework_2.Tests
                 matrix [i] = rows[i].ToArray();
             }
             Parsing.WriteIntegerMatrixToFile("sorted.txt", ref matrix);
-            */
         }
 
         [Test()]

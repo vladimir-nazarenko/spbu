@@ -40,6 +40,11 @@
     <Compile Include="Parsing\Parsing.cs" />
     <Compile Include="Sorting_algorithms\InsertionSort.cs" />
     <Compile Include="Sorting_algorithms\QSort.cs" />
+    <Compile Include="Data_structures\LinkedList.cs" />
+    <Compile Include="Data_structures\Stack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Data_structures\" />
+  </ItemGroup>
 </Project>
