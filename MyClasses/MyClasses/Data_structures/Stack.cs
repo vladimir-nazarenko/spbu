@@ -12,17 +12,18 @@ namespace MyClasses
 
         public void Push(T item)
         {
-            //list.InsertFirst(15);
+            list.InsertFirst(item);
         }
 
         public T Top()
         {
-            return default(T);//list.First.Item;
+            return list.First.Item;
         }
 
         public T Pop()
         {
             T value =  list.First.Item;
+            list.Remove(list.First);
             return value;
         }
 
