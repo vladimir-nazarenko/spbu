@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class LinkedList<T>  where T : IComparable
+    public class LinkedList<T> : IEnumerable<T> where T : IComparable
     {
 
         public LinkedList()
@@ -63,54 +63,21 @@ namespace MyClasses.Data_structures
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new ListEnum(head);
+            ListElement<T> seek = head;
+            while (seek.next != null)
+            {
+                seek = seek.next;
+                yield return seek.Item;
+            }
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         private ListElement<T> head;
         private int size;
-
-        public class ListEnum : IEnumerator<T>
-        {
-            public ListEnum(ListElement<T> list)
-            {
-                seek = list.next;
-                head = list;
-            }
-
-            public T Current
-            {
-                get
-                {
-                    return seek.Item;
-                }
-            }
-            //below noted compilation error
-            object IEnumerator<T>.Current
-            {
-                get //...is an accessor not found in interface member `System.Collections.Generic.IEnumerator<T>.Current' (CS0550)
-                {
-                    return seek.Item;
-                }
-            }
-
-            public bool MoveNext()
-            {
-                return (!(seek.next == null));
-            }
-
-            public void Reset()
-            {
-                seek = head.next;
-            }
-
-            void IDisposable.Dispose()
-            {
-            }
-
-            private ListElement<T> seek;
-            private ListElement<T> head;
-    
-        }
 
     }
 

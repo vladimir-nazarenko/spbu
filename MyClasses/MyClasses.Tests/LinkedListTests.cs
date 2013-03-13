@@ -44,8 +44,20 @@ namespace MyClasses.Tests
         [Test]
         public void Find_AddAndFind_Found()
         {
-            Assert.AreEqual(6, this.list.Find(6).Item);
             Assert.AreEqual(null, this.list.Find(9));
+                    Assert.AreEqual(6, this.list.Find(6).Item);
+        }
+
+        [Test]
+        public void Iterator_IterateForeach_Success()
+        {
+            int i = 7;
+            foreach (int item in list)
+            {
+                Assert.AreEqual(i, item);
+                i--;
+            }
+            Assert.AreEqual(4, i);
         }
 
         LinkedList<int> list;

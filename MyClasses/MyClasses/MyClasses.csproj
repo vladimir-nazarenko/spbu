@@ -42,6 +42,7 @@
     <Compile Include="Sorting_algorithms\QSort.cs" />
     <Compile Include="Data_structures\LinkedList.cs" />
     <Compile Include="Data_structures\Stack.cs" />
+    <Compile Include="Data_structures\HashTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
