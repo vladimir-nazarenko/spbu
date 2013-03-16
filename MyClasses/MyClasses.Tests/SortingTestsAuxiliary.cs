@@ -1,6 +1,6 @@
 using System;
 
-namespace MyClasses.MyClassesTests.SortingTests
+namespace MyClasses.SortingTests
 {
     /// <summary>
     /// Axuiliary methods common for all sorting test clients

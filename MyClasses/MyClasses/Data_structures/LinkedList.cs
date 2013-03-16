@@ -11,6 +11,15 @@ namespace MyClasses.Data_structures
             head = new ListElement<T>(default(T));
         }
 
+        /// <summary>
+        /// Inserts value after given listElement.
+        /// </summary>
+        /// <param name='value'>
+        /// Value.
+        /// </param>
+        /// <param name='position'>
+        /// Position.
+        /// </param>
         public void InsertAfter(T value, ListElement<T> position)
         {
             if (value == null)
@@ -21,11 +30,23 @@ namespace MyClasses.Data_structures
             size++;
         }
 
+        /// <summary>
+        /// Inserts value on the first position.
+        /// </summary>
+        /// <param name='value'>
+        /// Value.
+        /// </param>
         public void InsertFirst(T value)
         {
             InsertAfter(value, head);
         }
 
+        /// <summary>
+        /// Remove the element on specified position.
+        /// </summary>
+        /// <param name='position'>
+        /// Position.
+        /// </param>
         public void Remove(ListElement<T> position)
         {
             ListElement<T> temp = head;
@@ -35,32 +56,56 @@ namespace MyClasses.Data_structures
             size--;
         }
 
+        /// <summary>
+        /// Gets the length of the list.
+        /// </summary>
         public int Length
         {
             get { return this.size;}
         }
 
+        /// <summary>
+        /// Gets the position of a first value.
+        /// </summary>
         public ListElement<T> First
         {
             get
             {
+                if (head.next == null)
+                    throw new KeyNotFoundException("List is empty");
                 return head.next;
             }
         }
 
+        /// <summary>
+        /// Checks existance of a given value.
+        /// </summary>
+        /// <param name='value'>
+        /// If there is such value - its first position,
+        /// otherwise - null.
+        /// </param>
         public ListElement<T> Find(T value)
         {
-            ListElement<T> seek = head;
+            ListElement<T> seek = head.next;
             while (seek != null && seek.Item.CompareTo(value) != 0)
                 seek = seek.next;
             return seek;
         }
 
-        public T Retrieve(ListElement<T> element)
+        /// <summary>
+        /// Gets the value on specified position.
+        /// </summary>
+        public T Retrieve(ListElement<T> position)
         {
-            return element.Item;
+            return position.Item;
         }
 
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>
+        /// The enumerator from first to the last element.
+        /// </returns>
         public IEnumerator<T> GetEnumerator()
         {
             ListElement<T> seek = head;
@@ -71,6 +116,12 @@ namespace MyClasses.Data_structures
             }
         }
 
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>
+        /// The enumerator from first to the last element.
+        /// </returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -81,6 +132,9 @@ namespace MyClasses.Data_structures
 
     }
 
+    /// <summary>
+    /// List element for linked list.
+    /// </summary>
     public class ListElement<T> where T : IComparable
     {
         private T item;

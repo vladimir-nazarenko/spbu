@@ -159,7 +159,7 @@ namespace MyClasses
                 output.Close();
             } catch
             {
-                throw new ArgumentException("wrong data");
+                throw new ArgumentException("Wrong data");
             }
         }
     }

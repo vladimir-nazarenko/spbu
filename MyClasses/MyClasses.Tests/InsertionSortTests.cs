@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using MyClasses.SortingAlgorithms;
 
-namespace MyClasses.MyClassesTests.SortingTests
+namespace MyClasses.SortingTests
 {
     [TestFixture()]
     public class InsertionSortTests

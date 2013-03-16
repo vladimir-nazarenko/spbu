@@ -1,8 +1,9 @@
 using System;
 using NUnit.Framework;
 using MyClasses.Data_structures;
+using System.Collections.Generic;
 
-namespace MyClasses.Tests
+namespace MyClasses
 {
     [TestFixture()]
     public class LinkedListTests
@@ -32,7 +33,7 @@ namespace MyClasses.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(KeyNotFoundException))]
         public void Remove_FewElements_Processed()
         {
             list.Remove(list.First);
@@ -60,7 +61,7 @@ namespace MyClasses.Tests
             Assert.AreEqual(4, i);
         }
 
-        LinkedList<int> list;
+        MyClasses.Data_structures.LinkedList<int> list;
     }
 }
 

@@ -1,7 +1,7 @@
 using System;
 using MyClasses.Data_structures;
 
-namespace MyClasses
+namespace MyClasses.Data_structures
 {
     public class Stack<T> where T : IComparable
     {
@@ -22,7 +22,7 @@ namespace MyClasses
 
         public T Pop()
         {
-            T value =  list.First.Item;
+            T value = list.First.Item;
             list.Remove(list.First);
             return value;
         }

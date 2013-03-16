@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using System.Text;
 
-namespace MyClasses.MyClassesTests
+namespace MyClasses
 {
     /// <summary>
     /// NUnit tests for <see cref="Parsing"/>

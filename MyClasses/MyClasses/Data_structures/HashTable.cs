@@ -3,31 +3,63 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class StringHashTable<T> : IEnumerable<T> where T : IComparable
+    public class HashTable<T> : IEnumerable<T> where T : IComparable
     {
-        public StringHashTable(ulong size, Hash<string> hashF)
+        public HashTable(ulong size, Hash<string> hashF)
         {
             this.table = new LinkedList<T>[size];
             this.hashFunction = hashF;
             this.length = size;
         }
 
-        void Insert(T value)
+        /// <summary>
+        /// Stores specified value.
+        /// </summary>
+        public void Insert(T value)
         {
-            ulong index = hashFunction.GetHashCode(value.ToString()) % length;
+            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
+            if (table[index] == null) 
+                table[index] = new LinkedList<T>();
             table[index].InsertFirst(value);
         }
 
-        bool Exists(T value)
+        /// <summary>
+        /// Check if there is a value with key
+        /// specified if <param name='value'/>.
+        /// </summary>
+        public bool Exists(T value)
         {
-            ulong index = hashFunction.GetHashCode(value.ToString()) % length;
+            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
+            if (table[index] == null) 
+                return false;
             return (table[index].Find(value) != null);
         }
 
+        /// <summary>
+        /// Remove the specified key.
+        /// </summary>
+        public void Remove(T value)
+        {
+            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
+            if (table[index] == null) 
+                return;
+            ListElement<T> position = table[index].Find(value);
+            if (position != null)
+                table[index].Remove(position);
+        }
+
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>
+        /// The unpredictable enumerator.
+        /// </returns>
         public IEnumerator<T> GetEnumerator()
         {
             for (ulong i = 0; i < this.length; i++)
             {
+                if (table[i] == null) 
+                    continue;
                 foreach (T item in table[i])
                 {
                     yield return item;
@@ -35,28 +67,33 @@ namespace MyClasses.Data_structures
             }
         }
 
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>
+        /// The unpredictable enumerator.
+        /// </returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
-        Hash<string> hashFunction;
-        ulong length;
-        LinkedList<T>[] table;
+        private Hash<string> hashFunction;
+        private ulong length;
+        private LinkedList<T>[] table;
     }
 
-    public abstract class Hash<T>
+    public interface Hash<T>
     {
-        public abstract UInt64 GetHashCode(T value);
+        ulong CalculateHash(T value);
     }
 
     public class FNVHash : Hash<string>
     {
-        //some troubles with access modifiers
-        public override UInt64 GetHashCode(string value)
+        public ulong CalculateHash(string value)
         {
-            const UInt64 prime = 2365347734339;
-            UInt64 hval = 2166135261;
+            const ulong prime = 2365347734339;
+            ulong hval = 2166135261;
             for (int i = 0; i < value.Length; i++)
             {
                 hval *= prime;
@@ -66,4 +103,3 @@ namespace MyClasses.Data_structures
         }
     }
 }
-

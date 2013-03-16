@@ -1,19 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/LinkedList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/HashTable.cs">
     <Files>
-      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="87" Column="33" />
       <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="1" Column="1" />
-      <File FileName="MyClasses/Data_structures/Stack.cs" Line="17" Column="9" />
-      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="19" Column="44" />
-      <File FileName="TestClient/Main.cs" Line="4" Column="21" />
+      <File FileName="MyClasses/Data_structures/Stack.cs" Line="26" Column="37" />
+      <File FileName="TestClient/Main.cs" Line="16" Column="1" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="21" Column="29" />
+      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="10" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
             <Node name="Data_structures" expanded="True">
-              <Node name="LinkedList.cs" selected="True" />
+              <Node name="HashTable.cs" selected="True" />
             </Node>
             <Node name="Parsing" expanded="True" />
             <Node name="Sorting_algorithms" expanded="True" />
