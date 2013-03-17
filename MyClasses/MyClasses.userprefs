@@ -1,20 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/HashTable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/ResizableArray.cs">
     <Files>
-      <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="1" Column="1" />
-      <File FileName="MyClasses/Data_structures/Stack.cs" Line="26" Column="37" />
-      <File FileName="TestClient/Main.cs" Line="16" Column="1" />
-      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="21" Column="29" />
-      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="10" Column="10" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="76" Column="39" />
+      <File FileName="MyClasses.Tests/ParsingTests.cs" Line="24" Column="28" />
+      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="18" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True">
-              <Node name="HashTable.cs" selected="True" />
-            </Node>
+            <Node name="Data_structures" expanded="True" selected="True" />
             <Node name="Parsing" expanded="True" />
             <Node name="Sorting_algorithms" expanded="True" />
           </Node>
@@ -23,13 +19,8 @@
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True">
+        <State selected="True">
           <Option id="PublicApiOnly" value="True" />
-          <Node name="MyClasses" expanded="True">
-            <Node name="MyClasses" expanded="True">
-              <Node name="SortingAlgorithms" expanded="True" />
-            </Node>
-          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
