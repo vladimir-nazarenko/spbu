@@ -2,17 +2,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/ResizableArray.cs">
     <Files>
-      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="76" Column="39" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="79" Column="10" />
       <File FileName="MyClasses.Tests/ParsingTests.cs" Line="24" Column="28" />
-      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="18" Column="37" />
+      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="12" Column="38" />
+      <File FileName="TestClient/Main.cs" Line="13" Column="31" />
+      <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="20" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True" selected="True" />
-            <Node name="Parsing" expanded="True" />
-            <Node name="Sorting_algorithms" expanded="True" />
+            <Node name="Data_structures" expanded="True">
+              <Node name="ResizableArray.cs" selected="True" />
+            </Node>
           </Node>
           <Node name="MyClasses.Tests" expanded="True" />
           <Node name="TestClient" expanded="True" />
@@ -32,7 +34,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/TestClient/Main.cs" line="11" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

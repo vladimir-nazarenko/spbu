@@ -52,5 +52,6 @@
     <Compile Include="LinkedListTests.cs" />
     <Compile Include="HashTableTests.cs" />
     <Compile Include="StackTests.cs" />
+    <Compile Include="ResizableArrayTests.cs" />
   </ItemGroup>
 </Project>
