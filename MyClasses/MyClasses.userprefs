@@ -1,14 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/LinkedStackTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/InsertionSortTests.cs">
     <Files>
-      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="143" Column="40" />
-      <File FileName="TestClient/Main.cs" Line="18" Column="1" />
-      <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="72" Column="47" />
-      <File FileName="MyClasses/Interfaces/IStack.cs" Line="11" Column="15" />
-      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="17" Column="10" />
-      <File FileName="MyClasses/Data_structures/ArrayStack.cs" Line="8" Column="6" />
-      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="13" Column="57" />
+      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="150" Column="22" />
+      <File FileName="MyClasses/Data_structures/ArrayStack.cs" Line="16" Column="32" />
+      <File FileName="TestClient/Main.cs" Line="19" Column="14" />
+      <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="65" Column="42" />
+      <File FileName="MyClasses/Interfaces/IStack.cs" Line="4" Column="36" />
+      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="7" Column="35" />
+      <File FileName="MyClasses/Interfaces/IHashFunction.cs" Line="3" Column="36" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="8" Column="38" />
+      <File FileName="MyClasses.Tests/ArrayStackTests.cs" Line="26" Column="43" />
+      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="21" Column="33" />
+      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="18" Column="52" />
+      <File FileName="MyClasses.Tests/InsertionSortTests.cs" Line="18" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +23,7 @@
             <Node name="Interfaces" expanded="True" />
           </Node>
           <Node name="MyClasses.Tests" expanded="True">
-            <Node name="LinkedStackTests.cs" selected="True" />
+            <Node name="InsertionSortTests.cs" selected="True" />
           </Node>
           <Node name="TestClient" expanded="True" />
         </State>
@@ -44,7 +49,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/TestClient/Main.cs" line="17" />
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/TestClient/Main.cs" line="20" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

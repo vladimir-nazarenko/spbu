@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackCalculator", "StackCalculator\StackCalculator.csproj", "{5BD27337-84F3-45E3-B416-F14A879B30DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackCalculator.Tests", "StackCalculator.Tests\StackCalculator.Tests.csproj", "{B48BC2C2-1A58-42BB-9D57-791B62A57EED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.Build.0 = Debug|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|x86.ActiveCfg = Release|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|x86.Build.0 = Release|Any CPU
+		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Debug|x86.ActiveCfg = Debug|x86
+		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Debug|x86.Build.0 = Debug|x86
+		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Release|x86.ActiveCfg = Release|x86
+		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Release|x86.Build.0 = Release|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Debug|x86.ActiveCfg = Debug|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Debug|x86.Build.0 = Debug|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Default|Any CPU.ActiveCfg = Debug|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Default|Any CPU.Build.0 = Debug|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Release|x86.ActiveCfg = Release|x86
+		{B48BC2C2-1A58-42BB-9D57-791B62A57EED}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = StackCalculator\StackCalculator.csproj
+	EndGlobalSection
+EndGlobal
