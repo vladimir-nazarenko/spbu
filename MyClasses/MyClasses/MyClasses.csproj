@@ -41,12 +41,16 @@
     <Compile Include="Sorting_algorithms\InsertionSort.cs" />
     <Compile Include="Sorting_algorithms\QSort.cs" />
     <Compile Include="Data_structures\LinkedList.cs" />
-    <Compile Include="Data_structures\Stack.cs" />
     <Compile Include="Data_structures\HashTable.cs" />
     <Compile Include="Data_structures\ResizableArray.cs" />
+    <Compile Include="Interfaces\IStack.cs" />
+    <Compile Include="Interfaces\IHashFunction.cs" />
+    <Compile Include="Data_structures\LinkedStack.cs" />
+    <Compile Include="Data_structures\ArrayStack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Data_structures\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

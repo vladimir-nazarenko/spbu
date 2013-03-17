@@ -1,22 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/ResizableArray.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/LinkedStackTests.cs">
     <Files>
-      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="79" Column="10" />
-      <File FileName="MyClasses.Tests/ParsingTests.cs" Line="24" Column="28" />
-      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="12" Column="38" />
-      <File FileName="TestClient/Main.cs" Line="13" Column="31" />
-      <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="20" Column="31" />
+      <File FileName="MyClasses/Data_structures/ResizableArray.cs" Line="143" Column="40" />
+      <File FileName="TestClient/Main.cs" Line="18" Column="1" />
+      <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="72" Column="47" />
+      <File FileName="MyClasses/Interfaces/IStack.cs" Line="11" Column="15" />
+      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="17" Column="10" />
+      <File FileName="MyClasses/Data_structures/ArrayStack.cs" Line="8" Column="6" />
+      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="13" Column="57" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True">
-              <Node name="ResizableArray.cs" selected="True" />
-            </Node>
+            <Node name="Data_structures" expanded="True" />
+            <Node name="Interfaces" expanded="True" />
           </Node>
-          <Node name="MyClasses.Tests" expanded="True" />
+          <Node name="MyClasses.Tests" expanded="True">
+            <Node name="LinkedStackTests.cs" selected="True" />
+          </Node>
           <Node name="TestClient" expanded="True" />
         </State>
       </Pad>
@@ -29,13 +32,19 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="MyClasses.Tests" expanded="True">
+            <Node name="MyClasses" expanded="True">
+              <Node name="ResizableArrayTests" expanded="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/TestClient/Main.cs" line="11" />
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/TestClient/Main.cs" line="17" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

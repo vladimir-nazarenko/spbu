@@ -136,6 +136,31 @@ namespace MyClasses.Data_structures
             }
         }
 
+        public int Size
+        {
+            get
+            {
+                return this.actualSize;
+            }
+        }
+
+        /// <summary>
+        /// Enumerator of the keys of the values.
+        /// </summary>
+        /// <returns>
+        /// The enumerator from key of a last inserted 
+        /// element to a first one.
+        /// </returns>
+        public IEnumerator<int> KeysEnumerator()
+        {
+            for (int i = writeIndex - 1; i > 0; i--)
+            {
+                if (!hasValue[i]) 
+                    continue;
+                yield return i;
+            }
+        }
+
         /// <summary>
         /// Gets the enumerator.
         /// </summary>

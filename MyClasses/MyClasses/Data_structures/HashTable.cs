@@ -5,7 +5,7 @@ namespace MyClasses.Data_structures
 {
     public class HashTable<T> : IEnumerable<T> where T : IComparable
     {
-        public HashTable(ulong size, Hash<string> hashF)
+        public HashTable(ulong size, IHashFunction<string> hashF)
         {
             this.table = new LinkedList<T>[size];
             this.hashFunction = hashF;
@@ -78,17 +78,12 @@ namespace MyClasses.Data_structures
             return GetEnumerator();
         }
 
-        private Hash<string> hashFunction;
+        private IHashFunction<string> hashFunction;
         private ulong length;
         private LinkedList<T>[] table;
     }
 
-    public interface Hash<T>
-    {
-        ulong CalculateHash(T value);
-    }
-
-    public class FNVHash : Hash<string>
+    public class FNVHash : IHashFunction<string>
     {
         public ulong CalculateHash(string value)
         {

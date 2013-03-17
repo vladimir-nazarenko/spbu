@@ -51,7 +51,8 @@
     <Compile Include="SortingTestsAuxiliary.cs" />
     <Compile Include="LinkedListTests.cs" />
     <Compile Include="HashTableTests.cs" />
-    <Compile Include="StackTests.cs" />
     <Compile Include="ResizableArrayTests.cs" />
+    <Compile Include="LinkedStackTests.cs" />
+    <Compile Include="ArrayStackTests.cs" />
   </ItemGroup>
 </Project>

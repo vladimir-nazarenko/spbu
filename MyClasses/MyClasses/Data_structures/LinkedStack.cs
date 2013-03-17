@@ -1,11 +1,12 @@
 using System;
 using MyClasses.Data_structures;
+using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class Stack<T> where T : IComparable
+    public class LinkedStack<T> : IStack<T> where T : IComparable
     {
-        public Stack()
+        public LinkedStack()
         {
             list = new LinkedList<T>();
         }
@@ -27,7 +28,22 @@ namespace MyClasses.Data_structures
             return value;
         }
 
+        public bool IsEmpty()
+        {
+            return list.Length == 0;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            while (!this.IsEmpty())
+                yield return this.Pop();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
         private LinkedList<T> list;
     }
 }
-

@@ -6,11 +6,11 @@ using System.Collections.Generic;
 namespace MyClasses
 {
     [TestFixture()]
-    public class StackTests
+    public class LinkedStackTests
     {
-        public StackTests()
+        public LinkedStackTests()
         {
-            stack = new MyClasses.Data_structures.Stack<int>();
+            stack = new LinkedStack<int>();
         }
 
         [Test]
@@ -23,7 +23,7 @@ namespace MyClasses
         [Test]
         public void Push_PopCooperated_Success()
         {
-            stack = new MyClasses.Data_structures.Stack<int>();
+            stack = new LinkedStack<int>();
             for (int i = 0; i < 10; i++)
             {
                 stack.Push(i);
@@ -36,7 +36,7 @@ namespace MyClasses
             }
         }
 
-        private MyClasses.Data_structures.Stack<int> stack;
+        private MyClasses.Data_structures.IStack<int> stack;
     }
 }
 
