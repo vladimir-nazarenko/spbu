@@ -20,7 +20,7 @@ namespace MyClasses.Data_structures
         /// <param name='position'>
         /// Position.
         /// </param>
-        public void InsertAfter(T value, ListElement<T> position)
+        public virtual void InsertAfter(T value, ListElement<T> position)
         {
             if (value == null)
                 throw new ArgumentNullException();
@@ -36,7 +36,7 @@ namespace MyClasses.Data_structures
         /// <param name='value'>
         /// Value.
         /// </param>
-        public void InsertFirst(T value)
+        public virtual void InsertFirst(T value)
         {
             InsertAfter(value, head);
         }
@@ -98,6 +98,17 @@ namespace MyClasses.Data_structures
         public T Retrieve(ListElement<T> position)
         {
             return position.Item;
+        }
+
+        /// <summary>
+        /// Gets the last element of a list.
+        /// </summary>
+        public ListElement<T> GetLast()
+        {
+            ListElement<T> seek = head.next;
+            while (seek != null)
+                seek = seek.next;
+            return seek;
         }
 
         /// <summary>

@@ -56,6 +56,16 @@ namespace Homework_5
             Build(ref current);
         }
 
+        public double Calculate(Node tree)
+        {
+            return tree.Calculate();
+        }
+
+        public void PrintTree(Node tree)
+        {
+            tree.Print();
+        }
+
         private string[] tokens;
         private Dictionary<string, Func<double, double, double>> operations;
         private int counter;

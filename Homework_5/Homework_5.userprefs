@@ -1,15 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AbstractSyntaxTree/AbstractSyntaxTree.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniqueList/UniqueList.cs">
     <Files>
-      <File FileName="AbstractSyntaxTree/AbstractSyntaxTree.cs" Line="33" Column="1" />
-      <File FileName="AbstractSyntaxTree/ConcreteNodes.cs" Line="32" Column="15" />
+      <File FileName="AbstractSyntaxTree/AbstractSyntaxTree.cs" Line="66" Column="26" />
+      <File FileName="UniqueList/UniqueList.cs" Line="30" Column="2" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="39" Column="24" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/HashTable.cs" Line="98" Column="57" />
+      <File FileName="UniqueList/RepeatingElementException.cs" Line="19" Column="14" />
+      <File FileName="AbstractSyntaxTree/ConcreteNodes.cs" Line="18" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="AbstractSyntaxTree" expanded="True">
-            <Node name="AbstractSyntaxTree.cs" selected="True" />
+          <Node name="AbstractSyntaxTree" expanded="True" />
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True" />
+          </Node>
+          <Node name="UniqueList" expanded="True">
+            <Node name="UniqueList.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -22,9 +30,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Homework_5/AbstractSyntaxTree/AbstractSyntaxTree.cs" line="12" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

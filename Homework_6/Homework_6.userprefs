@@ -1,21 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/LinkedList.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CursorControl/Mover.cs">
     <Files>
-      <File FileName="../BugsAndTasks.txt" Line="13" Column="1" />
-      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="128" Column="10" />
+      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="30" Column="46" />
+      <File FileName="CursorControl/Main.cs" Line="13" Column="1" />
+      <File FileName="CursorControl/KeyLoop.cs" Line="21" Column="1" />
+      <File FileName="CursorControl/Mover.cs" Line="16" Column="51" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True">
-              <Node name="LinkedList.cs" selected="True" />
-            </Node>
-            <Node name="Interfaces" expanded="True" />
+          <Node name="CursorControl" expanded="True">
+            <Node name="Mover.cs" selected="True" />
           </Node>
-          <Node name="MyClasses.Tests" expanded="True" />
-          <Node name="TestClient" expanded="True" />
+          <Node name="ExtendedLinkedList" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

@@ -12,7 +12,10 @@ namespace Homework_5
 
         public void Print()
         {
-            Console.Write(String.Format("{0} ", signature));
+            Console.Write("({0} ", signature);
+            _left.Print();
+            _right.Print();
+            Console.Write(")");
         }
 
         public double Calculate()

@@ -1,0 +1,2 @@
+1)public void Map(Func<T, T> action) //Объявление делегата с маленькой буквы?
+

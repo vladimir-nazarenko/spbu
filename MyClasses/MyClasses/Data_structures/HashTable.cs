@@ -78,6 +78,27 @@ namespace MyClasses.Data_structures
             return GetEnumerator();
         }
 
+        public void ChangeHashFunction(IHashFunction<string> func)
+        {
+            hashFunction = func;
+            LinkedList<T> exchangeBuffer = new LinkedList<T>();
+            for (int i = 0; i < table.Length; i++)
+            {
+                int length = table[i].Length;
+                for (int j = 0; j < length; j++)
+                {
+                    exchangeBuffer.InsertFirst(table[i].Retrieve(table[i].First));
+                    table[i].Remove(table[i].First);
+                }
+            }
+                int size = exchangeBuffer.Length;
+                for (int j = 0; j < size; j++)
+                {
+                    this.Insert(exchangeBuffer.Retrieve(exchangeBuffer.First));
+                    exchangeBuffer.Remove(exchangeBuffer.First);
+                }
+        }
+
         private IHashFunction<string> hashFunction;
         private ulong length;
         private LinkedList<T>[] table;

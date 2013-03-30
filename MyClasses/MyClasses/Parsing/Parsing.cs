@@ -137,7 +137,7 @@ namespace MyClasses
         /// <param name='values'>
         /// Matrix.
         /// </param>
-        public static void WriteIntegerMatrixToFile(string path, ref int[][] values)
+        public static void WriteIntegerMatrixToFile(string path, int[][] values)
         {
             try
             {
