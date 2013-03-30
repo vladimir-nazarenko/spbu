@@ -41,7 +41,7 @@ namespace MyClasses.Data_structures
         public int Insert(T value)
         {
             if (value == null)
-                throw new NullReferenceException("nulls are not allowed");
+                throw new Exceptions.NullOperandException();
             CheckSize();
             values[writeIndex] = value;
             hasValue[writeIndex++] = true;
@@ -58,7 +58,7 @@ namespace MyClasses.Data_structures
         public int Find(T value)
         {
             if (value == null)
-                throw new NullReferenceException("nulls are not allowed");
+                throw new Exceptions.NullOperandException();
             for (int i = 0; i < writeIndex; i++)
                 if (value.CompareTo(values[i]) == 0 && hasValue[i])
                     return i;
@@ -71,7 +71,7 @@ namespace MyClasses.Data_structures
         public void Remove(T value)
         {
             if (value == null)
-                throw new NullReferenceException("nulls are not allowed");
+                throw new Exceptions.NullOperandException();
             for (int i = 0; i < writeIndex; i++)
                 if (value.CompareTo(values[i]) == 0)
                     hasValue[i] = false;

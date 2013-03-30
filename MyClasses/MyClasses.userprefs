@@ -1,18 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/LinkedList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/HashTable.cs">
     <Files>
-      <File FileName="../BugsAndTasks.txt" Line="13" Column="1" />
-      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="128" Column="10" />
+      <File FileName="../BugsAndTasks.txt" Line="6" Column="103" />
+      <File FileName="TestClient/Main.cs" Line="20" Column="21" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="115" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
             <Node name="Data_structures" expanded="True">
-              <Node name="LinkedList.cs" selected="True" />
+              <Node name="HashTable.cs" selected="True" />
             </Node>
+            <Node name="Exceptions" expanded="True" />
             <Node name="Interfaces" expanded="True" />
+            <Node name="Parsing" expanded="True" />
+            <Node name="Sorting_algorithms" expanded="True" />
           </Node>
           <Node name="MyClasses.Tests" expanded="True" />
           <Node name="TestClient" expanded="True" />
@@ -27,7 +31,16 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="MyClasses.Tests" expanded="True">
+            <Node name="MyClasses" expanded="True">
+              <Node name="SortingTests" expanded="True">
+                <Node name="InsertionSortTests" expanded="True" />
+                <Node name="QSortTests" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

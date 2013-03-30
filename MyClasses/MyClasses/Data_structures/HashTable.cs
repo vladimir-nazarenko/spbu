@@ -91,31 +91,31 @@ namespace MyClasses.Data_structures
                     table[i].Remove(table[i].First);
                 }
             }
-                int size = exchangeBuffer.Length;
-                for (int j = 0; j < size; j++)
+            int size = exchangeBuffer.Length;
+            for (int j = 0; j < size; j++)
+            {
+                this.Insert(exchangeBuffer.Retrieve(exchangeBuffer.First));
+                exchangeBuffer.Remove(exchangeBuffer.First);
+            }
+        }
+
+        public class FNVHash : IHashFunction<string>
+        {
+            public ulong CalculateHash(string value)
+            {
+                const ulong prime = 2365347734339;
+                ulong hval = 2166135261;
+                for (int i = 0; i < value.Length; i++)
                 {
-                    this.Insert(exchangeBuffer.Retrieve(exchangeBuffer.First));
-                    exchangeBuffer.Remove(exchangeBuffer.First);
+                    hval *= prime;
+                    hval ^= Convert.ToUInt64((value.ToCharArray(i, 1)[0] + 128));
                 }
+                return hval;
+            }
         }
 
         private IHashFunction<string> hashFunction;
         private ulong length;
         private LinkedList<T>[] table;
-    }
-
-    public class FNVHash : IHashFunction<string>
-    {
-        public ulong CalculateHash(string value)
-        {
-            const ulong prime = 2365347734339;
-            ulong hval = 2166135261;
-            for (int i = 0; i < value.Length; i++)
-            {
-                hval *= prime;
-                hval ^= Convert.ToUInt64((value.ToCharArray(i, 1)[0] + 128));
-            }
-            return hval;
-        }
     }
 }

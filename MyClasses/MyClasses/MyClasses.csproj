@@ -47,11 +47,14 @@
     <Compile Include="Interfaces\IHashFunction.cs" />
     <Compile Include="Data_structures\LinkedStack.cs" />
     <Compile Include="Data_structures\ArrayStack.cs" />
+    <Compile Include="Exceptions\EmptyArrayException.cs" />
+    <Compile Include="Exceptions\NullOperandException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Data_structures\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\BugsAndTasks.txt">

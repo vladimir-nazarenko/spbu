@@ -17,7 +17,7 @@ namespace MyClasses.SortingTests
         }
 
         [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(Exceptions.EmptyArrayException))]
         public void Sort_NullArray_ExceptionThrown()
         {
             int[] data = null;
@@ -25,7 +25,7 @@ namespace MyClasses.SortingTests
         }
 
         [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(Exceptions.EmptyArrayException))]
         public void Sort_EmptyArray_ExceptionThrown()
         {
             int[] data = new int[0];

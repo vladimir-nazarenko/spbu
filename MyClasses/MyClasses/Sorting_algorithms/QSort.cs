@@ -19,7 +19,7 @@ namespace MyClasses.SortingAlgorithms
         {
             if (values == null || values.Length == 0)
             {
-                throw new NullReferenceException();
+                throw new Exceptions.EmptyArrayException();
             } else
             {
                 Shuffle(ref values);

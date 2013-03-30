@@ -109,7 +109,7 @@ namespace MyClasses
             }
 
             //write matrix, read it and compare
-            Parsing.WriteIntegerMatrixToFile("test.txt", ref matrix);
+            Parsing.WriteIntegerMatrixToFile("test.txt", matrix);
             int[][] readMatrix = Parsing.ReadIntegerMatrixFromFile("test.txt");
             for (int i = 0; i < 19; i++)
             {
