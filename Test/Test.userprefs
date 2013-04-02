@@ -1,0 +1,41 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestTest/Main.cs">
+    <Files>
+      <File FileName="Test/IPriorityQueue.cs" Line="13" Column="1" />
+      <File FileName="Test/PriorityQueue.cs" Line="45" Column="22" />
+      <File FileName="Test/ValueContainer.cs" Line="20" Column="1" />
+      <File FileName="Test/EmptyQueueException.cs" Line="9" Column="10" />
+      <File FileName="PriorityQueue.Tests/PriorityQueueTests.cs" Line="39" Column="61" />
+      <File FileName="TestTest/Main.cs" Line="18" Column="46" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="PriorityQueue.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="Test" expanded="True" />
+          <Node name="TestTest" expanded="True">
+            <Node name="Main.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Test/TestTest/Main.cs" line="14" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

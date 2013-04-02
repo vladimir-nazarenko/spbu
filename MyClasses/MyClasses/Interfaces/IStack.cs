@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public interface IStack<T> : IEnumerable<T> where T : IComparable
+    public interface IStack<T> : IEnumerable<T>
     {
         void Push(T item);
         T Top();

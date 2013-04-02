@@ -11,7 +11,7 @@ namespace MyClasses
         [SetUp]
         public void Init()
         {
-            table = new HashTable<string>(10, new FNVHash());
+            table = new HashTable<string>(10, new HashTable<string>.FNVHash());
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace MyClasses
         [Test]
         public void Iterator_IterateForeach_Success()
         {
-            HashTable<int> tableOfIntegers = new HashTable<int>(80, new FNVHash());
+            HashTable<int> tableOfIntegers = new HashTable<int>(80, new HashTable<string>.FNVHash());
             for (int i = 0; i < 100; i++)
             {
                 tableOfIntegers.Insert(i);
@@ -55,7 +55,7 @@ namespace MyClasses
         [Test]
         public void FNVHash_CalculateForString_Calculated()
         {
-            FNVHash hashF = new FNVHash();
+            var hashF = new HashTable<string>.FNVHash();
             Assert.AreEqual(hashF.CalculateHash("test"), hashF.CalculateHash("test"));
         }
 

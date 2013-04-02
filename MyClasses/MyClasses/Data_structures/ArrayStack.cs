@@ -1,10 +1,11 @@
 using System;
 using MyClasses.Data_structures;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace MyClasses.Data_structures
 {
-    public class ArrayStack<T> : IStack<T> where T : IComparable
+    public class ArrayStack<T> : IStack<T>
     {
         public ArrayStack()
         {
@@ -54,4 +55,6 @@ namespace MyClasses.Data_structures
         private ResizableArray<T> array;
     }
 }
+
+
 

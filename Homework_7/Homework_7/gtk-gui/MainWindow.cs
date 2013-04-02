@@ -3,332 +3,378 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.VPaned vpaned5;
+	private global::Gtk.VPaned vpaned3;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-	private global::Gtk.TextView textview6;
-	private global::Gtk.VBox vbox7;
-	private global::Gtk.VBox vbox8;
-	private global::Gtk.HButtonBox hbuttonbox6;
-	private global::Gtk.Button button100;
-	private global::Gtk.Button button101;
-	private global::Gtk.Button button102;
-	private global::Gtk.Button button103;
-	private global::Gtk.Button button104;
-	private global::Gtk.HButtonBox hbuttonbox7;
-	private global::Gtk.Button button95;
-	private global::Gtk.Button button96;
-	private global::Gtk.Button button97;
-	private global::Gtk.Button button98;
-	private global::Gtk.Button button99;
-	private global::Gtk.HButtonBox hbuttonbox8;
-	private global::Gtk.Button button90;
-	private global::Gtk.Button button91;
-	private global::Gtk.Button button92;
-	private global::Gtk.Button button93;
-	private global::Gtk.Button button94;
-	private global::Gtk.HPaned hpaned1;
-	private global::Gtk.HButtonBox hbuttonbox5;
-	private global::Gtk.Button button82;
-	private global::Gtk.Button button83;
-	private global::Gtk.Button button84;
-	private global::Gtk.Button button86;
+	private global::Gtk.TextView inputBox;
+	private global::Gtk.VBox vbox5;
+	private global::Gtk.Alignment alignment153;
+	private global::Gtk.HBox hbox4;
+	private global::Gtk.Button button125;
+	private global::Gtk.Button button126;
+	private global::Gtk.Button button127;
+	private global::Gtk.Button button128;
+	private global::Gtk.Button button129;
+	private global::Gtk.Alignment alignment154;
+	private global::Gtk.HBox hbox6;
+	private global::Gtk.Button button130;
+	private global::Gtk.Button button131;
+	private global::Gtk.Button button132;
+	private global::Gtk.Button button133;
+	private global::Gtk.Button button134;
+	private global::Gtk.Alignment alignment155;
+	private global::Gtk.HBox hbox7;
+	private global::Gtk.Button button135;
+	private global::Gtk.Button button136;
+	private global::Gtk.Button button137;
+	private global::Gtk.Button button138;
+	private global::Gtk.Button button139;
+	private global::Gtk.Alignment alignment156;
+	private global::Gtk.HBox hbox8;
+	private global::Gtk.Button button140;
+	private global::Gtk.Button button141;
+	private global::Gtk.Button button142;
+	private global::Gtk.Button button143;
 	
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
 		// Widget MainWindow
+		this.WidthRequest = 225;
+		this.HeightRequest = 180;
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
+		this.Title = global::Mono.Unix.Catalog.GetString ("The best of the best calculator");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.Resizable = false;
-		this.AllowGrow = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.vpaned5 = new global::Gtk.VPaned ();
-		this.vpaned5.CanFocus = true;
-		this.vpaned5.Name = "vpaned5";
-		this.vpaned5.Position = 66;
-		// Container child vpaned5.Gtk.Paned+PanedChild
+		this.vpaned3 = new global::Gtk.VPaned ();
+		this.vpaned3.CanFocus = true;
+		this.vpaned3.Name = "vpaned3";
+		this.vpaned3.Position = 49;
+		// Container child vpaned3.Gtk.Paned+PanedChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.textview6 = new global::Gtk.TextView ();
-		this.textview6.CanFocus = true;
-		this.textview6.Name = "textview6";
-		this.GtkScrolledWindow.Add (this.textview6);
-		this.vpaned5.Add (this.GtkScrolledWindow);
-		global::Gtk.Paned.PanedChild w2 = ((global::Gtk.Paned.PanedChild)(this.vpaned5 [this.GtkScrolledWindow]));
+		this.inputBox = new global::Gtk.TextView ();
+		this.inputBox.CanFocus = true;
+		this.inputBox.Name = "inputBox";
+		this.inputBox.Justification = ((global::Gtk.Justification)(1));
+		this.inputBox.WrapMode = ((global::Gtk.WrapMode)(2));
+		this.inputBox.PixelsAboveLines = 13;
+		this.GtkScrolledWindow.Add (this.inputBox);
+		this.vpaned3.Add (this.GtkScrolledWindow);
+		global::Gtk.Paned.PanedChild w2 = ((global::Gtk.Paned.PanedChild)(this.vpaned3 [this.GtkScrolledWindow]));
 		w2.Resize = false;
-		// Container child vpaned5.Gtk.Paned+PanedChild
-		this.vbox7 = new global::Gtk.VBox ();
-		this.vbox7.Name = "vbox7";
-		this.vbox7.Spacing = 6;
-		// Container child vbox7.Gtk.Box+BoxChild
-		this.vbox8 = new global::Gtk.VBox ();
-		this.vbox8.Name = "vbox8";
-		this.vbox8.Spacing = 6;
-		// Container child vbox8.Gtk.Box+BoxChild
-		this.hbuttonbox6 = new global::Gtk.HButtonBox ();
-		this.hbuttonbox6.Name = "hbuttonbox6";
-		// Container child hbuttonbox6.Gtk.ButtonBox+ButtonBoxChild
-		this.button100 = new global::Gtk.Button ();
-		this.button100.WidthRequest = 85;
-		this.button100.HeightRequest = 35;
-		this.button100.CanFocus = true;
-		this.button100.Name = "button100";
-		this.button100.UseUnderline = true;
-		this.button100.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox6.Add (this.button100);
-		global::Gtk.ButtonBox.ButtonBoxChild w3 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox6 [this.button100]));
+		// Container child vpaned3.Gtk.Paned+PanedChild
+		this.vbox5 = new global::Gtk.VBox ();
+		this.vbox5.Name = "vbox5";
+		this.vbox5.Spacing = -1;
+		// Container child vbox5.Gtk.Box+BoxChild
+		this.alignment153 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+		this.alignment153.Name = "alignment153";
+		// Container child alignment153.Gtk.Container+ContainerChild
+		this.hbox4 = new global::Gtk.HBox ();
+		this.hbox4.Name = "hbox4";
+		this.hbox4.Spacing = -2;
+		// Container child hbox4.Gtk.Box+BoxChild
+		this.button125 = new global::Gtk.Button ();
+		this.button125.WidthRequest = 47;
+		this.button125.HeightRequest = 33;
+		this.button125.CanFocus = true;
+		this.button125.Name = "button125";
+		this.button125.UseUnderline = true;
+		this.button125.Label = global::Mono.Unix.Catalog.GetString ("7");
+		this.hbox4.Add (this.button125);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button125]));
+		w3.Position = 0;
 		w3.Expand = false;
 		w3.Fill = false;
-		// Container child hbuttonbox6.Gtk.ButtonBox+ButtonBoxChild
-		this.button101 = new global::Gtk.Button ();
-		this.button101.CanFocus = true;
-		this.button101.Name = "button101";
-		this.button101.UseUnderline = true;
-		this.button101.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox6.Add (this.button101);
-		global::Gtk.ButtonBox.ButtonBoxChild w4 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox6 [this.button101]));
+		// Container child hbox4.Gtk.Box+BoxChild
+		this.button126 = new global::Gtk.Button ();
+		this.button126.WidthRequest = 47;
+		this.button126.HeightRequest = 33;
+		this.button126.CanFocus = true;
+		this.button126.Name = "button126";
+		this.button126.UseUnderline = true;
+		this.button126.Label = global::Mono.Unix.Catalog.GetString ("8");
+		this.hbox4.Add (this.button126);
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button126]));
 		w4.Position = 1;
 		w4.Expand = false;
 		w4.Fill = false;
-		// Container child hbuttonbox6.Gtk.ButtonBox+ButtonBoxChild
-		this.button102 = new global::Gtk.Button ();
-		this.button102.CanFocus = true;
-		this.button102.Name = "button102";
-		this.button102.UseUnderline = true;
-		this.button102.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox6.Add (this.button102);
-		global::Gtk.ButtonBox.ButtonBoxChild w5 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox6 [this.button102]));
+		// Container child hbox4.Gtk.Box+BoxChild
+		this.button127 = new global::Gtk.Button ();
+		this.button127.WidthRequest = 47;
+		this.button127.HeightRequest = 33;
+		this.button127.CanFocus = true;
+		this.button127.Name = "button127";
+		this.button127.UseUnderline = true;
+		this.button127.Label = global::Mono.Unix.Catalog.GetString ("9");
+		this.hbox4.Add (this.button127);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button127]));
 		w5.Position = 2;
 		w5.Expand = false;
 		w5.Fill = false;
-		// Container child hbuttonbox6.Gtk.ButtonBox+ButtonBoxChild
-		this.button103 = new global::Gtk.Button ();
-		this.button103.CanFocus = true;
-		this.button103.Name = "button103";
-		this.button103.UseUnderline = true;
-		this.button103.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox6.Add (this.button103);
-		global::Gtk.ButtonBox.ButtonBoxChild w6 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox6 [this.button103]));
+		// Container child hbox4.Gtk.Box+BoxChild
+		this.button128 = new global::Gtk.Button ();
+		this.button128.WidthRequest = 47;
+		this.button128.HeightRequest = 33;
+		this.button128.CanFocus = true;
+		this.button128.Name = "button128";
+		this.button128.UseUnderline = true;
+		this.button128.Label = global::Mono.Unix.Catalog.GetString ("÷");
+		this.hbox4.Add (this.button128);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button128]));
 		w6.Position = 3;
 		w6.Expand = false;
 		w6.Fill = false;
-		// Container child hbuttonbox6.Gtk.ButtonBox+ButtonBoxChild
-		this.button104 = new global::Gtk.Button ();
-		this.button104.CanFocus = true;
-		this.button104.Name = "button104";
-		this.button104.UseUnderline = true;
-		this.button104.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox6.Add (this.button104);
-		global::Gtk.ButtonBox.ButtonBoxChild w7 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox6 [this.button104]));
+		// Container child hbox4.Gtk.Box+BoxChild
+		this.button129 = new global::Gtk.Button ();
+		this.button129.WidthRequest = 47;
+		this.button129.HeightRequest = 33;
+		this.button129.CanFocus = true;
+		this.button129.Name = "button129";
+		this.button129.UseUnderline = true;
+		this.button129.Label = global::Mono.Unix.Catalog.GetString ("Clear");
+		this.hbox4.Add (this.button129);
+		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button129]));
 		w7.Position = 4;
 		w7.Expand = false;
 		w7.Fill = false;
-		this.vbox8.Add (this.hbuttonbox6);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox8 [this.hbuttonbox6]));
-		w8.Position = 0;
-		w8.Expand = false;
-		w8.Fill = false;
-		// Container child vbox8.Gtk.Box+BoxChild
-		this.hbuttonbox7 = new global::Gtk.HButtonBox ();
-		this.hbuttonbox7.Name = "hbuttonbox7";
-		// Container child hbuttonbox7.Gtk.ButtonBox+ButtonBoxChild
-		this.button95 = new global::Gtk.Button ();
-		this.button95.WidthRequest = 85;
-		this.button95.HeightRequest = 35;
-		this.button95.CanFocus = true;
-		this.button95.Name = "button95";
-		this.button95.UseUnderline = true;
-		this.button95.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox7.Add (this.button95);
-		global::Gtk.ButtonBox.ButtonBoxChild w9 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox7 [this.button95]));
+		this.alignment153.Add (this.hbox4);
+		this.vbox5.Add (this.alignment153);
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.alignment153]));
+		w9.Position = 0;
 		w9.Expand = false;
 		w9.Fill = false;
-		// Container child hbuttonbox7.Gtk.ButtonBox+ButtonBoxChild
-		this.button96 = new global::Gtk.Button ();
-		this.button96.CanFocus = true;
-		this.button96.Name = "button96";
-		this.button96.UseUnderline = true;
-		this.button96.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox7.Add (this.button96);
-		global::Gtk.ButtonBox.ButtonBoxChild w10 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox7 [this.button96]));
-		w10.Position = 1;
+		// Container child vbox5.Gtk.Box+BoxChild
+		this.alignment154 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+		this.alignment154.Name = "alignment154";
+		// Container child alignment154.Gtk.Container+ContainerChild
+		this.hbox6 = new global::Gtk.HBox ();
+		this.hbox6.Name = "hbox6";
+		this.hbox6.Spacing = -2;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.button130 = new global::Gtk.Button ();
+		this.button130.WidthRequest = 47;
+		this.button130.HeightRequest = 33;
+		this.button130.CanFocus = true;
+		this.button130.Name = "button130";
+		this.button130.UseUnderline = true;
+		this.button130.Label = global::Mono.Unix.Catalog.GetString ("4");
+		this.hbox6.Add (this.button130);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.button130]));
+		w10.Position = 0;
 		w10.Expand = false;
 		w10.Fill = false;
-		// Container child hbuttonbox7.Gtk.ButtonBox+ButtonBoxChild
-		this.button97 = new global::Gtk.Button ();
-		this.button97.CanFocus = true;
-		this.button97.Name = "button97";
-		this.button97.UseUnderline = true;
-		this.button97.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox7.Add (this.button97);
-		global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox7 [this.button97]));
-		w11.Position = 2;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.button131 = new global::Gtk.Button ();
+		this.button131.WidthRequest = 47;
+		this.button131.HeightRequest = 33;
+		this.button131.CanFocus = true;
+		this.button131.Name = "button131";
+		this.button131.UseUnderline = true;
+		this.button131.Label = global::Mono.Unix.Catalog.GetString ("5");
+		this.hbox6.Add (this.button131);
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.button131]));
+		w11.Position = 1;
 		w11.Expand = false;
 		w11.Fill = false;
-		// Container child hbuttonbox7.Gtk.ButtonBox+ButtonBoxChild
-		this.button98 = new global::Gtk.Button ();
-		this.button98.CanFocus = true;
-		this.button98.Name = "button98";
-		this.button98.UseUnderline = true;
-		this.button98.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox7.Add (this.button98);
-		global::Gtk.ButtonBox.ButtonBoxChild w12 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox7 [this.button98]));
-		w12.Position = 3;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.button132 = new global::Gtk.Button ();
+		this.button132.WidthRequest = 47;
+		this.button132.HeightRequest = 33;
+		this.button132.CanFocus = true;
+		this.button132.Name = "button132";
+		this.button132.UseUnderline = true;
+		this.button132.Label = global::Mono.Unix.Catalog.GetString ("6");
+		this.hbox6.Add (this.button132);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.button132]));
+		w12.Position = 2;
 		w12.Expand = false;
 		w12.Fill = false;
-		// Container child hbuttonbox7.Gtk.ButtonBox+ButtonBoxChild
-		this.button99 = new global::Gtk.Button ();
-		this.button99.CanFocus = true;
-		this.button99.Name = "button99";
-		this.button99.UseUnderline = true;
-		this.button99.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox7.Add (this.button99);
-		global::Gtk.ButtonBox.ButtonBoxChild w13 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox7 [this.button99]));
-		w13.Position = 4;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.button133 = new global::Gtk.Button ();
+		this.button133.WidthRequest = 47;
+		this.button133.HeightRequest = 33;
+		this.button133.CanFocus = true;
+		this.button133.Name = "button133";
+		this.button133.UseUnderline = true;
+		this.button133.Label = global::Mono.Unix.Catalog.GetString ("x");
+		this.hbox6.Add (this.button133);
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.button133]));
+		w13.Position = 3;
 		w13.Expand = false;
 		w13.Fill = false;
-		this.vbox8.Add (this.hbuttonbox7);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox8 [this.hbuttonbox7]));
-		w14.Position = 1;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.button134 = new global::Gtk.Button ();
+		this.button134.WidthRequest = 47;
+		this.button134.HeightRequest = 33;
+		this.button134.CanFocus = true;
+		this.button134.Name = "button134";
+		this.button134.UseUnderline = true;
+		this.button134.Label = global::Mono.Unix.Catalog.GetString ("÷");
+		this.hbox6.Add (this.button134);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.button134]));
+		w14.Position = 4;
 		w14.Expand = false;
 		w14.Fill = false;
-		// Container child vbox8.Gtk.Box+BoxChild
-		this.hbuttonbox8 = new global::Gtk.HButtonBox ();
-		this.hbuttonbox8.Name = "hbuttonbox8";
-		// Container child hbuttonbox8.Gtk.ButtonBox+ButtonBoxChild
-		this.button90 = new global::Gtk.Button ();
-		this.button90.WidthRequest = 85;
-		this.button90.HeightRequest = 35;
-		this.button90.CanFocus = true;
-		this.button90.Name = "button90";
-		this.button90.UseUnderline = true;
-		this.button90.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox8.Add (this.button90);
-		global::Gtk.ButtonBox.ButtonBoxChild w15 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox8 [this.button90]));
-		w15.Expand = false;
-		w15.Fill = false;
-		// Container child hbuttonbox8.Gtk.ButtonBox+ButtonBoxChild
-		this.button91 = new global::Gtk.Button ();
-		this.button91.CanFocus = true;
-		this.button91.Name = "button91";
-		this.button91.UseUnderline = true;
-		this.button91.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox8.Add (this.button91);
-		global::Gtk.ButtonBox.ButtonBoxChild w16 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox8 [this.button91]));
+		this.alignment154.Add (this.hbox6);
+		this.vbox5.Add (this.alignment154);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.alignment154]));
 		w16.Position = 1;
 		w16.Expand = false;
 		w16.Fill = false;
-		// Container child hbuttonbox8.Gtk.ButtonBox+ButtonBoxChild
-		this.button92 = new global::Gtk.Button ();
-		this.button92.CanFocus = true;
-		this.button92.Name = "button92";
-		this.button92.UseUnderline = true;
-		this.button92.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox8.Add (this.button92);
-		global::Gtk.ButtonBox.ButtonBoxChild w17 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox8 [this.button92]));
-		w17.Position = 2;
+		// Container child vbox5.Gtk.Box+BoxChild
+		this.alignment155 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+		this.alignment155.Name = "alignment155";
+		// Container child alignment155.Gtk.Container+ContainerChild
+		this.hbox7 = new global::Gtk.HBox ();
+		this.hbox7.Name = "hbox7";
+		this.hbox7.Spacing = -2;
+		// Container child hbox7.Gtk.Box+BoxChild
+		this.button135 = new global::Gtk.Button ();
+		this.button135.WidthRequest = 47;
+		this.button135.HeightRequest = 33;
+		this.button135.CanFocus = true;
+		this.button135.Name = "button135";
+		this.button135.UseUnderline = true;
+		this.button135.Label = global::Mono.Unix.Catalog.GetString ("1");
+		this.hbox7.Add (this.button135);
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button135]));
+		w17.Position = 0;
 		w17.Expand = false;
 		w17.Fill = false;
-		// Container child hbuttonbox8.Gtk.ButtonBox+ButtonBoxChild
-		this.button93 = new global::Gtk.Button ();
-		this.button93.CanFocus = true;
-		this.button93.Name = "button93";
-		this.button93.UseUnderline = true;
-		this.button93.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox8.Add (this.button93);
-		global::Gtk.ButtonBox.ButtonBoxChild w18 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox8 [this.button93]));
-		w18.Position = 3;
+		// Container child hbox7.Gtk.Box+BoxChild
+		this.button136 = new global::Gtk.Button ();
+		this.button136.WidthRequest = 47;
+		this.button136.HeightRequest = 33;
+		this.button136.CanFocus = true;
+		this.button136.Name = "button136";
+		this.button136.UseUnderline = true;
+		this.button136.Label = global::Mono.Unix.Catalog.GetString ("2");
+		this.hbox7.Add (this.button136);
+		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button136]));
+		w18.Position = 1;
 		w18.Expand = false;
 		w18.Fill = false;
-		// Container child hbuttonbox8.Gtk.ButtonBox+ButtonBoxChild
-		this.button94 = new global::Gtk.Button ();
-		this.button94.CanFocus = true;
-		this.button94.Name = "button94";
-		this.button94.UseUnderline = true;
-		this.button94.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox8.Add (this.button94);
-		global::Gtk.ButtonBox.ButtonBoxChild w19 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox8 [this.button94]));
-		w19.Position = 4;
+		// Container child hbox7.Gtk.Box+BoxChild
+		this.button137 = new global::Gtk.Button ();
+		this.button137.WidthRequest = 47;
+		this.button137.HeightRequest = 33;
+		this.button137.CanFocus = true;
+		this.button137.Name = "button137";
+		this.button137.UseUnderline = true;
+		this.button137.Label = global::Mono.Unix.Catalog.GetString ("3");
+		this.hbox7.Add (this.button137);
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button137]));
+		w19.Position = 2;
 		w19.Expand = false;
 		w19.Fill = false;
-		this.vbox8.Add (this.hbuttonbox8);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox8 [this.hbuttonbox8]));
-		w20.Position = 2;
+		// Container child hbox7.Gtk.Box+BoxChild
+		this.button138 = new global::Gtk.Button ();
+		this.button138.WidthRequest = 47;
+		this.button138.HeightRequest = 33;
+		this.button138.CanFocus = true;
+		this.button138.Name = "button138";
+		this.button138.UseUnderline = true;
+		this.button138.Label = global::Mono.Unix.Catalog.GetString ("div");
+		this.hbox7.Add (this.button138);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button138]));
+		w20.Position = 3;
 		w20.Expand = false;
 		w20.Fill = false;
-		this.vbox7.Add (this.vbox8);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox7 [this.vbox8]));
-		w21.Position = 0;
+		// Container child hbox7.Gtk.Box+BoxChild
+		this.button139 = new global::Gtk.Button ();
+		this.button139.WidthRequest = 47;
+		this.button139.HeightRequest = 33;
+		this.button139.CanFocus = true;
+		this.button139.Name = "button139";
+		this.button139.UseUnderline = true;
+		this.button139.Label = global::Mono.Unix.Catalog.GetString ("√");
+		this.hbox7.Add (this.button139);
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button139]));
+		w21.Position = 4;
 		w21.Expand = false;
 		w21.Fill = false;
-		// Container child vbox7.Gtk.Box+BoxChild
-		this.hpaned1 = new global::Gtk.HPaned ();
-		this.hpaned1.CanFocus = true;
-		this.hpaned1.Name = "hpaned1";
-		this.hpaned1.Position = 281;
-		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.hbuttonbox5 = new global::Gtk.HButtonBox ();
-		this.hbuttonbox5.Name = "hbuttonbox5";
-		// Container child hbuttonbox5.Gtk.ButtonBox+ButtonBoxChild
-		this.button82 = new global::Gtk.Button ();
-		this.button82.WidthRequest = 85;
-		this.button82.HeightRequest = 35;
-		this.button82.CanFocus = true;
-		this.button82.Name = "button82";
-		this.button82.UseUnderline = true;
-		this.button82.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox5.Add (this.button82);
-		global::Gtk.ButtonBox.ButtonBoxChild w22 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox5 [this.button82]));
-		w22.Expand = false;
-		w22.Fill = false;
-		// Container child hbuttonbox5.Gtk.ButtonBox+ButtonBoxChild
-		this.button83 = new global::Gtk.Button ();
-		this.button83.CanFocus = true;
-		this.button83.Name = "button83";
-		this.button83.UseUnderline = true;
-		this.button83.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox5.Add (this.button83);
-		global::Gtk.ButtonBox.ButtonBoxChild w23 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox5 [this.button83]));
-		w23.Position = 1;
+		this.alignment155.Add (this.hbox7);
+		this.vbox5.Add (this.alignment155);
+		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.alignment155]));
+		w23.Position = 2;
 		w23.Expand = false;
 		w23.Fill = false;
-		// Container child hbuttonbox5.Gtk.ButtonBox+ButtonBoxChild
-		this.button84 = new global::Gtk.Button ();
-		this.button84.CanFocus = true;
-		this.button84.Name = "button84";
-		this.button84.UseUnderline = true;
-		this.button84.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hbuttonbox5.Add (this.button84);
-		global::Gtk.ButtonBox.ButtonBoxChild w24 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox5 [this.button84]));
-		w24.Position = 2;
+		// Container child vbox5.Gtk.Box+BoxChild
+		this.alignment156 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
+		this.alignment156.Name = "alignment156";
+		// Container child alignment156.Gtk.Container+ContainerChild
+		this.hbox8 = new global::Gtk.HBox ();
+		this.hbox8.Name = "hbox8";
+		this.hbox8.Spacing = -2;
+		// Container child hbox8.Gtk.Box+BoxChild
+		this.button140 = new global::Gtk.Button ();
+		this.button140.WidthRequest = 47;
+		this.button140.HeightRequest = 33;
+		this.button140.CanFocus = true;
+		this.button140.Name = "button140";
+		this.button140.UseUnderline = true;
+		this.button140.Label = global::Mono.Unix.Catalog.GetString ("0");
+		this.hbox8.Add (this.button140);
+		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox8 [this.button140]));
+		w24.Position = 0;
 		w24.Expand = false;
 		w24.Fill = false;
-		this.hpaned1.Add (this.hbuttonbox5);
-		global::Gtk.Paned.PanedChild w25 = ((global::Gtk.Paned.PanedChild)(this.hpaned1 [this.hbuttonbox5]));
-		w25.Resize = false;
-		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.button86 = new global::Gtk.Button ();
-		this.button86.HeightRequest = 35;
-		this.button86.CanFocus = true;
-		this.button86.Name = "button86";
-		this.button86.UseUnderline = true;
-		this.button86.Label = global::Mono.Unix.Catalog.GetString ("GtkButton");
-		this.hpaned1.Add (this.button86);
-		this.vbox7.Add (this.hpaned1);
-		global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.vbox7 [this.hpaned1]));
-		w27.Position = 1;
+		// Container child hbox8.Gtk.Box+BoxChild
+		this.button141 = new global::Gtk.Button ();
+		this.button141.WidthRequest = 47;
+		this.button141.HeightRequest = 33;
+		this.button141.CanFocus = true;
+		this.button141.Name = "button141";
+		this.button141.UseUnderline = true;
+		this.button141.Label = global::Mono.Unix.Catalog.GetString (".");
+		this.hbox8.Add (this.button141);
+		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox8 [this.button141]));
+		w25.Position = 1;
+		w25.Expand = false;
+		w25.Fill = false;
+		// Container child hbox8.Gtk.Box+BoxChild
+		this.button142 = new global::Gtk.Button ();
+		this.button142.WidthRequest = 47;
+		this.button142.HeightRequest = 33;
+		this.button142.CanFocus = true;
+		this.button142.Name = "button142";
+		this.button142.UseUnderline = true;
+		this.button142.Label = global::Mono.Unix.Catalog.GetString ("%");
+		this.hbox8.Add (this.button142);
+		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox8 [this.button142]));
+		w26.Position = 2;
+		w26.Expand = false;
+		w26.Fill = false;
+		// Container child hbox8.Gtk.Box+BoxChild
+		this.button143 = new global::Gtk.Button ();
+		this.button143.WidthRequest = 92;
+		this.button143.HeightRequest = 33;
+		this.button143.CanFocus = true;
+		this.button143.Name = "button143";
+		this.button143.UseUnderline = true;
+		this.button143.Label = global::Mono.Unix.Catalog.GetString ("=");
+		this.hbox8.Add (this.button143);
+		global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox8 [this.button143]));
+		w27.Position = 3;
 		w27.Expand = false;
 		w27.Fill = false;
-		this.vpaned5.Add (this.vbox7);
-		this.Add (this.vpaned5);
+		this.alignment156.Add (this.hbox8);
+		this.vbox5.Add (this.alignment156);
+		global::Gtk.Box.BoxChild w29 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.alignment156]));
+		w29.Position = 3;
+		w29.Expand = false;
+		w29.Fill = false;
+		this.vpaned3.Add (this.vbox5);
+		this.Add (this.vpaned3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 472;
-		this.DefaultHeight = 255;
+		this.DefaultWidth = 227;
+		this.DefaultHeight = 207;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 	}

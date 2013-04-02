@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class LinkedList<T> : IEnumerable<T> where T : IComparable
+    public class LinkedList<T> : IEnumerable<T>
     {
 
         public LinkedList()
@@ -87,7 +87,7 @@ namespace MyClasses.Data_structures
         public ListElement<T> Find(T value)
         {
             ListElement<T> seek = head.next;
-            while (seek != null && seek.Item.CompareTo(value) != 0)
+            while (seek != null && !seek.Item.Equals(value))
                 seek = seek.next;
             return seek;
         }
@@ -146,11 +146,11 @@ namespace MyClasses.Data_structures
     /// <summary>
     /// List element for linked list.
     /// </summary>
-    public class ListElement<T> where T : IComparable
+    public class ListElement<T>
     {
         private T item;
         public ListElement<T> next;
-
+        public ListElement<T> Next { get; set; }
         public T Item{ get { return item; } }
 
         public ListElement(T value)

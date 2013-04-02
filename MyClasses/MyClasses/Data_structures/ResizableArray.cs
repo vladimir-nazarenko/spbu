@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class ResizableArray<T> : IEnumerable<T> where T : IComparable
+    public class ResizableArray<T> : IEnumerable<T>
     {
         public ResizableArray()
         {
@@ -60,7 +60,7 @@ namespace MyClasses.Data_structures
             if (value == null)
                 throw new Exceptions.NullOperandException();
             for (int i = 0; i < writeIndex; i++)
-                if (value.CompareTo(values[i]) == 0 && hasValue[i])
+                if (value.Equals(values[i]) && hasValue[i])
                     return i;
             return -1;
         }
@@ -73,7 +73,7 @@ namespace MyClasses.Data_structures
             if (value == null)
                 throw new Exceptions.NullOperandException();
             for (int i = 0; i < writeIndex; i++)
-                if (value.CompareTo(values[i]) == 0)
+                if (value.Equals(values[i]))
                     hasValue[i] = false;
             actualSize--;
             CheckSize();
