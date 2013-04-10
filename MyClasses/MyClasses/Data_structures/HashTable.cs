@@ -84,14 +84,14 @@ namespace MyClasses.Data_structures
             LinkedList<T> exchangeBuffer = new LinkedList<T>();
             for (int i = 0; i < table.Length; i++)
             {
-                int length = table[i].Length;
+                int length = table[i].Count;
                 for (int j = 0; j < length; j++)
                 {
                     exchangeBuffer.InsertFirst(table[i].Retrieve(table[i].First));
                     table[i].Remove(table[i].First);
                 }
             }
-            int size = exchangeBuffer.Length;
+            int size = exchangeBuffer.Count;
             for (int j = 0; j < size; j++)
             {
                 this.Insert(exchangeBuffer.Retrieve(exchangeBuffer.First));

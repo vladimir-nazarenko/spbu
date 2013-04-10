@@ -7,12 +7,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursorControl", "CursorControl\CursorControl.csproj", "{6CFA6320-80A0-4ED1-82DA-56FD9D03BBB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedLinkedList.Tests", "ExtendedLinkedList.Tests\ExtendedLinkedList.Tests.csproj", "{41AD2CEA-C2EC-414C-9F9D-9CB72FEC74FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruTest", "TruTest\TruTest.csproj", "{B385206D-652E-49FD-8A79-DD7375BD93E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41AD2CEA-C2EC-414C-9F9D-9CB72FEC74FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41AD2CEA-C2EC-414C-9F9D-9CB72FEC74FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41AD2CEA-C2EC-414C-9F9D-9CB72FEC74FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41AD2CEA-C2EC-414C-9F9D-9CB72FEC74FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -21,12 +29,16 @@ Global
 		{6CFA6320-80A0-4ED1-82DA-56FD9D03BBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CFA6320-80A0-4ED1-82DA-56FD9D03BBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CFA6320-80A0-4ED1-82DA-56FD9D03BBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B385206D-652E-49FD-8A79-DD7375BD93E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B385206D-652E-49FD-8A79-DD7375BD93E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B385206D-652E-49FD-8A79-DD7375BD93E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B385206D-652E-49FD-8A79-DD7375BD93E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E14669BE-E33A-4BE3-838D-F707D66F8997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E14669BE-E33A-4BE3-838D-F707D66F8997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E14669BE-E33A-4BE3-838D-F707D66F8997}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E14669BE-E33A-4BE3-838D-F707D66F8997}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = CursorControl\CursorControl.csproj
+		StartupItem = TruTest\TruTest.csproj
 	EndGlobalSection
 EndGlobal

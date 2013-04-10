@@ -1,26 +1,30 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Data_structures/HashTable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../BugsAndTasks.txt">
     <Files>
-      <File FileName="../BugsAndTasks.txt" Line="7" Column="97" />
+      <File FileName="../BugsAndTasks.txt" Line="7" Column="27" />
       <File FileName="TestClient/Main.cs" Line="3" Column="35" />
-      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="87" Column="34" />
-      <File FileName="MyClasses/Interfaces/IStack.cs" Line="6" Column="48" />
-      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="37" Column="36" />
-      <File FileName="MyClasses/Data_structures/ArrayStack.cs" Line="57" Column="2" />
+      <File FileName="MyClasses/Data_structures/HashTable.cs" Line="76" Column="41" />
+      <File FileName="MyClasses/Interfaces/IStack.cs" Line="6" Column="31" />
+      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="1" Column="10" />
+      <File FileName="MyClasses/Data_structures/ArrayStack.cs" Line="42" Column="10" />
       <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="127" Column="14" />
+      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="38" Column="1" />
+      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="4" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True" />
+            <Node name="Data_structures" expanded="True">
+              <Node name="LinkedList.cs" selected="True" />
+            </Node>
             <Node name="Exceptions" expanded="True" />
             <Node name="Interfaces" expanded="True" />
             <Node name="Parsing" expanded="True" />
             <Node name="Sorting_algorithms" expanded="True" />
           </Node>
-          <Node name="MyClasses.Tests" expanded="True" selected="True" />
+          <Node name="MyClasses.Tests" expanded="True" />
           <Node name="TestClient" expanded="True">
             <Node name="References" expanded="True" />
           </Node>
@@ -35,7 +39,9 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="MyClasses.Tests" selected="True" />
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

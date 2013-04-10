@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyClasses.Data_structures
 {
-    public class LinkedList<T> : IEnumerable<T>
+    public class LinkedList<T> :  ICollection<T>
     {
 
         public LinkedList()
@@ -24,9 +24,9 @@ namespace MyClasses.Data_structures
         {
             if (value == null)
                 throw new ArgumentNullException();
-            ListElement<T> oldNext = position.next;
-            position.next = new ListElement<T>(value);
-            position.next.next = oldNext;
+            ListElement<T> oldNext = position.Next;
+            position.Next = new ListElement<T>(value);
+            position.Next.Next = oldNext;
             size++;
         }
 
@@ -50,16 +50,24 @@ namespace MyClasses.Data_structures
         public void Remove(ListElement<T> position)
         {
             ListElement<T> temp = head;
-            while (!temp.next.Equals(position))
-                temp = temp.next;
-            temp.next = temp.next.next;
+            while (!temp.Next.Equals(position))
+                temp = temp.Next;
+            temp.Next = temp.Next.Next;
             size--;
+        }
+
+        public bool Remove(T item)
+        {
+            ListElement<T> seek = Find(item);
+            if (seek == null)
+                Remove(seek);
+            return seek == null;
         }
 
         /// <summary>
         /// Gets the length of the list.
         /// </summary>
-        public int Length
+        public int Count
         {
             get { return this.size;}
         }
@@ -71,10 +79,21 @@ namespace MyClasses.Data_structures
         {
             get
             {
-                if (head.next == null)
+                if (head.Next == null)
                     throw new KeyNotFoundException("List is empty");
-                return head.next;
+                return head.Next;
             }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is read only.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is read only; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsReadOnly
+        {
+            get{ return false;}
         }
 
         /// <summary>
@@ -86,9 +105,9 @@ namespace MyClasses.Data_structures
         /// </param>
         public ListElement<T> Find(T value)
         {
-            ListElement<T> seek = head.next;
+            ListElement<T> seek = head.Next;
             while (seek != null && !seek.Item.Equals(value))
-                seek = seek.next;
+                seek = seek.Next;
             return seek;
         }
 
@@ -100,16 +119,75 @@ namespace MyClasses.Data_structures
             return position.Item;
         }
 
+        /// <Docs>
+        /// The item to add to the current collection.
+        /// </Docs>
+        /// <para>
+        /// Adds an item to the current collection.
+        /// </para>
+        /// <remarks>
+        /// To be added.
+        /// </remarks>
+        /// <exception cref='System.NotSupportedException'>
+        /// The current collection is read-only.
+        /// </exception>
+        /// <summary>
+        /// Add the specified item.
+        /// </summary>
+        /// <param name='item'>
+        /// Item.
+        /// </param>
+        public void Add(T item)
+        {
+            InsertFirst(item);
+        }
+
+        /// <summary>
+        /// Clear this instance.
+        /// </summary>
+        public void Clear()
+        {
+            head = null;
+        }
+
+        /// <summary>
+        /// Determines whether this instance contains the value.
+        /// </summary>
+        /// <param name='item'>
+        /// If set to <c>true</c> item.
+        /// </param>
+        /// <param name='comp'>
+        /// If set to <c>true</c> comp.
+        /// </param>
+        public bool Contains(T item)
+        {
+            bool found = false;
+            foreach (var element in this)
+                if (element.Equals(item))
+                    found = true;
+            return found;
+        }
+
         /// <summary>
         /// Gets the last element of a list.
         /// </summary>
         public ListElement<T> GetLast()
         {
-            ListElement<T> seek = head.next;
+            ListElement<T> seek = head.Next;
             while (seek != null)
-                seek = seek.next;
+                seek = seek.Next;
             return seek;
         }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            ListElement<T> seek = head.Next;
+            for (int i = 0; i < this.Count; i++, seek = seek.Next)
+            {
+                array[arrayIndex + i] = seek.Item;
+            }
+        }
+
 
         /// <summary>
         /// Gets the enumerator.
@@ -120,9 +198,9 @@ namespace MyClasses.Data_structures
         public IEnumerator<T> GetEnumerator()
         {
             ListElement<T> seek = head;
-            while (seek.next != null)
+            while (seek.Next != null)
             {
-                seek = seek.next;
+                seek = seek.Next;
                 yield return seek.Item;
             }
         }
@@ -149,7 +227,7 @@ namespace MyClasses.Data_structures
     public class ListElement<T>
     {
         private T item;
-        public ListElement<T> next;
+        private ListElement<T> next;
         public ListElement<T> Next { get; set; }
         public T Item{ get { return item; } }
 

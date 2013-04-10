@@ -1,19 +1,29 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CursorControl/Mover.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ExtendedLinkedList/ExtendedLinkedList.cs">
     <Files>
-      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="30" Column="46" />
-      <File FileName="CursorControl/Main.cs" Line="13" Column="1" />
-      <File FileName="CursorControl/KeyLoop.cs" Line="21" Column="1" />
-      <File FileName="CursorControl/Mover.cs" Line="16" Column="51" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/HashTable.cs" Line="49" Column="10" />
+      <File FileName="ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs" Line="29" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="174" Column="9" />
+      <File FileName="../BugsAndTasks.txt" Line="15" Column="36" />
+      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="27" Column="32" />
+      <File FileName="TruTest/Main.cs" Line="12" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CursorControl" expanded="True">
-            <Node name="Mover.cs" selected="True" />
+          <Node name="CursorControl" expanded="True" />
+          <Node name="ExtendedLinkedList" expanded="True">
+            <Node name="ExtendedLinkedList.cs" selected="True" />
           </Node>
-          <Node name="ExtendedLinkedList" expanded="True" />
+          <Node name="ExtendedLinkedList.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True" />
+            <Node name="Interfaces" expanded="True" />
+          </Node>
+          <Node name="TruTest" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -30,7 +40,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Homework_6/ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs" line="28" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

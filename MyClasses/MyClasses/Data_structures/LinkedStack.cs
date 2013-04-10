@@ -12,16 +12,28 @@ namespace MyClasses.Data_structures
             list = new LinkedList<T>();
         }
 
+        /// <summary>
+        /// Push the specified item.
+        /// </summary>
+        /// <param name='item'>
+        /// Item.
+        /// </param>
         public void Push(T item)
         {
             list.InsertFirst(item);
         }
 
+        /// <summary>
+        /// Get last added item without popping it.
+        /// </summary>
         public T Top()
         {
             return list.First.Item;
         }
-
+        
+        /// <summary>
+        /// Get last added item.
+        /// </summary>
         public T Pop()
         {
             T value = list.First.Item;
@@ -29,10 +41,17 @@ namespace MyClasses.Data_structures
             return value;
         }
 
+        /// <summary>
+        /// Determines whether this instance is empty.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsEmpty()
         {
-            return list.Length == 0;
+            return list.Count == 0;
         }
 
         private LinkedList<T> list;       
+    }
 }

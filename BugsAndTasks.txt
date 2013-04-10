@@ -10,3 +10,6 @@
 
 30 march:
 - changing cursor position in Homework_6 doesn't work
+
+9 april:
+какая-то муть с наследованием ELL от LL - недоступны члены последнего из первого ==FIXED==

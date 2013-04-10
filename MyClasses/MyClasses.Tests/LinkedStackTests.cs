@@ -36,6 +36,7 @@ namespace MyClasses
             }
         }
 
+
         private MyClasses.Data_structures.IStack<int> stack;
     }
 }

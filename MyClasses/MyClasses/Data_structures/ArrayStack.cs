@@ -12,11 +12,20 @@ namespace MyClasses.Data_structures
             array = new ResizableArray<T>(false);
         }
 
+        /// <summary>
+        /// Push the specified item.
+        /// </summary>
+        /// <param name='item'>
+        /// Item.
+        /// </param>
         public void Push(T item)
         {
             array.Insert(item);
         }
 
+        /// <summary>
+        /// Get last added item without popping it.
+        /// </summary>
         public T Top()
         {
             IEnumerator<T> e = array.GetEnumerator();
@@ -24,6 +33,9 @@ namespace MyClasses.Data_structures
             return e.Current;
         }
 
+        /// <summary>
+        /// Get last added item.
+        /// </summary>
         public T Pop()
         {
             if (IsEmpty())
@@ -36,20 +48,15 @@ namespace MyClasses.Data_structures
             return value;
         }
 
+        /// <summary>
+        /// Determines whether this instance is empty.
+        /// </summary>
+        /// <returns>
+        /// <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsEmpty()
         {
             return array.Size == 0;
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            while (!this.IsEmpty())
-                yield return this.Pop();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
 
         private ResizableArray<T> array;
