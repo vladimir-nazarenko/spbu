@@ -49,6 +49,7 @@
     <Compile Include="Data_structures\ArrayStack.cs" />
     <Compile Include="Exceptions\EmptyArrayException.cs" />
     <Compile Include="Exceptions\NullOperandException.cs" />
+    <Compile Include="Data_structures\ListElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -62,6 +63,9 @@
     </None>
     <None Include="..\..\README.md">
       <Link>README.md</Link>
+    </None>
+    <None Include="..\..\Questions.txt">
+      <Link>Questions.txt</Link>
     </None>
   </ItemGroup>
 </Project>

@@ -13,18 +13,18 @@ namespace Homework_6
         public ExtendedLinkedList(LinkedList<T> list)
         {
             foreach(T item in list)
-                InsertFirst(item);
+                Add(item);
         }
 
         /// <summary>
         /// Apply function sent in <param name="performAction"> to every
         /// element in the list.
         /// </summary>
-        public LinkedList<T> Map(Action<T> performAction)
+        public LinkedList<T> Map(Func<T, T> performAction)
         {
             LinkedList<T> returnList = new LinkedList<T>();
                 foreach (T item in this)
-                    returnList.InsertFirst(performAction(item));
+                    returnList.Add(performAction(item));
             return returnList;
         }
 
@@ -43,7 +43,7 @@ namespace Homework_6
             while (seek != null)
             {
                 acc = action(acc, seek.Item);
-                seek = seek.next;
+                seek = seek.Next;
             }
             return acc;
         }

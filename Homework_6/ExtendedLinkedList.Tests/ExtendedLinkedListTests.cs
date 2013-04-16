@@ -19,18 +19,27 @@ namespace Homework_6
         [Test]
         public void Map_Success()
         {
-            list.Map(ToUpper);
-            Assert.AreNotEqual(null, list.Find("abc"));
+            var mappedList = list.Map(s => s.ToUpper());
+            Assert.True(mappedList.Contains("SECOND"));
         }
 
-        private void ToUpper(string item)
+        [Test]
+        public void Fold_Success()
         {
-            item = "abc";
+            string concated = "";
+            concated = this.list.Fold(concated, (first, second) => String.Concat(first, second));
+            Assert.AreEqual("thirdsecondfirst", concated);
         }
 
-
+        [Test]
+        public void Filter_Success()
+        {
+            var filteredList = this.list.Filter(s => (s[0] == 'f' || s[0] == 's'));
+            Assert.AreEqual(2, filteredList.Count);
+            Assert.True(this.list.Contains("first"));
+            Assert.True(this.list.Contains("second"));
+        }
 
         private ExtendedLinkedList<string> list;
     }
 }
-
