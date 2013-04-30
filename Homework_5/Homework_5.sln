@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniqueList", "UniqueList\Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractSyntaxTreeTests", "AbstractSyntaxTreeTests\AbstractSyntaxTreeTests.csproj", "{80C699E5-5692-4E9C-81D4-C7DE78ECBB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniqueListTests", "UniqueListTests\UniqueListTests.csproj", "{C29C4431-9202-4136-B710-2E35C871F3FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +25,14 @@ Global
 		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Debug|x86.Build.0 = Debug|Any CPU
 		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Release|x86.ActiveCfg = Release|Any CPU
 		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Release|x86.Build.0 = Release|Any CPU
+		{80C699E5-5692-4E9C-81D4-C7DE78ECBB24}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{80C699E5-5692-4E9C-81D4-C7DE78ECBB24}.Debug|x86.Build.0 = Debug|Any CPU
+		{80C699E5-5692-4E9C-81D4-C7DE78ECBB24}.Release|x86.ActiveCfg = Release|Any CPU
+		{80C699E5-5692-4E9C-81D4-C7DE78ECBB24}.Release|x86.Build.0 = Release|Any CPU
+		{C29C4431-9202-4136-B710-2E35C871F3FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C29C4431-9202-4136-B710-2E35C871F3FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{C29C4431-9202-4136-B710-2E35C871F3FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{C29C4431-9202-4136-B710-2E35C871F3FB}.Release|x86.Build.0 = Release|Any CPU
 		{FE38F304-0DF1-4199-A1E0-E1A9625BFD5C}.Debug|x86.ActiveCfg = Debug|x86
 		{FE38F304-0DF1-4199-A1E0-E1A9625BFD5C}.Debug|x86.Build.0 = Debug|x86
 		{FE38F304-0DF1-4199-A1E0-E1A9625BFD5C}.Release|x86.ActiveCfg = Release|x86

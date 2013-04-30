@@ -3,18 +3,13 @@ namespace Homework5
     using System;
     using MyClasses.DataStructures;
 
-    public class UniqueList<T> : LinkedList<T> where T : IComparable
+    public class UniqueList<T> : MyClasses.DataStructures.LinkedList<T>
     {
-        public UniqueList()
-            : base()
-        {
-        }
-
         public override void InsertAfter(T value, ListElement<T> position)
         {
             if (this.Find(value) == null)
             {
-                this.InsertAfter(value, position);
+                base.InsertAfter(value, position);
             }
             else
             {
@@ -26,7 +21,7 @@ namespace Homework5
         {
             if (this.Find(value) == null)
             {
-                this.InsertFirst(value);
+                base.InsertFirst(value);
             }
             else
             {

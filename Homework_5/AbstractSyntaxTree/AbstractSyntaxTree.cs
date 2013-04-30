@@ -22,15 +22,6 @@ namespace Homework5
             this.counter = 0;
         }
 
-        public static void Main(string[] args)
-        {
-            AbstractSyntaxTree tree = new AbstractSyntaxTree("( * 7 ( + 2 3 ) )");
-            INode head = null;
-            tree.Build(ref head);
-            Console.WriteLine("The result of the calculaion: {0}\nthe tree: ", head.Calculate());
-            head.Print();
-        }
-
         public void Build(ref INode current)
         {
             string token = this.tokens[this.counter++];
