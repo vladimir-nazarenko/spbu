@@ -1,19 +1,19 @@
-using System;
-using NUnit.Framework;
-using MyClasses.SortingAlgorithms;
-
 namespace MyClasses.SortingTests
 {
-    [TestFixture()]
+    using System;
+    using MyClasses.SortingAlgorithms;
+    using NUnit.Framework;
+
+    [TestFixture]
     public class InsertionSortTests
     {
-        [Test()]
+        [Test]
         public void Sort_OneItem_Sorted()
         {
             int[] data = SortingTestsAuxiliary.GenerateArray(1, SortingTestsAuxiliary.Modes.Random);
             int[] backup = data;
             InsertionSort<int>.Sort(ref data);
-            Assert.AreEqual(backup [0], data [0]);
+            Assert.AreEqual(backup[0], data[0]);
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace MyClasses.SortingTests
             InsertionSort<int>.Sort(ref data);
         }
 
-        [Test()]
+        [Test]
         public void Sort_RandomInput_Sorted()
         {
             int[] data = SortingTestsAuxiliary.GenerateArray(100, SortingTestsAuxiliary.Modes.Random);
@@ -41,7 +41,7 @@ namespace MyClasses.SortingTests
             Assert.AreEqual(true, SortingTestsAuxiliary.IsSorted(ref data));
         }
 
-        [Test()]
+        [Test]
         public void Sort_FewUnique_Sorted()
         {
             int[] data = SortingTestsAuxiliary.GenerateArray(100, SortingTestsAuxiliary.Modes.Few_Unique);
@@ -50,7 +50,7 @@ namespace MyClasses.SortingTests
             Assert.AreEqual(true, SortingTestsAuxiliary.IsSorted(ref data));
         }
 
-        [Test()]
+        [Test]
         public void Sort_AllEqual_Sorted()
         {
             int[] data = SortingTestsAuxiliary.GenerateArray(100, SortingTestsAuxiliary.Modes.All_Equal);
@@ -59,4 +59,3 @@ namespace MyClasses.SortingTests
         }
     }
 }
-

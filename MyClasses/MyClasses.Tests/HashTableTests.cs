@@ -1,64 +1,82 @@
-using System;
-using NUnit.Framework;
-using MyClasses.Data_structures;
-using MyClasses.SortingAlgorithms;
-
 namespace MyClasses
 {
-    [TestFixture()]
+    using System;
+    using MyClasses.Data_structures;
+    using MyClasses.SortingAlgorithms;
+    using NUnit.Framework;
+    [TestFixture]
     public class HashTableTests
     {
+        private HashTable<string> table;
+
         [SetUp]
         public void Init()
         {
-            table = new HashTable<string>(10, new HashTable<string>.FNVHash());
+            this.table = new HashTable<string>(10, new FNVHash<string>());
         }
 
         [Test]
         public void Insert_FewItems_FindReturnsTrue()
         {
-            table.Insert("First");
-            table.Insert("Second");
-            table.Insert("Third");
-            Assert.True(table.Exists("First"));
-            Assert.True(table.Exists("Second"));
-            Assert.True(table.Exists("Third"));
+            this.table.Insert("First");
+            this.table.Insert("Second");
+            this.table.Insert("Third");
+            Assert.True(this.table.Exists("First"));
+            Assert.True(this.table.Exists("Second"));
+            Assert.True(this.table.Exists("Third"));
         }
 
         [Test]
         public void Remove_AfterInsertion_ExistsReturnedFalse()
         {
-            table.Insert("First");
-            table.Remove("First");
-            Assert.False(table.Exists("First"));
+            this.table.Insert("First");
+            this.table.Remove("First");
+            Assert.False(this.table.Exists("First"));
         }
 
         [Test]
         public void Iterator_IterateForeach_Success()
         {
-            HashTable<int> tableOfIntegers = new HashTable<int>(80, new HashTable<string>.FNVHash());
+            HashTable<int> tableOfIntegers = new HashTable<int>(80, new FNVHash<int>());
             for (int i = 0; i < 100; i++)
             {
                 tableOfIntegers.Insert(i);
             }
+
             int[] values = new int[100];
             int cnt = 0;
             foreach (int item in tableOfIntegers)
             {
                 values[cnt++] = item;
             }
+
             QSort<int>.Sort(ref values);
             for (int i = 0; i < 100; i++)
+            {
                 Assert.AreEqual(i, values[i]);
+            }
         }
 
         [Test]
         public void FNVHash_CalculateForString_Calculated()
         {
-            var hashF = new HashTable<string>.FNVHash();
+            var hashF = new FNVHash<string>();
             Assert.AreEqual(hashF.CalculateHash("test"), hashF.CalculateHash("test"));
         }
 
-        private HashTable<string> table;
+        [Test]
+        public void ChangeHashFunction_RehashDone()
+        {
+            this.table.Insert("First");
+            this.table.Insert("Second");
+            this.table.Insert("Third");
+            Assert.True(this.table.Exists("First"));
+            Assert.True(this.table.Exists("Second"));
+            Assert.True(this.table.Exists("Third"));
+            this.table.ChangeHashFunction(new Adler32Hash<string>());
+            Assert.True(this.table.Exists("First"));
+            Assert.True(this.table.Exists("Second"));
+            Assert.True(this.table.Exists("Third"));
+        }
     }
 }

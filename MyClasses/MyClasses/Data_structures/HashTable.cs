@@ -1,11 +1,41 @@
-using System;
-using System.Collections.Generic;
-
-namespace MyClasses.Data_structures
+namespace MyClasses.DataStructures
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Hash table with open hashing.
+    /// </summary>
+    /// <typeparam name = "T">
+    /// Type of value to be stored
+    /// </typeparam>
     public class HashTable<T> : IEnumerable<T> where T : IComparable
-    {
-        public HashTable(ulong size, IHashFunction<string> hashF)
+    {        
+        /// <summary>
+        /// The hash function.
+        /// </summary>
+        private IHashFunction<T> hashFunction;
+
+        /// <summary>
+        /// The length of hash table.
+        /// </summary>
+        private ulong length;
+
+        /// <summary>
+        /// The table to store values.
+        /// </summary>
+        private LinkedList<T>[] table;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MyClasses.DataStructures.HashTable{T}"/> class.
+        /// </summary>
+        /// <param name='size'>
+        /// Base size of table.
+        /// </param>
+        /// <param name='hashF'>
+        /// Hash function.
+        /// </param>
+        public HashTable(ulong size, IHashFunction<T> hashF)
         {
             this.table = new LinkedList<T>[size];
             this.hashFunction = hashF;
@@ -15,37 +45,58 @@ namespace MyClasses.Data_structures
         /// <summary>
         /// Stores specified value.
         /// </summary>
+        /// <param name="value">
+        /// Value to be inserted in the current instance.
+        /// </param>
         public void Insert(T value)
         {
-            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
-            if (table[index] == null) 
-                table[index] = new LinkedList<T>();
-            table[index].InsertFirst(value);
+            ulong index = this.hashFunction.CalculateHash(value) % this.length;
+            if (this.table[index] == null)
+            {
+                this.table[index] = new LinkedList<T>();
+            }
+
+            this.table[index].InsertFirst(value);
         }
 
         /// <summary>
         /// Check if there is a value with key
         /// specified if <param name='value'/>.
         /// </summary>
+        /// <param name="value">
+        /// Value to be found.
+        /// </param>
+        /// <returns><c>true</c> if value found, otherwise <c>false</c></returns>
         public bool Exists(T value)
         {
-            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
-            if (table[index] == null) 
+            ulong index = this.hashFunction.CalculateHash(value) % this.length;
+            if (this.table[index] == null)
+            {
                 return false;
-            return (table[index].Find(value) != null);
+            }
+
+            return this.table[index].Find(value) != null;
         }
 
         /// <summary>
         /// Remove the specified key.
         /// </summary>
+        /// <param name="value">
+        /// Value to be removed from instance.
+        /// </param>
         public void Remove(T value)
         {
-            ulong index = hashFunction.CalculateHash(value.ToString()) % length;
-            if (table[index] == null) 
+            ulong index = this.hashFunction.CalculateHash(value) % this.length;
+            if (this.table[index] == null)
+            {
                 return;
-            ListElement<T> position = table[index].Find(value);
+            }
+
+            ListElement<T> position = this.table[index].Find(value);
             if (position != null)
-                table[index].Remove(position);
+            {
+                this.table[index].Remove(position);
+            }
         }
 
         /// <summary>
@@ -58,9 +109,12 @@ namespace MyClasses.Data_structures
         {
             for (ulong i = 0; i < this.length; i++)
             {
-                if (table[i] == null) 
+                if (this.table[i] == null) 
+                {
                     continue;
-                foreach (T item in table[i])
+                }
+
+                foreach (T item in this.table[i])
                 {
                     yield return item;
                 }
@@ -75,22 +129,39 @@ namespace MyClasses.Data_structures
         /// </returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
 
-        public void ChangeHashFunction(IHashFunction<string> func)
+        /// <summary>
+        /// Changes the hash function of the current instance.
+        /// </summary>
+        /// <param name='func'>
+        /// New hash function.
+        /// </param>
+        public void ChangeHashFunction(IHashFunction<T> func)
         {
-            hashFunction = func;
+            this.hashFunction = func;
             LinkedList<T> exchangeBuffer = new LinkedList<T>();
-            for (int i = 0; i < table.Length; i++)
+            if (this.table == null)
             {
-                int length = table[i].Count;
+                return;
+            }
+
+            for (int i = 0; i < this.table.Length; i++)
+            {
+                if (this.table[i] == null)
+                {
+                    continue;
+                }
+
+                int length = this.table[i].Count;
                 for (int j = 0; j < length; j++)
                 {
-                    exchangeBuffer.InsertFirst(table[i].Retrieve(table[i].First));
-                    table[i].Remove(table[i].First);
+                    exchangeBuffer.InsertFirst(this.table[i].Retrieve(this.table[i].First));
+                    this.table[i].Remove(this.table[i].First);
                 }
             }
+
             int size = exchangeBuffer.Count;
             for (int j = 0; j < size; j++)
             {
@@ -98,24 +169,5 @@ namespace MyClasses.Data_structures
                 exchangeBuffer.Remove(exchangeBuffer.First);
             }
         }
-
-        public class FNVHash : IHashFunction<string>
-        {
-            public ulong CalculateHash(string value)
-            {
-                const ulong prime = 2365347734339;
-                ulong hval = 2166135261;
-                for (int i = 0; i < value.Length; i++)
-                {
-                    hval *= prime;
-                    hval ^= Convert.ToUInt64((value.ToCharArray(i, 1)[0] + 128));
-                }
-                return hval;
-            }
-        }
-
-        private IHashFunction<string> hashFunction;
-        private ulong length;
-        private LinkedList<T>[] table;
     }
 }

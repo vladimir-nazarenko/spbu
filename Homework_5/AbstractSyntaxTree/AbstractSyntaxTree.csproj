@@ -6,7 +6,7 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FE38F304-0DF1-4199-A1E0-E1A9625BFD5C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>AbstractSyntaxTree</RootNamespace>
     <AssemblyName>AbstractSyntaxTree</AssemblyName>
   </PropertyGroup>
@@ -36,8 +36,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AbstractSyntaxTree.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="ConcreteNodes.cs" />
+    <Compile Include="Operand.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="INode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

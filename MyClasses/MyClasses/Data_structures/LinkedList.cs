@@ -1,4 +1,4 @@
-namespace MyClasses.Data_structures
+namespace MyClasses.DataStructures
 {
     using System;
     using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace MyClasses.Data_structures
         private int size;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyClasses.Data_structures.LinkedList{T}"/> class.
+        /// Initializes a new instance of the <see cref="MyClasses.DataStructures.LinkedList{T}"/> class.
         /// </summary>
         public LinkedList()
         {

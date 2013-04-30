@@ -1,42 +1,41 @@
-using System;
-using NUnit.Framework;
-using MyClasses.Data_structures;
-using System.Collections.Generic;
-
 namespace MyClasses
 {
-    [TestFixture()]
+    using System;
+    using System.Collections.Generic;
+    using MyClasses.Data_structures;
+    using NUnit.Framework;
+
+    [TestFixture]
     public class ArrayStackTests
     {
+        private MyClasses.Data_structures.IStack<int> stack;
+
         public ArrayStackTests()
         {
-            stack = new ArrayStack<int>();
+            this.stack = new ArrayStack<int>();
         }
 
         [Test]
         [ExpectedException(typeof(KeyNotFoundException))]
         public void Pop_FromEmpty_ExceptionThrown()
         {
-            stack.Pop();
+            this.stack.Pop();
         }
 
         [Test]
         public void Push_PopCooperated_Success()
         {
-            stack = new ArrayStack<int>();
+            this.stack = new ArrayStack<int>();
             for (int i = 0; i < 10; i++)
             {
-                stack.Push(i);
+                this.stack.Push(i);
             }
 
             for (int i = 9; i >= 0; i--)
             {
-                Assert.AreEqual(i, stack.Top());
-                Assert.AreEqual(i, stack.Pop());
+                Assert.AreEqual(i, this.stack.Top());
+                Assert.AreEqual(i, this.stack.Pop());
             }
         }
-
-        private MyClasses.Data_structures.IStack<int> stack;
     }
 }
-

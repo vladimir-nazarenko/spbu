@@ -1,16 +1,13 @@
-using System;
-using NUnit.Framework;
-using System.Text;
-
 namespace MyClasses
 {
-    /// <summary>
-    /// NUnit tests for <see cref="Parsing"/>
-    /// </summary>
-    [TestFixture()]
+    using System;
+    using System.Text;
+
+    using NUnit.Framework;
+    [TestFixture]
     public class ParsingTests
     {   
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_EmptyInput_ExceptionHandled()
         {
             string[] zeroArgs = null;
@@ -18,62 +15,62 @@ namespace MyClasses
             Assert.AreEqual("no input at all", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_EmptyArgsArray_ExceptionHandled()
         {
-            string[] args = {""};
+            string[] args = { string.Empty };
             Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual("wrong input", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_StringInsteadOfNumber_ExceptionHandled()
         {
-            string[] args = {"123some string123"};
+            string[] args = { "123some string123" };
             Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual("wrong input", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_ProperInput_GotInteger()
         {
-            string[] args = {"-123456"};
+            string[] args = { "-123456" };
             int result = Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual(-123456, result);
             Assert.AreEqual("none", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_RealNumber_ExceptionHandled()
         {
-            string[] args = {"999.15"};
+            string[] args = { "999.15" };
             Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual("wrong input", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_TooLongNumber_ExceptionHandled()
         {
-            string hundredLenthValue = new String('1', 100);
-            string[] args = {hundredLenthValue};
+            string hundredLenthValue = new string('1', 100);
+            string[] args = { hundredLenthValue };
             Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual("value is too large", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void ParseOneIntegerFromConsoleArgs_CorrectInputAfterIncorrect_GotInteger()
         {
-            string hundredLenthValue = new String('1', 100);
-            string[] args = {hundredLenthValue};
+            string hundredLenthValue = new string('1', 100);
+            string[] args = { hundredLenthValue };
             Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual("value is too large", Parsing.LastErrorMessage);
-            args [0] = "-123456";
+            args[0] = "-123456";
             int result = Parsing.ParseOneIntegerFromConsoleArgs(args);
             Assert.AreEqual(-123456, result);
             Assert.AreEqual("none", Parsing.LastErrorMessage);
         }
 
-        [Test()]
+        [Test]
         public void CaptureOutput_GetOutput_Succes()
         {
             StringBuilder sb = Parsing.CaptureOutput();
@@ -82,43 +79,44 @@ namespace MyClasses
             Assert.AreEqual("test", sb.ToString());
         }
 
-        [Test()]
+        [Test]
         public void ReleaseOutput_GetOutputAndSetItBack_Success()
         {
-            //capture
+            // Capture
             StringBuilder sb = Parsing.CaptureOutput();
-            //release
+
+            // Release
             Parsing.ReleaseOutput();
-            //check if released
+
+            // Check if released
             Console.Write("test");
-            Assert.AreEqual("", sb.ToString());
+            Assert.AreEqual(string.Empty, sb.ToString());
         }
 
         [Test]
         public void WriteInegerMatrix_ReadIntegerMatrix_Success()
         {
-            //generate matrix
+            // Generate matrix
             int[][] matrix = new int[20][];
             for (int i = 19; i >= 0; i--)
             {
-                matrix [i] = new int[5];
+                matrix[i] = new int[5];
                 for (int j = 0; j < 5; j++)
                 {
-                    matrix [i] [j] = i - j;
+                    matrix[i][j] = i - j;
                 }
             }
 
-            //write matrix, read it and compare
+            // Write matrix, read it and compare
             Parsing.WriteIntegerMatrixToFile("test.txt", matrix);
             int[][] readMatrix = Parsing.ReadIntegerMatrixFromFile("test.txt");
             for (int i = 0; i < 19; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Assert.AreEqual(matrix [i] [j], readMatrix [i] [j]);
+                    Assert.AreEqual(matrix[i][j], readMatrix[i][j]);
                 }
             }
         }
     }
 }
-

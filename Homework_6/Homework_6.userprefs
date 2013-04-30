@@ -1,14 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../MyClasses/MyClasses/Data_structures/ArrayStack.cs">
     <Files>
-      <File FileName="../MyClasses/MyClasses/Data_structures/HashTable.cs" Line="49" Column="10" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/HashTable.cs" Line="191" Column="2" />
       <File FileName="ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs" Line="7" Column="20" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="278" Column="3" />
-      <File FileName="../BugsAndTasks.txt" Line="15" Column="38" />
-      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="28" Column="31" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="247" Column="14" />
+      <File FileName="../BugsAndTasks.txt" Line="18" Column="53" />
+      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="2" Column="2" />
       <File FileName="TruTest/Main.cs" Line="12" Column="47" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="1" Column="9" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="8" Column="69" />
+      <File FileName="../Questions.txt" Line="2" Column="1" />
+      <File FileName="ExtendedLinkedList/AssemblyInfo.cs" Line="28" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ArrayStack.cs" Line="10" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,10 +20,11 @@
           <Node name="ExtendedLinkedList" expanded="True" />
           <Node name="ExtendedLinkedList.Tests" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="ExtendedLinkedListTests.cs" selected="True" />
           </Node>
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True" />
+            <Node name="Data_structures" expanded="True">
+              <Node name="ArrayStack.cs" selected="True" />
+            </Node>
             <Node name="Interfaces" expanded="True" />
           </Node>
           <Node name="TruTest" expanded="True" />

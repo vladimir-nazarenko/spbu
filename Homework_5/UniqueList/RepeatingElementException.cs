@@ -1,24 +1,22 @@
-using System;
-
-
-namespace Homework_5
+namespace Homework5
 {
+    using System;
+
     public class RepeatingElementException : Exception
     {
         public RepeatingElementException()
-            :base()
+            : base()
         {
         }
 
         public RepeatingElementException(string message)
-            :base(message)
+            : base(message)
         {
         }
 
         public RepeatingElementException(string message, Exception inner)
-            :base(message, inner)
+            : base(message, inner)
         {
         }
     }
 }
-

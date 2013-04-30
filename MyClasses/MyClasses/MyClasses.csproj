@@ -50,6 +50,8 @@
     <Compile Include="Exceptions\EmptyArrayException.cs" />
     <Compile Include="Exceptions\NullOperandException.cs" />
     <Compile Include="Data_structures\ListElement.cs" />
+    <Compile Include="Strategies\HashFunctions\FNVHash.cs" />
+    <Compile Include="Strategies\HashFunctions\Adler32Hash.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

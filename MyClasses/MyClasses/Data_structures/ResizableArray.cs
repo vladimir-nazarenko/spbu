@@ -1,21 +1,30 @@
-using System;
-using System.Collections.Generic;
-
-namespace MyClasses.Data_structures
+namespace MyClasses.DataStructures
 {
+    using System;
+    using System.Collections.Generic;
+
     public class ResizableArray<T> : IEnumerable<T>
     {
+        private int writeIndex;
+        private int actualSize;
+        private T[] values;
+        private bool[] hasValue;
+        private bool locked;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MyClasses.DataStructures.ResizableArray{T}"/> class.
+        /// </summary>
         public ResizableArray()
         {
             this.values = new T[1];
             this.writeIndex = 0;
             this.hasValue = new bool[1];
             this.hasValue[0] = false;
-            locked = true;
+            this.locked = true;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyClasses.Data_structures.ResizableArray"/> class.
+        /// Initializes a new instance of the <see cref="MyClasses.DataStructures.ResizableArray{T}"/> class.
         /// </summary>
         /// <param name='packed'>
         /// Whether array would be autoshrinked.
@@ -26,14 +35,28 @@ namespace MyClasses.Data_structures
             this.writeIndex = 0;
             this.hasValue = new bool[1];
             this.hasValue[0] = false;
-            locked = !packed;
+            this.locked = !packed;
+        }
+        
+        /// <summary>
+        /// Gets the number of elements in the array.
+        /// </summary>
+        /// <value>
+        /// Number of elements in the array.
+        /// </value>
+        public int Size
+        {
+            get
+            {
+                return this.actualSize;
+            }
         }
 
         /// <summary>
         /// Inserts the specified value.
         /// </summary>
         /// <param name='value'>
-        /// Value.
+        /// Value to insert.
         /// </param>
         /// <returns>
         /// Key of the value.
@@ -41,42 +64,65 @@ namespace MyClasses.Data_structures
         public int Insert(T value)
         {
             if (value == null)
+            {
                 throw new Exceptions.NullOperandException();
-            CheckSize();
-            values[writeIndex] = value;
-            hasValue[writeIndex++] = true;
-            actualSize++;
-            return writeIndex - 1;
+            }
+
+            this.CheckSize();
+            this.values[this.writeIndex] = value;
+            this.hasValue[this.writeIndex++] = true;
+            this.actualSize++;
+            return this.writeIndex - 1;
         }
 
         /// <summary>
         /// Check existance of the value.
         /// </summary>
         /// <param name='value'>
-        /// Key of the value.
+        /// Value to determine key.
         /// </param>
+        /// <returns>Key of the value.</returns>
         public int Find(T value)
         {
             if (value == null)
+            {
                 throw new Exceptions.NullOperandException();
-            for (int i = 0; i < writeIndex; i++)
-                if (value.Equals(values[i]) && hasValue[i])
+            }
+
+            for (int i = 0; i < this.writeIndex; i++)
+            {
+                if (value.Equals(this.values[i]) && this.hasValue[i])
+                {
                     return i;
+                }
+            }
+
             return -1;
         }
 
         /// <summary>
         /// Remove the specified value.
         /// </summary>
+        /// <param name="value">
+        /// Value to be removed.
+        /// </param>
         public void Remove(T value)
         {
             if (value == null)
+            {
                 throw new Exceptions.NullOperandException();
-            for (int i = 0; i < writeIndex; i++)
-                if (value.Equals(values[i]))
-                    hasValue[i] = false;
-            actualSize--;
-            CheckSize();
+            }
+
+            for (int i = 0; i < this.writeIndex; i++)
+            {
+                if (value.Equals(this.values[i]))
+                {
+                    this.hasValue[i] = false;
+                }
+            }
+
+            this.actualSize--;
+            this.CheckSize();
         }
 
         /// <summary>
@@ -84,13 +130,17 @@ namespace MyClasses.Data_structures
         /// only with not packed array.
         /// </summary>
         /// <param name='key'>
-        /// Key.
+        /// Key of the value to be retrieved.
         /// </param>
+        /// <returns>Value with given key.</returns>
         public T RetrieveByKey(int key)
         {
-            if (!locked)
+            if (!this.locked)
+            {
                 throw new NotSupportedException("Instance of an array is packed");
-            return values[key];
+            }
+
+            return this.values[key];
         }
 
         /// <summary>
@@ -98,26 +148,29 @@ namespace MyClasses.Data_structures
         /// only with not packed array.
         /// </summary>
         /// <param name='key'>
-        /// Key.
+        /// Key of value to be removed.
         /// </param>
         public void RemoveByKey(int key)
         {
-            if (!locked)
+            if (!this.locked)
+            {
                 throw new NotSupportedException("Instance of an array is packed");
-            hasValue[key] = false;
-            actualSize--;
+            }
+
+            this.hasValue[key] = false;
+            this.actualSize--;
         }
 
         /// <summary>
         /// Trim extra space of this instance, almost
-        /// every time breaks keys of values unpleasant to use.
+        /// every time breaks keys of values, unpleasant to use.
         /// </summary>
         public void Trim()
         {
-            bool oldState = locked;
-            locked = false;
-            CheckSize();
-            locked = oldState;
+            bool oldState = this.locked;
+            this.locked = false;
+            this.CheckSize();
+            this.locked = oldState;
         }
 
         /// <summary>
@@ -128,19 +181,14 @@ namespace MyClasses.Data_structures
         /// </returns>
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = writeIndex - 1; i > 0; i--)
+            for (int i = this.writeIndex - 1; i > 0; i--)
             {
-                if (!hasValue[i]) 
+                if (!this.hasValue[i]) 
+                {
                     continue;
-                yield return values[i];
-            }
-        }
+                }
 
-        public int Size
-        {
-            get
-            {
-                return this.actualSize;
+                yield return this.values[i];
             }
         }
 
@@ -153,10 +201,13 @@ namespace MyClasses.Data_structures
         /// </returns>
         public IEnumerator<int> KeysEnumerator()
         {
-            for (int i = writeIndex - 1; i > 0; i--)
+            for (int i = this.writeIndex - 1; i > 0; i--)
             {
-                if (!hasValue[i]) 
+                if (!this.hasValue[i]) 
+                {
                     continue;
+                }
+
                 yield return i;
             }
         }
@@ -169,15 +220,22 @@ namespace MyClasses.Data_structures
         /// </returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
 
         private void CheckSize()
         {
-            if (actualSize == values.Length || (writeIndex == values.Length && locked))
-                Resize(values.Length * 2);
-            else if ((double)actualSize / (double)values.Length < 0.25 && values.Length > 1 && !locked)
-                Resize(values.Length / 2);
+            if (this.actualSize == this.values.Length || (this.writeIndex == this.values.Length && this.locked))
+            {
+                this.Resize(this.values.Length * 2);
+            } 
+            else 
+            {
+                if ((double)this.actualSize / (double)this.values.Length < 0.25 && this.values.Length > 1 && !this.locked)
+                {
+                    this.Resize(this.values.Length / 2);
+                }
+            }
         }
 
         private void Resize(int newSize)
@@ -185,24 +243,19 @@ namespace MyClasses.Data_structures
             T[] newValues = new T[newSize];
             bool[] newHasValue = new bool[newSize];
             int counter = 0;
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < this.values.Length; i++)
             {
-                if (hasValue[i] || locked)
+                if (this.hasValue[i] || this.locked)
                 {
-                    newValues[counter] = values[i];
-                    newHasValue[counter++] = hasValue[i];
+                    newValues[counter] = this.values[i];
+                    newHasValue[counter++] = this.hasValue[i];
                 }
             }
-            writeIndex = counter;
-            values = newValues;
-            hasValue = newHasValue;
-            CheckSize();
-        }
 
-        private int writeIndex;
-        private int actualSize;
-        private T[] values;
-        private bool[] hasValue;
-        private bool locked;
+            this.writeIndex = counter;
+            this.values = newValues;
+            this.hasValue = newHasValue;
+            this.CheckSize();
+        }
     }
 }

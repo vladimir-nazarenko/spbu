@@ -1,73 +1,84 @@
-using System;
-using System.Collections.Generic;
-
-namespace Homework_5
+namespace Homework5
 {
-    class AbstractSyntaxTree
+    using System;
+    using System.Collections.Generic;
+
+    public class AbstractSyntaxTree
     {
-        public static void Main(string[] args)
-        {
-            AbstractSyntaxTree tree = new AbstractSyntaxTree("( * 7 ( + 2 3 ) )");
-            Node head = null;
-            tree.Build(ref head);
-        }
+        private string[] tokens;
+        private Dictionary<string, Func<double, double, double>> operations;
+        private int counter;
 
         public AbstractSyntaxTree(string expression)
         {
-            operations = new Dictionary<string, Func<double, double, double>>
+            this.operations = new Dictionary<string, Func<double, double, double>>
             {
-                {"+", (x, y) => x + y},
-                {"-", (x, y) => x - y},
-                {"*", (x, y) => x * y},
-                {"/", (x, y) => x / y}
+                { "+", (x, y) => x + y },
+                { "-", (x, y) => x - y },
+                { "*", (x, y) => x * y },
+                { "/", (x, y) => x / y }
             };
-            tokens = expression.Split(new char[] {' '});
-            counter = 0;
+            this.tokens = expression.Split(new char[] { ' ' });
+            this.counter = 0;
         }
 
-        public void Build(ref Node current)
+        public static void Main(string[] args)
         {
-            string token = tokens[counter++];
+            AbstractSyntaxTree tree = new AbstractSyntaxTree("( * 7 ( + 2 3 ) )");
+            INode head = null;
+            tree.Build(ref head);
+            Console.WriteLine("The result of the calculaion: {0}\nthe tree: ", head.Calculate());
+            head.Print();
+        }
+
+        public void Build(ref INode current)
+        {
+            string token = this.tokens[this.counter++];
             if (token == ")")
+            {
                 return;
-            if (operations.ContainsKey(token))
+            }
+
+            if (this.operations.ContainsKey(token))
             {
                 if (current != null)
                 {
                     var currentOperation = current as Operation;
-                    Node newCurrent = currentOperation.AddOperand(new Operation(token, operations[token]));
-                    Build(ref newCurrent);
-                } else
+                    INode newCurrent = currentOperation.AddOperand(new Operation(token, this.operations[token]));
+                    this.Build(ref newCurrent);
+                } 
+                else
                 {
-                    current = new Operation(token, operations[token]);
+                    current = new Operation(token, this.operations[token]);
                 }
-            } else
+            } 
+            else
             {
                 double value;
-                if (Double.TryParse(token, out value))
+                if (double.TryParse(token, out value))
                 {
                     if (current != null)
                     {
                         (current as Operation).AddOperand(new Operand(value));
-                    } else
+                    } 
+                    else
+                    {
                         current = new Operand(value);
+                    }
                 }
             }
-            Build(ref current);
+
+            this.Build(ref current);
         }
 
-        public double Calculate(Node tree)
+        public double Calculate(INode tree)
         {
             return tree.Calculate();
         }
 
-        public void PrintTree(Node tree)
+        public void PrintTree(INode tree)
         {
             tree.Print();
         }
-
-        private string[] tokens;
-        private Dictionary<string, Func<double, double, double>> operations;
-        private int counter;
     }
 }

@@ -1,50 +1,63 @@
-using System;
-using MyClasses.Data_structures;
-using System.Collections.Generic;
-using System.Collections;
-
-namespace MyClasses.Data_structures
+namespace MyClasses.DataStructures
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using MyClasses.DataStructures;
+
     public class ArrayStack<T> : IStack<T>
     {
+        /// <summary>
+        /// The array for storing items.
+        /// </summary>
+        private ResizableArray<T> array;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MyClasses.DataStructures.ArrayStack{T}"/> class.
+        /// </summary>
         public ArrayStack()
         {
-            array = new ResizableArray<T>(false);
+            this.array = new ResizableArray<T>(false);
         }
 
         /// <summary>
         /// Push the specified item.
         /// </summary>
         /// <param name='item'>
-        /// Item.
+        /// Item to push.
         /// </param>
         public void Push(T item)
         {
-            array.Insert(item);
+            this.array.Insert(item);
         }
 
         /// <summary>
-        /// Get last added item without popping it.
+        /// Get last added item without popping it out.
         /// </summary>
+        /// <returns>Value from the edge of the stack.</returns> 
         public T Top()
         {
-            IEnumerator<T> e = array.GetEnumerator();
+            IEnumerator<T> e = this.array.GetEnumerator();
             e.MoveNext();
             return e.Current;
         }
 
         /// <summary>
-        /// Get last added item.
+        /// Get last added item and remove it from stack.
         /// </summary>
+        /// <returns>Value from the edge of the stack.</returns>
         public T Pop()
         {
-            if (IsEmpty())
+            if (this.IsEmpty())
+            {
                 throw new KeyNotFoundException("List is empty");
-            IEnumerator<int> e = array.KeysEnumerator();
+            }
+
+            IEnumerator<int> e = this.array.KeysEnumerator();
             e.MoveNext();
-            T value = array.RetrieveByKey(e.Current);
-            array.RemoveByKey(e.Current);
-            array.Trim();
+            T value = this.array.RetrieveByKey(e.Current);
+            this.array.RemoveByKey(e.Current);
+            this.array.Trim();
             return value;
         }
 
@@ -56,12 +69,7 @@ namespace MyClasses.Data_structures
         /// </returns>
         public bool IsEmpty()
         {
-            return array.Size == 0;
+            return this.array.Size == 0;
         }
-
-        private ResizableArray<T> array;
     }
 }
-
-
-

@@ -1,24 +1,29 @@
-using System;
-using NUnit.Framework;
-using MyClasses.Data_structures;
-
 namespace MyClasses
 {
-    [TestFixture()]
+    using System;
+    using MyClasses.Data_structures;
+    using NUnit.Framework;
+
+    [TestFixture]
     public class ResizableArrayTests
     {
+        private ResizableArray<int> shrinkable;
+        private ResizableArray<int> steady;
+
         [SetUp]
         public void Init()
         {
-            shrinkable = new ResizableArray<int>(true);
-            steady = new ResizableArray<int>(false);
+            this.shrinkable = new ResizableArray<int>(true);
+            this.steady = new ResizableArray<int>(false);
         }
 
         [Test]
         public void Insert_ManyIems_Success()
         {
             for (int i = 0; i < 100; i++)
-                shrinkable.Insert(i);
+            {
+                this.shrinkable.Insert(i);
+            }
         }
 
         [Test]
@@ -26,14 +31,16 @@ namespace MyClasses
         {
             for (int i = 0; i < 100; i++)
             {
-                shrinkable.Insert(i);
+                this.shrinkable.Insert(i);
             }
+
             for (int i = 0; i < 99; i++)
             {
-                shrinkable.Remove(i);
+                this.shrinkable.Remove(i);
             }
-            Assert.AreNotEqual(-1, shrinkable.Find(99));
-            Assert.AreEqual(-1, shrinkable.Find(98));
+
+            Assert.AreNotEqual(-1, this.shrinkable.Find(99));
+            Assert.AreEqual(-1, this.shrinkable.Find(98));
         }
 
         [Test]
@@ -41,22 +48,26 @@ namespace MyClasses
         {
             for (int i = 0; i < 100; i++)
             {
-                shrinkable.Insert(i);
+                this.shrinkable.Insert(i);
             }
+
             for (int i = 0; i < 100; i++)
             {
-                shrinkable.Remove(i);
+                this.shrinkable.Remove(i);
             }
+
             for (int i = 0; i < 100; i++)
             {
-                shrinkable.Insert(i);
+                this.shrinkable.Insert(i);
             }
+
             for (int i = 0; i < 99; i++)
             {
-                shrinkable.Remove(i);
+                this.shrinkable.Remove(i);
             }
-            Assert.AreNotEqual(-1, shrinkable.Find(99));
-            Assert.AreEqual(-1, shrinkable.Find(98));
+
+            Assert.AreNotEqual(-1, this.shrinkable.Find(99));
+            Assert.AreEqual(-1, this.shrinkable.Find(98));
         }
 
         [Test]
@@ -64,10 +75,11 @@ namespace MyClasses
         {
             for (int i = 0; i < 100; i++)
             {
-                shrinkable.Insert(i);
+                this.shrinkable.Insert(i);
             }
+
             int cnt = 99;
-            foreach (int value in shrinkable)
+            foreach (int value in this.shrinkable)
             {
                 Assert.AreEqual(cnt--, value);
             }
@@ -77,7 +89,7 @@ namespace MyClasses
         [ExpectedException(typeof(NotSupportedException))]
         public void RemoveByKey_FromPacked_ExceptionThrown()
         {
-            shrinkable.RemoveByKey(5);
+            this.shrinkable.RemoveByKey(5);
         }
 
         [Test]
@@ -85,15 +97,13 @@ namespace MyClasses
         {
             for (int i = 0; i < 100; i++)
             {
-                steady.Insert(i);
+                this.steady.Insert(i);
             }
-            int key = steady.Insert(189);
-            Assert.AreEqual(key, steady.Find(189));
-            steady.RemoveByKey(key);
-            Assert.AreEqual(-1, steady.Find(189));
-        }
 
-        private ResizableArray<int> shrinkable;
-        private ResizableArray<int> steady;
+            int key = this.steady.Insert(189);
+            Assert.AreEqual(key, this.steady.Find(189));
+            this.steady.RemoveByKey(key);
+            Assert.AreEqual(-1, this.steady.Find(189));
+        }
     }
 }

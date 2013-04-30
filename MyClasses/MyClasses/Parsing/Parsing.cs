@@ -1,15 +1,41 @@
-using System;
-using System.Text;
-using System.IO;
-
 namespace MyClasses
 {
-    /// <summary>
-    /// Functions for basically converting input data of some sortes 
-    /// to more useful type with handling exceptions
-    /// </summary>
+    using System;
+    using System.IO;
+    using System.Text;
+
     public static class Parsing
     {
+        /// <summary>
+        /// The error messages for <see cref="LastErrorMessage"/>.
+        /// </summary>
+        private static string[] errorMessages = 
+        {
+            "none", "wrong input", "no input at all", 
+            "value is too large", "unknown exception"
+        };
+
+        /// <summary>
+        /// Saves information for <see cref="LastErrorMessage"/>
+        /// </summary>
+        private static int errorCode = 0;
+
+        /// <summary>
+        /// This need for <see cref="ReleaseOutput"/>
+        /// </summary>
+        private static TextWriter old = Console.Out;
+
+        /// <summary>
+        /// Gets the last error message.
+        /// </summary>
+        /// <value>
+        /// The last error message.
+        /// </value>
+        public static string LastErrorMessage
+        {
+            get { return errorMessages[errorCode]; }
+        }
+
         /// <summary>
         /// Parses the one integer from console arguments and provides interface
         /// to handle errors <see cref="LastErrorMessage"/>.
@@ -25,49 +51,34 @@ namespace MyClasses
             try
             {
                 errorCode = 0;
-                return Convert.ToInt32(args [0]);
-            } catch (FormatException)
+                return Convert.ToInt32(args[0]);
+            }
+            catch (FormatException)
             {
                 errorCode = 1; 
                 return 0;
-            } catch (IndexOutOfRangeException)
+            }
+            catch (IndexOutOfRangeException)
             {
                 errorCode = 2;  
                 return 0;
-            } catch (NullReferenceException)
+            }
+            catch (NullReferenceException)
             {
                 errorCode = 2; 
                 return 0;
-            } catch (OverflowException)
+            }
+            catch (OverflowException)
             {
                 errorCode = 3; 
                 return 0;
-
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 errorCode = 4;                 
-                errorMessages [4] = e.Message;
+                errorMessages[4] = e.Message;
                 return 0;
             }           
-        }
-
-        /// <summary>
-        /// The error messages for <see cref="LastErrorMessage"/>.
-        /// </summary>
-        private static string[] errorMessages = {"none", "wrong input", "no input at all", 
-            "value is too large", "unknown exception"};
-
-        /// <summary>
-        /// Saves information for <see cref="LastErrorMessage"/>
-        /// </summary>
-        private static int errorCode = 0;
-
-        /// <value>
-        /// Field returns string describing last error.
-        /// </value>
-        public static string LastErrorMessage
-        {
-            get { return errorMessages [errorCode];}
         }
 
         /// <summary>
@@ -83,11 +94,6 @@ namespace MyClasses
             Console.SetOut(sw);
             return output;
         }
-
-        /// <summary>
-        /// This need for <see cref="ReleaseOutput"/>
-        /// </summary>
-        private static TextWriter old = Console.Out;
 
         /// <summary>
         /// Sets output to Console
@@ -112,17 +118,26 @@ namespace MyClasses
             try
             {
                 string[] data = File.ReadAllLines(path);
-                char[] separators = {' ', '\n'};
-                int rowNumber = Convert.ToInt32(data [0].Split(separators) [0]);
-                int columnNumber = Convert.ToInt32(data [0].Split(separators) [1]);
+                char[] separators = { ' ', '\n' };
+                int rowNumber = Convert.ToInt32(data[0].Split(separators)[0]);
+                int columnNumber = Convert.ToInt32(data[0].Split(separators)[1]);
                 int[][] values = new int[rowNumber][];
                 for (int i = 0; i < rowNumber; i++)
-                    values [i] = new int[columnNumber];
+                {
+                    values[i] = new int[columnNumber];
+                }
+
                 for (int i = 0; i < rowNumber; i++)
+                {
                     for (int j = 0; j < columnNumber; j++)
-                        values [i] [j] = Convert.ToInt32(data [i + 1].Split(separators) [j]);
+                    {
+                        values[i][j] = Convert.ToInt32(data[i + 1].Split(separators)[j]);
+                    }
+                }
+
                 return values;
-            } catch
+            } 
+            catch
             {
                 throw new IOException("Incorrect input file");
             }
@@ -135,29 +150,31 @@ namespace MyClasses
         /// Full name of the file where matrix will be written.
         /// </param>
         /// <param name='values'>
-        /// Matrix.
+        /// Matrix to be overwritten.
         /// </param>
         public static void WriteIntegerMatrixToFile(string path, int[][] values)
         {
             try
             {
                 int rowNumber = values.Length;
-                int columnNumber = values [0].Length;
+                int columnNumber = values[0].Length;
                 StreamWriter output = new StreamWriter(path, false);
-                output.WriteLine(String.Format("{0} {1}", rowNumber, columnNumber));
+                output.WriteLine(string.Format("{0} {1}", rowNumber, columnNumber));
                 for (int i = 0; i < rowNumber; i++)
                 {
                     int j = 0;
                     for (j = 0; j < columnNumber - 1; j++)
                     {
-                        output.Write(values [i] [j]);
+                        output.Write(values[i][j]);
                         output.Write(' ');
                     }
-                    output.WriteLine(values [i] [j]);
 
+                    output.WriteLine(values[i][j]);
                 }
+
                 output.Close();
-            } catch
+            } 
+            catch
             {
                 throw new ArgumentException("Wrong data");
             }

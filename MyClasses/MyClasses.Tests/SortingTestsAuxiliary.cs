@@ -1,7 +1,7 @@
-using System;
-
 namespace MyClasses.SortingTests
 {
+    using System;
+
     /// <summary>
     /// Axuiliary methods common for all sorting test clients
     /// </summary>
@@ -12,7 +12,7 @@ namespace MyClasses.SortingTests
             Random,
             Few_Unique,
             All_Equal
-        };
+        }
 
         /// <summary>
         /// Generates the array of integer for sorting algorithms.
@@ -35,16 +35,17 @@ namespace MyClasses.SortingTests
                 switch (mode)
                 {
                     case Modes.Random:
-                        values [i] = generator.Next();
+                        values[i] = generator.Next();
                         break;
                     case Modes.Few_Unique:
-                        values [i] = generator.Next() % (size / 10);
+                        values[i] = generator.Next() % (size / 10);
                         break;
                     case Modes.All_Equal:
-                        values [i] = 42;
+                        values[i] = 42;
                         break;
                 }
             }
+
             return values;
         }
 
@@ -54,9 +55,9 @@ namespace MyClasses.SortingTests
         /// </summary>
         public static void Exchange(ref int[] values, int firstIndex, int secondIndex)
         {
-            int temp = values [firstIndex];
-            values [secondIndex] = values [firstIndex];
-            values [firstIndex] = temp;
+            int temp = values[firstIndex];
+            values[secondIndex] = values[firstIndex];
+            values[firstIndex] = temp;
         }
 
         /// <summary>
@@ -71,10 +72,14 @@ namespace MyClasses.SortingTests
         public static bool IsSorted(ref int[] values)
         {
             for (int i = 1; i < values.Length; i++)
-                if (values [i] < values [i - 1]) 
+            {
+                if (values[i] < values[i - 1])
+                {
                     return false;
+                }
+            }
+
             return true;
         }
     }
 }
-
