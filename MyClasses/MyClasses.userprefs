@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/HashTableTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/ArrayStackTests.cs">
     <Files>
       <File FileName="../BugsAndTasks.txt" Line="7" Column="27" />
       <File FileName="TestClient/Main.cs" Line="3" Column="35" />
@@ -11,9 +11,9 @@
       <File FileName="MyClasses.Tests/QSortTests.cs" Line="15" Column="44" />
       <File FileName="MyClasses.Tests/SortingTestsAuxiliary.cs" Line="1" Column="22" />
       <File FileName="MyClasses/Parsing/Parsing.cs" Line="79" Column="17" />
-      <File FileName="MyClasses.Tests/HashTableTests.cs" Line="43" Column="43" />
+      <File FileName="MyClasses.Tests/HashTableTests.cs" Line="4" Column="26" />
       <File FileName="MyClasses.Tests/ResizableArrayTests.cs" Line="109" Column="2" />
-      <File FileName="MyClasses.Tests/ArrayStackTests.cs" Line="6" Column="2" />
+      <File FileName="MyClasses.Tests/ArrayStackTests.cs" Line="16" Column="10" />
       <File FileName="TestClient/AssemblyInfo.cs" Line="26" Column="35" />
       <File FileName="MyClasses/Data_structures/HashTable.cs" Line="17" Column="32" />
       <File FileName="MyClasses/Strategies/HashFunctions/FNVHash.cs" Line="4" Column="1" />
@@ -33,7 +33,7 @@
             </Node>
           </Node>
           <Node name="MyClasses.Tests" expanded="True">
-            <Node name="HashTableTests.cs" selected="True" />
+            <Node name="ArrayStackTests.cs" selected="True" />
           </Node>
           <Node name="TestClient" expanded="True">
             <Node name="References" expanded="True" />

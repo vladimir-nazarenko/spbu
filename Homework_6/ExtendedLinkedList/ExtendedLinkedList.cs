@@ -1,7 +1,7 @@
-namespace Homework_6
+namespace Homework6
 {
     using System;
-    using MyClasses.Data_structures;
+    using MyClasses.DataStructures;
 
     /// <summary>
     /// Linked list with extra methods.
@@ -10,7 +10,7 @@ namespace Homework_6
     public class ExtendedLinkedList<T> : LinkedList<T>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Homework_6.ExtendedLinkedList{T}"/> class.
+        /// Initializes a new instance of the <see cref="Homework6.ExtendedLinkedList{T}"/> class.
         /// </summary>
         public ExtendedLinkedList()
             : base()
@@ -18,7 +18,7 @@ namespace Homework_6
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Homework_6.ExtendedLinkedList{T}"/> class.
+        /// Initializes a new instance of the <see cref="Homework6.ExtendedLinkedList{T}"/> class.
         /// </summary>
         /// <param name='list'>
         /// Linked list which will be copied into the instance.

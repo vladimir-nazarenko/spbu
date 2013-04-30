@@ -1,7 +1,7 @@
 namespace MyClasses
 {
     using System;
-    using MyClasses.Data_structures;
+    using MyClasses.DataStructures;
     using MyClasses.SortingAlgorithms;
     using NUnit.Framework;
     [TestFixture]

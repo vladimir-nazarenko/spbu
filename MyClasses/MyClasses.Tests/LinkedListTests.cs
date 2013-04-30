@@ -2,23 +2,23 @@ namespace MyClasses
 {
     using System;
     using System.Collections.Generic;
-    using MyClasses.Data_structures;
+    using MyClasses.DataStructures;
     using NUnit.Framework;
 
     [TestFixture]
     public class LinkedListTests
     {
-        private MyClasses.Data_structures.LinkedList<int> list;
+        private MyClasses.DataStructures.LinkedList<int> list;
 
         public LinkedListTests()
         {
-            this.list = new Data_structures.LinkedList<int>();
+            this.list = new DataStructures.LinkedList<int>();
         }
 
         [SetUp] 
         public void Prepare()
         {
-            this.list = new Data_structures.LinkedList<int>();
+            this.list = new DataStructures.LinkedList<int>();
             this.list.InsertFirst(5);
             this.list.InsertFirst(6);
             this.list.InsertFirst(7);

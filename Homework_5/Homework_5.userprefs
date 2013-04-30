@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../MyClasses/MyClasses/Strategies/HashFunctions/Adler32Hash.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniqueListTests/UniqueListTests.cs">
     <Files>
       <File FileName="AbstractSyntaxTree/INode.cs" Line="7" Column="9" />
-      <File FileName="UniqueList/UniqueList.cs" Line="6" Column="69" />
-      <File FileName="UniqueListTests/UniqueListTests.cs" Line="14" Column="13" />
-      <File FileName="../MyClasses/MyClasses/Strategies/HashFunctions/Adler32Hash.cs" Line="18" Column="30" />
+      <File FileName="UniqueList/UniqueList.cs" Line="7" Column="6" />
+      <File FileName="UniqueListTests/UniqueListTests.cs" Line="7" Column="18" />
+      <File FileName="UniqueListTests/AssemblyInfo.cs" Line="1" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,13 +18,12 @@
             <Node name="Data_structures" expanded="True" />
             <Node name="Interfaces" expanded="True" />
             <Node name="Strategies" expanded="True">
-              <Node name="HashFunctions" expanded="True">
-                <Node name="Adler32Hash.cs" selected="True" />
-              </Node>
+              <Node name="HashFunctions" expanded="True" />
             </Node>
           </Node>
           <Node name="UniqueList" expanded="True">
             <Node name="References" expanded="True" />
+            <Node name="AssemblyInfo.cs" selected="True" />
           </Node>
           <Node name="UniqueListTests" expanded="True">
             <Node name="References" expanded="True" />
@@ -32,13 +31,9 @@
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True">
+        <State expanded="True" selected="True">
           <Node name="MyClasses" expanded="True">
-            <Node name="MyClasses" expanded="True">
-              <Node name="Data_structures" expanded="True">
-                <Node name="MyClasses.Data_structures.Adler32Hash" selected="True" />
-              </Node>
-            </Node>
+            <Node name="MyClasses" expanded="True" />
           </Node>
         </State>
       </Pad>

@@ -1,35 +1,28 @@
-using System;
-
-namespace Homework_6
+namespace Homework6
 {
+    using System;
+
     public class KeyLoop
     {
-        public EventHandler<EventArgs> LeftHandler = (sender, args) => {};
-        public EventHandler<EventArgs> RightHandler = (sender, args) => {};
+        public event EventHandler<EventArgs> LeftHandler = (sender, args) => { };
 
-        public KeyLoop()
-        {
-
-        }
+        public event EventHandler<EventArgs> RightHandler = (sender, args) => { };
 
         public void Run()
-        {
-
-        
+        {        
             while (true)
             {
                 var key = Console.ReadKey();
                 switch (key.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        LeftHandler(this, EventArgs.Empty);
+                        this.LeftHandler(this, EventArgs.Empty);
                         break;
                     case ConsoleKey.RightArrow:
-                        RightHandler(this, EventArgs.Empty);
+                        this.RightHandler(this, EventArgs.Empty);
                         break;
                 }
             }   
         }
     }
 }
-

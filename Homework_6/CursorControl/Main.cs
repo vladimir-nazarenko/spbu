@@ -1,8 +1,8 @@
-using System;
-
-namespace Homework_6
+namespace Homework6
 {
-    class MainClass
+    using System;
+
+    public class MainClass
     {
         public static void Main(string[] args)
         {

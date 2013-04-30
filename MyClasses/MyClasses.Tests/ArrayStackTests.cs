@@ -2,13 +2,13 @@ namespace MyClasses
 {
     using System;
     using System.Collections.Generic;
-    using MyClasses.Data_structures;
+    using MyClasses.DataStructures;
     using NUnit.Framework;
 
     [TestFixture]
     public class ArrayStackTests
     {
-        private MyClasses.Data_structures.IStack<int> stack;
+        private MyClasses.DataStructures.IStack<int> stack;
 
         public ArrayStackTests()
         {
