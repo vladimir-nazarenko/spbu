@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/ArrayStackTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/LinkedStackTests.cs">
     <Files>
       <File FileName="../BugsAndTasks.txt" Line="7" Column="27" />
       <File FileName="TestClient/Main.cs" Line="3" Column="35" />
@@ -18,6 +18,9 @@
       <File FileName="MyClasses/Data_structures/HashTable.cs" Line="17" Column="32" />
       <File FileName="MyClasses/Strategies/HashFunctions/FNVHash.cs" Line="4" Column="1" />
       <File FileName="MyClasses/Strategies/HashFunctions/Adler32Hash.cs" Line="30" Column="14" />
+      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="9" Column="33" />
+      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="51" Column="26" />
+      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="11" Column="50" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -33,7 +36,7 @@
             </Node>
           </Node>
           <Node name="MyClasses.Tests" expanded="True">
-            <Node name="ArrayStackTests.cs" selected="True" />
+            <Node name="LinkedStackTests.cs" selected="True" />
           </Node>
           <Node name="TestClient" expanded="True">
             <Node name="References" expanded="True" />

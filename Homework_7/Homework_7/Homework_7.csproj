@@ -69,6 +69,17 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Evaluator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Homework_3\StackCalculator\StackCalculator.csproj">
+      <Project>{5BD27337-84F3-45E3-B416-F14A879B30DC}</Project>
+      <Name>StackCalculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
+      <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
+      <Name>MyClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

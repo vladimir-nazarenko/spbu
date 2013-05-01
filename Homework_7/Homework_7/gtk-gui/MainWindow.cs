@@ -119,10 +119,11 @@ public partial class MainWindow
 		this.button128 = new global::Gtk.Button ();
 		this.button128.WidthRequest = 47;
 		this.button128.HeightRequest = 33;
+		this.button128.Sensitive = false;
 		this.button128.CanFocus = true;
 		this.button128.Name = "button128";
 		this.button128.UseUnderline = true;
-		this.button128.Label = global::Mono.Unix.Catalog.GetString ("÷");
+		this.button128.Label = global::Mono.Unix.Catalog.GetString ("div");
 		this.hbox4.Add (this.button128);
 		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.button128]));
 		w6.Position = 3;
@@ -278,7 +279,7 @@ public partial class MainWindow
 		this.button138.CanFocus = true;
 		this.button138.Name = "button138";
 		this.button138.UseUnderline = true;
-		this.button138.Label = global::Mono.Unix.Catalog.GetString ("div");
+		this.button138.Label = global::Mono.Unix.Catalog.GetString ("+");
 		this.hbox7.Add (this.button138);
 		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button138]));
 		w20.Position = 3;
@@ -291,7 +292,7 @@ public partial class MainWindow
 		this.button139.CanFocus = true;
 		this.button139.Name = "button139";
 		this.button139.UseUnderline = true;
-		this.button139.Label = global::Mono.Unix.Catalog.GetString ("√");
+		this.button139.Label = global::Mono.Unix.Catalog.GetString ("-");
 		this.hbox7.Add (this.button139);
 		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.button139]));
 		w21.Position = 4;
@@ -340,6 +341,7 @@ public partial class MainWindow
 		this.button142 = new global::Gtk.Button ();
 		this.button142.WidthRequest = 47;
 		this.button142.HeightRequest = 33;
+		this.button142.Sensitive = false;
 		this.button142.CanFocus = true;
 		this.button142.Name = "button142";
 		this.button142.UseUnderline = true;

@@ -1,9 +1,9 @@
-using System;
-using Gtk;
-
-namespace Homework_7
+namespace Homework7
 {
-    class MainClass
+    using System;
+    using Gtk;
+
+    public class MainClass
     {
         public static void Main(string[] args)
         {

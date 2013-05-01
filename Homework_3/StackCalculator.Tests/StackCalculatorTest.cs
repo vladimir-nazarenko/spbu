@@ -1,9 +1,9 @@
 using System;
 using NUnit.Framework;
-using Homework_3;
-using MyClasses.Data_structures;
+using Homework3;
+using MyClasses.DataStructures;
 
-namespace Homework_3.Tests
+namespace Homework3.Tests
 {
     [TestFixture()]
     public class StackCalculatorTest

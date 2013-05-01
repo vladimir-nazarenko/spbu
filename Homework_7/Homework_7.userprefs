@@ -1,17 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Homework_7/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../MyClasses/MyClasses/Data_structures/LinkedStack.cs">
     <Files>
-      <File FileName="Homework_7/Main.cs" Line="13" Column="13" />
-      <File FileName="Homework_7/MainWindow.cs" Line="10" Column="2" />
+      <File FileName="Homework_7/Evaluator.cs" Line="94" Column="57" />
+      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="76" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedStack.cs" Line="52" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="94" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="25" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Homework_7" expanded="True">
-            <Node name="UserInterface" expanded="True" />
-            <Node name="MainWindow.cs" selected="True" />
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="Homework_7" expanded="True" />
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True">
+              <Node name="LinkedStack.cs" selected="True" />
+            </Node>
           </Node>
+          <Node name="StackCalculator" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -22,10 +29,15 @@
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/MyClasses/Data_structures/LinkedStack.cs" line="52" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

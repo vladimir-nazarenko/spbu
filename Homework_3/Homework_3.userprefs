@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="StackCalculator/StackCalculator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StackCalculator.Tests/StackCalculatorTest.cs">
     <Files>
-      <File FileName="StackCalculator/StackCalculator.cs" Line="68" Column="70" />
-      <File FileName="StackCalculator.Tests/StackCalculatorTest.cs" Line="4" Column="11" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="74" Column="39" />
+      <File FileName="StackCalculator/StackCalculator.cs" Line="68" Column="22" />
+      <File FileName="StackCalculator.Tests/StackCalculatorTest.cs" Line="4" Column="22" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="74" Column="31" />
       <File FileName="../MyClasses/MyClasses/Data_structures/LinkedStack.cs" Line="16" Column="1" />
     </Files>
     <Pads>
@@ -13,11 +13,10 @@
           <Node name="MyClasses" expanded="True">
             <Node name="Data_structures" expanded="True" />
           </Node>
-          <Node name="StackCalculator" expanded="True">
-            <Node name="StackCalculator.cs" selected="True" />
-          </Node>
+          <Node name="StackCalculator" expanded="True" />
           <Node name="StackCalculator.Tests" expanded="True">
             <Node name="References" expanded="True" />
+            <Node name="StackCalculatorTest.cs" selected="True" />
           </Node>
         </State>
       </Pad>
