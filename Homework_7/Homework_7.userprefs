@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../MyClasses/MyClasses/Data_structures/LinkedStack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../BugsAndTasks.txt">
     <Files>
-      <File FileName="Homework_7/Evaluator.cs" Line="94" Column="57" />
-      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="76" Column="1" />
+      <File FileName="Homework_7/Evaluator.cs" Line="14" Column="12" />
+      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="74" Column="1" />
       <File FileName="../MyClasses/MyClasses/Data_structures/LinkedStack.cs" Line="52" Column="1" />
       <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="94" Column="1" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="25" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="10" Column="6" />
+      <File FileName="../BugsAndTasks.txt" Line="26" Column="110" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,9 +15,8 @@
           <Option id="ShowAllFiles" value="True" />
           <Node name="Homework_7" expanded="True" />
           <Node name="MyClasses" expanded="True">
-            <Node name="Data_structures" expanded="True">
-              <Node name="LinkedStack.cs" selected="True" />
-            </Node>
+            <Node name="Data_structures" expanded="True" />
+            <Node name="BugsAndTasks.txt" selected="True" />
           </Node>
           <Node name="StackCalculator" expanded="True" />
         </State>
@@ -37,6 +37,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/MyClasses/Data_structures/LinkedStack.cs" line="52" />
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Homework_3/StackCalculator/StackCalculator.cs" line="74" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
