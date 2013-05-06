@@ -30,7 +30,8 @@ namespace Homework7
                     if (stack.Count == 0)
                     {
                         stack.Push(current);
-                    } else
+                    } 
+                    else
                     {
                         string temp = stack.Peek();
                         switch (current)
@@ -71,14 +72,14 @@ namespace Homework7
                                 break;
                         }
                     }
-                } else
+                } 
+                else
                 {
                     double number = 0.0;
                     if (double.TryParse(current, out number))
                     {
                         result += current + " ";
-                    }
-            
+                    }            
                 }
             }
 

@@ -1,22 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../BugsAndTasks.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Clock/MainWindow.cs">
     <Files>
-      <File FileName="Homework_7/Evaluator.cs" Line="14" Column="12" />
-      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="74" Column="1" />
+      <File FileName="Homework_7/Evaluator.cs" Line="82" Column="22" />
+      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="73" Column="13" />
       <File FileName="../MyClasses/MyClasses/Data_structures/LinkedStack.cs" Line="52" Column="1" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="94" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ArrayStack.cs" Line="20" Column="37" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="152" Column="10" />
       <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="10" Column="6" />
-      <File FileName="../BugsAndTasks.txt" Line="26" Column="110" />
+      <File FileName="../BugsAndTasks.txt" Line="6" Column="23" />
+      <File FileName="Homework_7/MainWindow.cs" Line="50" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/ResizableArray.cs" Line="23" Column="32" />
+      <File FileName="Clock/MainWindow.cs" Line="35" Column="26" />
+      <File FileName="Clock/Main.cs" Line="6" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Option id="ShowAllFiles" value="True" />
+          <Node name="Clock" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="gtk-gui" expanded="True" />
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
           <Node name="Homework_7" expanded="True" />
           <Node name="MyClasses" expanded="True">
             <Node name="Data_structures" expanded="True" />
-            <Node name="BugsAndTasks.txt" selected="True" />
           </Node>
           <Node name="StackCalculator" expanded="True" />
         </State>
@@ -37,7 +46,7 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/MyClasses/MyClasses/Data_structures/LinkedStack.cs" line="52" />
-      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Homework_3/StackCalculator/StackCalculator.cs" line="74" />
+      <Breakpoint file="/home/vladimir/Development/monoDevelopWorkspace/Homework_3/StackCalculator/StackCalculator.cs" line="76" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

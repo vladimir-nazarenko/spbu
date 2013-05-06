@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackCalculator", "..\Homew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -25,8 +27,12 @@ Global
 		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Debug|x86.Build.0 = Debug|x86
 		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Release|x86.ActiveCfg = Release|x86
 		{5BD27337-84F3-45E3-B416-F14A879B30DC}.Release|x86.Build.0 = Release|x86
+		{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}.Debug|x86.ActiveCfg = Debug|x86
+		{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}.Debug|x86.Build.0 = Debug|x86
+		{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}.Release|x86.ActiveCfg = Release|x86
+		{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Homework_7\Homework_7.csproj
+		StartupItem = Clock\Clock.csproj
 	EndGlobalSection
 EndGlobal

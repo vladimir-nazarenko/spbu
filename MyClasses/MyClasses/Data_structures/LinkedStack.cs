@@ -10,7 +10,7 @@ namespace MyClasses.DataStructures
         /// <summary>
         /// The list for storing items.
         /// </summary>
-        private LinkedList<T> list;
+        private MyClasses.DataStructures.LinkedList<T> list;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MyClasses.DataStructures.LinkedStack{T}"/> class.
@@ -28,7 +28,7 @@ namespace MyClasses.DataStructures
         /// </param>
         public void Push(T item)
         {
-            this.list.InsertFirst(item);
+            this.list.Add(item);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace MyClasses.DataStructures
         /// <returns>Value from the edge of the stack.</returns>
         public T Pop()
         {
-            T value = this.list.First.Item;
+            T value = this.list.Retrieve(this.list.First);
             this.list.Remove(this.list.First);
             return value;
         }
