@@ -181,7 +181,7 @@ namespace MyClasses.DataStructures
         /// <param name='item'>
         /// Item to be added.
         /// </param>
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             this.InsertFirst(item);
         }

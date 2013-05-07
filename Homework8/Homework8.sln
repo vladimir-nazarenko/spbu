@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework8", "Homework8\Homework8.csproj", "{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework8Tests", "Homework8Tests\Homework8Tests.csproj", "{318AAF82-8862-454D-8B96-B5CC2B661825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniqueList", "..\Homework_5\UniqueList\UniqueList.csproj", "{742CD356-C113-4CE3-AF2A-F69EA467EC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{318AAF82-8862-454D-8B96-B5CC2B661825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318AAF82-8862-454D-8B96-B5CC2B661825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318AAF82-8862-454D-8B96-B5CC2B661825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318AAF82-8862-454D-8B96-B5CC2B661825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742CD356-C113-4CE3-AF2A-F69EA467EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Homework8\Homework8.csproj
+	EndGlobalSection
+EndGlobal
