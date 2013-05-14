@@ -2,10 +2,70 @@ namespace Homework8
 {
     using System;
     using System.Collections.Generic;
-    using Homework5;
+    using MyClasses;
 
-    public class Set<T> : UniqueList<T>
+    public class Set<T> : ICollection<T>
     {
+        private MyClasses.DataStructures.LinkedList<T> storage;
+
+        /// <summary>
+        /// Gets the number of the elements in the current instance.
+        /// </summary>
+        public int Count
+        {
+            get
+            {
+                return storage.Count;
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public Set()
+        {
+            storage = new MyClasses.DataStructures.LinkedList<T>();
+        }
+
+        public void Clear()
+        {
+            storage.Clear();
+        }
+
+        /// <summary>
+        /// Copies instance to an array.
+        /// </summary>
+        /// <param name='array'>
+        /// Array.
+        /// </param>
+        /// <param name='index'>
+        /// Index where to start.
+        /// </param>
+        public void CopyTo(T[] array, int index)
+        {
+            this.storage.CopyTo(array, index);
+        }
+
+        public bool Remove(T item)
+        {
+            return storage.Remove(item);
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return storage.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
         public static new bool Equals(object first, object second)
         {
             if (!(first is Set<T>) || !(second is Set<T>))
@@ -15,7 +75,6 @@ namespace Homework8
 
             var firstSet = first as Set<T>;
             var secondSet = second as Set<T>;
-
             bool isEqual = true;
             if (firstSet.Count == secondSet.Count)
             {
@@ -33,6 +92,12 @@ namespace Homework8
             return false;
         }
 
+        /// <summary>
+        /// Unite the current instance with another.
+        /// </summary>
+        /// <param name='another'>
+        /// Another instance.
+        /// </param>
         public Set<T> Unite(Set<T> another)
         {
             var newSet = (Set<T>)this.MemberwiseClone();
@@ -47,6 +112,12 @@ namespace Homework8
             return newSet;
         }
 
+        /// <summary>
+        /// Intersect the current instance with another.
+        /// </summary>
+        /// <param name='another'>
+        /// Another instance.
+        /// </param>
         public Set<T> Intersect(Set<T> another)
         {
             var newSet = new Set<T>();
@@ -61,14 +132,16 @@ namespace Homework8
             return newSet;
         }
 
-        public override void Add(T item)
+        public bool Contains(T item)
         {
-            try
+            return storage.Contains(item);
+        }
+
+        public void Add(T item)
+        {
+            if (!this.storage.Contains(item))
             {
-                base.Add(item);
-            } 
-            catch
-            {
+                storage.Add(item);
             }
         }
 

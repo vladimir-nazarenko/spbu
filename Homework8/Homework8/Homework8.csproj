@@ -37,10 +37,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\Homework_5\UniqueList\UniqueList.csproj">
-      <Project>{742CD356-C113-4CE3-AF2A-F69EA467EC6E}</Project>
-      <Name>UniqueList</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
       <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
       <Name>MyClasses</Name>

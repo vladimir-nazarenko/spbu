@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Homework8/AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Homework8/Set.cs">
     <Files>
-      <File FileName="Homework8/Set.cs" Line="79" Column="9" />
+      <File FileName="Homework8/Set.cs" Line="1" Column="20" />
       <File FileName="Homework8Tests/SetTests.cs" Line="53" Column="16" />
       <File FileName="Homework8/AssemblyInfo.cs" Line="8" Column="32" />
     </Files>
@@ -11,7 +11,7 @@
         <State expanded="True">
           <Node name="Homework8" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="AssemblyInfo.cs" selected="True" />
+            <Node name="Set.cs" selected="True" />
           </Node>
           <Node name="Homework8Tests" expanded="True">
             <Node name="References" expanded="True" />
