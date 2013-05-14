@@ -6,6 +6,12 @@ namespace Homework5
     {
         private double value;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Homework5.Operand"/> class.
+        /// </summary>
+        /// <param name='value'>
+        /// Value that should be stored.
+        /// </param>
         public Operand(double value)
         {
             this.value = value;

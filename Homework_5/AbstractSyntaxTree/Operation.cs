@@ -9,6 +9,15 @@ namespace Homework5
         private string signature;
         private Func<double, double, double> perform;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Homework5.Operation"/> class.
+        /// </summary>
+        /// <param name='sign'>
+        /// Sign of the operation.
+        /// </param>
+        /// <param name='performOperation'>
+        /// A way to perform the operation.
+        /// </param>
         public Operation(string sign, Func<double, double, double> performOperation)
         {
             this.perform = performOperation;
@@ -28,6 +37,15 @@ namespace Homework5
             return this.perform(this.left.Calculate(), this.right.Calculate());
         }
 
+        /// <summary>
+        /// Adds the operand.
+        /// </summary>
+        /// <returns>
+        /// The operand that has been just included to the tree.
+        /// </returns>
+        /// <param name='operand'>
+        /// Operand.
+        /// </param>
         public INode AddOperand(INode operand)
         {
             if (this.left == null)
@@ -42,7 +60,7 @@ namespace Homework5
                 } 
                 else
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new ExtraNodeException();
                 }
             }
         }

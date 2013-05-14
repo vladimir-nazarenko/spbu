@@ -127,12 +127,12 @@ namespace MyClasses.DataStructures
         public bool Remove(T item)
         {
             ListElement<T> seek = this.Find(item);
-            if (seek == null)
+            if (seek != null)
             {
                 this.Remove(seek);
             }
 
-            return seek == null;
+            return seek != null;
         }
 
         /// <summary>

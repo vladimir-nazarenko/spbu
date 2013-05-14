@@ -9,6 +9,12 @@ namespace Homework5
         private Dictionary<string, Func<double, double, double>> operations;
         private int counter;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Homework5.AbstractSyntaxTree"/> class.
+        /// </summary>
+        /// <param name='expression'>
+        /// Mathematical expression.
+        /// </param>
         public AbstractSyntaxTree(string expression)
         {
             this.operations = new Dictionary<string, Func<double, double, double>>
@@ -22,6 +28,12 @@ namespace Homework5
             this.counter = 0;
         }
 
+        /// <summary>
+        /// Build tree with the specified current as a root.
+        /// </summary>
+        /// <param name='current'>
+        /// Node that will become root.
+        /// </param>
         public void Build(ref INode current)
         {
             string token = this.tokens[this.counter++];

@@ -33,10 +33,5 @@ namespace AbstractSyntaxTreeTests
             string actual = output.ToString();
             Assert.AreEqual("(* 7 (+ 2 3 ))", actual);
         }
-
-        [Test]
-        public void TestCase()
-        {
-        }
     }
 }

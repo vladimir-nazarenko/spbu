@@ -71,9 +71,8 @@ namespace Homework3
                 }
             }
 
-            // Баг сидит здесь!
-            var r = 5.0;
-            r = this.stack.Pop();
+            var r = this.stack.Pop();
+
             if (this.stack.IsEmpty())
             {
                 return r;

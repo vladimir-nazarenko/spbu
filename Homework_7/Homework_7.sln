@@ -33,6 +33,6 @@ Global
 		{67884DB4-BA4D-4D39-8920-BEB48E6CF6DE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Clock\Clock.csproj
+		StartupItem = Homework_7\Homework_7.csproj
 	EndGlobalSection
 EndGlobal

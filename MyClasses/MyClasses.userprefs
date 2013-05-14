@@ -18,9 +18,10 @@
       <File FileName="MyClasses/Data_structures/HashTable.cs" Line="17" Column="32" />
       <File FileName="MyClasses/Strategies/HashFunctions/FNVHash.cs" Line="4" Column="1" />
       <File FileName="MyClasses/Strategies/HashFunctions/Adler32Hash.cs" Line="30" Column="14" />
-      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="9" Column="33" />
-      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="51" Column="26" />
-      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="11" Column="50" />
+      <File FileName="MyClasses.Tests/LinkedListTests.cs" Line="55" Column="10" />
+      <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="40" Column="32" />
+      <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="56" Column="37" />
+      <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="135" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

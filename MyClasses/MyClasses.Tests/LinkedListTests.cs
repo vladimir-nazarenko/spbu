@@ -34,8 +34,19 @@ namespace MyClasses
         }
 
         [Test]
-        [ExpectedException(typeof(KeyNotFoundException))]
         public void Remove_FewElements_Processed()
+        {
+            this.list.Remove(this.list.First);
+            this.list.Remove(this.list.First);
+            this.list.Remove(this.list.First);
+            Assert.AreEqual(0, list.Count);
+            Assert.IsFalse(this.list.Contains(7));
+            Assert.IsFalse(this.list.Contains(5));
+        }
+
+        [ExpectedException(typeof(KeyNotFoundException))]
+        [Test]
+        public void Remove_FromEmptyList_ExceptionThrown()
         {
             this.list.Remove(this.list.First);
             this.list.Remove(this.list.First);
@@ -48,6 +59,17 @@ namespace MyClasses
         {
             Assert.AreEqual(null, this.list.Find(9));
             Assert.AreEqual(6, this.list.Find(6).Item);
+        }
+
+        [Test]
+        public void Retrieve_BunchOfElements_Success()
+        {
+            Assert.AreEqual(7, this.list.Retrieve(this.list.First));
+            Assert.IsTrue(this.list.Remove(7));
+            Assert.AreEqual(6, this.list.Retrieve(this.list.First));
+            Assert.IsTrue(this.list.Remove(6));
+            Assert.AreEqual(5, this.list.Retrieve(this.list.First));
+            Assert.IsTrue(this.list.Remove(5));
         }
 
         [Test]

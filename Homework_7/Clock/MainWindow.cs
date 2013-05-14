@@ -34,9 +34,8 @@ public partial class MainWindow : Gtk.Window
         // Draw frame
         cr.LineWidth = 10;
         cr.SetSourceRGB(0, 0, 0);
-        int width, height;
-        width = Allocation.Width;
-        height = Allocation.Height;
+        int width = Allocation.Width;
+        int height = Allocation.Height;
         cr.Translate(width / 2, height / 2);           
         cr.Arc(0, 0, ((width < height ? width : height) / 2) - 10, 0, 2 * Math.PI);
         cr.Stroke();
