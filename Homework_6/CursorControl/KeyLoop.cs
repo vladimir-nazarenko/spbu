@@ -8,6 +8,10 @@ namespace Homework6
 
         public event EventHandler<EventArgs> RightHandler = (sender, args) => { };
 
+        public event EventHandler<EventArgs> UpHandler = (sender, args) => { };
+
+        public event EventHandler<EventArgs> DownHandler = (sender, args) => { };
+
         public void Run()
         {        
             while (true)
@@ -20,6 +24,15 @@ namespace Homework6
                         break;
                     case ConsoleKey.RightArrow:
                         this.RightHandler(this, EventArgs.Empty);
+                        break;
+                    case ConsoleKey.UpArrow:
+                        this.UpHandler(this, EventArgs.Empty);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        this.DownHandler(this, EventArgs.Empty);
+                        break;
+                    default:
+                        Console.Write('\b');
                         break;
                 }
             }   

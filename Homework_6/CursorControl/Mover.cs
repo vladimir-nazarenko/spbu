@@ -11,23 +11,52 @@ namespace Homework6
 
         public void MoveLeft(object sender, EventArgs e)
         {
-            int left = Console.CursorLeft;
-            if (Console.CursorLeft == 1)
+            this.RemoveLast();
+            if (Console.CursorLeft > 0)
             {
-                if (Console.CursorTop > 0)
-                {
-                    Console.SetCursorPosition(Console.WindowWidth - 1, Console.CursorTop - 1);
-                }
+                Console.CursorLeft--;
             }
             else
             {
-                Console.SetCursorPosition(left - 2, Console.CursorTop);
+                if (Console.CursorTop > 0)
+                {
+                    Console.CursorTop--;
+                    Console.CursorLeft = Console.BufferWidth - 1;
+                }
             }
         }
 
         public void MoveRight(object sender, EventArgs e)
         {
-            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop);
+            this.RemoveLast();
+            if (Console.CursorLeft == Console.BufferWidth - 1)
+            {
+                this.RemoveLast();
+            }
+            else
+            {
+                Console.CursorLeft++;
+            }
+        }
+
+        public void MoveUp(object sender, EventArgs e)
+        {
+            this.RemoveLast();
+            if (Console.CursorTop > 0)
+            {
+                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
+            }
+        }
+
+        public void MoveDown(object sender, EventArgs e)
+        {
+            this.RemoveLast();
+            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop + 1);
+        }
+
+        public void RemoveLast()
+        {
+            Console.Write('\b');
         }
     }
 }

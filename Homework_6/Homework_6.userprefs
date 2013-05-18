@@ -1,33 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CursorControl/Mover.cs">
     <Files>
-      <File FileName="../MyClasses/MyClasses/Data_structures/HashTable.cs" Line="173" Column="2" />
-      <File FileName="ExtendedLinkedList.Tests/ExtendedLinkedListTests.cs" Line="23" Column="10" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="247" Column="14" />
-      <File FileName="../BugsAndTasks.txt" Line="7" Column="328" />
-      <File FileName="ExtendedLinkedList/ExtendedLinkedList.cs" Line="4" Column="26" />
-      <File FileName="TruTest/Main.cs" Line="8" Column="10" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/ListElement.cs" Line="8" Column="69" />
-      <File FileName="../Questions.txt" Line="2" Column="1" />
-      <File FileName="ExtendedLinkedList/AssemblyInfo.cs" Line="1" Column="21" />
-      <File FileName="../MyClasses/MyClasses/Data_structures/ArrayStack.cs" Line="6" Column="32" />
-      <File FileName="../MyClasses/MyClasses/Interfaces/IStack.cs" Line="10" Column="17" />
-      <File FileName="CursorControl/Mover.cs" Line="33" Column="2" />
-      <File FileName="CursorControl/Main.cs" Line="3" Column="18" />
-      <File FileName="CursorControl/KeyLoop.cs" Line="28" Column="2" />
-      <File FileName="CursorControl/AssemblyInfo.cs" Line="1" Column="21" />
-      <File FileName="TruTest/AssemblyInfo.cs" Line="1" Column="21" />
-      <File FileName="ExtendedLinkedList.Tests/AssemblyInfo.cs" Line="1" Column="21" />
+      <File FileName="CursorControl/Mover.cs" Line="15" Column="37" />
+      <File FileName="CursorControl/KeyLoop.cs" Line="21" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CursorControl" expanded="True" />
-          <Node name="ExtendedLinkedList" expanded="True" />
-          <Node name="ExtendedLinkedList.Tests" expanded="True">
-            <Node name="ExtendedLinkedListTests.cs" selected="True" />
+          <Node name="CursorControl" expanded="True">
+            <Node name="Mover.cs" selected="True" />
           </Node>
+          <Node name="ExtendedLinkedList" expanded="True" />
+          <Node name="ExtendedLinkedList.Tests" expanded="True" />
           <Node name="TruTest" expanded="True" />
         </State>
       </Pad>
@@ -37,7 +22,9 @@
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
+        <State>
+          <Value>Console.CursorLeft</Value>
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />
