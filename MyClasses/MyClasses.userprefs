@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses.Tests/LinkedStackTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyClasses/Sorting_algorithms/QSort.cs">
     <Files>
       <File FileName="../BugsAndTasks.txt" Line="7" Column="27" />
       <File FileName="TestClient/Main.cs" Line="3" Column="35" />
@@ -22,6 +22,8 @@
       <File FileName="MyClasses/Data_structures/LinkedStack.cs" Line="40" Column="32" />
       <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="56" Column="37" />
       <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="135" Column="26" />
+      <File FileName="MyClasses/Sorting_algorithms/InsertionSort.cs" Line="26" Column="41" />
+      <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="106" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -31,22 +33,30 @@
             <Node name="Exceptions" expanded="True" />
             <Node name="Interfaces" expanded="True" />
             <Node name="Parsing" expanded="True" />
-            <Node name="Sorting_algorithms" expanded="True" />
+            <Node name="Sorting_algorithms" expanded="True">
+              <Node name="QSort.cs" selected="True" />
+            </Node>
             <Node name="Strategies" expanded="True">
               <Node name="HashFunctions" expanded="True" />
             </Node>
           </Node>
-          <Node name="MyClasses.Tests" expanded="True">
-            <Node name="LinkedStackTests.cs" selected="True" />
-          </Node>
+          <Node name="MyClasses.Tests" expanded="True" />
           <Node name="TestClient" expanded="True">
             <Node name="References" expanded="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State selected="True">
+        <State expanded="True">
           <Option id="PublicApiOnly" value="True" />
+          <Node name="MyClasses" expanded="True">
+            <Node name="MyClasses" expanded="True">
+              <Node name="SortingAlgorithms" expanded="True">
+                <Node name="MyClasses.SortingAlgorithms.InsertionSort" expanded="True" />
+                <Node name="MyClasses.SortingAlgorithms.QSort" expanded="True" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
