@@ -2,6 +2,9 @@ namespace Homework6
 {
     using System;
 
+    /// <summary>
+    /// Gets keys and attempts to handle them.
+    /// </summary>
     public class KeyLoop
     {
         public event EventHandler<EventArgs> LeftHandler = (sender, args) => { };
@@ -12,11 +15,14 @@ namespace Homework6
 
         public event EventHandler<EventArgs> DownHandler = (sender, args) => { };
 
+        /// <summary>
+        /// Starts infinite loop for key input.
+        /// </summary>
         public void Run()
         {        
             while (true)
             {
-                var key = Console.ReadKey();
+                var key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.LeftArrow:

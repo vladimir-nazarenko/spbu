@@ -23,7 +23,7 @@
       <File FileName="MyClasses.Tests/LinkedStackTests.cs" Line="56" Column="37" />
       <File FileName="MyClasses/Data_structures/LinkedList.cs" Line="135" Column="26" />
       <File FileName="MyClasses/Sorting_algorithms/InsertionSort.cs" Line="26" Column="41" />
-      <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="106" Column="9" />
+      <File FileName="MyClasses/Sorting_algorithms/QSort.cs" Line="98" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
