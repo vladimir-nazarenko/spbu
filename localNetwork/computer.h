@@ -10,7 +10,7 @@ public:
 	Computer(OS* os);
 	~Computer();
 	OS *boot();
-	void connectTo(Computer *other);
+	void connectTo(Computer *&other);
 private:
 	QList<Computer *> connected;
 	OS *_os;

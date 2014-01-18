@@ -14,11 +14,14 @@ public:
 	int powerOfVirus();
 	bool isInfected();
 	void forceInfect(int powerOfAttack);
+	void releaseVirus();
+	bool canInfect();
 protected:
 	OS();
 	RandomGenerator* mGenerator;
 	bool mInfected;
 	int mPowerOfVirus;
+	bool mCanInfect;
 };
 
 #endif // OS_H

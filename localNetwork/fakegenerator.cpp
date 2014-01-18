@@ -2,7 +2,7 @@
 
 FakeGenerator::FakeGenerator()
 {
-	for (int i = 10; i < 80; i += 10)
+	for (int i = 0; i < 30; i += 10)
 		numbers.enqueue(i);
 }
 

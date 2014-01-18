@@ -13,6 +13,7 @@ OS::~OS()
 
 bool OS::getRoot(int powerOfAttack)
 {
+
 	if (powerOfAttack > reliability())
 	{
 		mInfected = true;
@@ -39,8 +40,19 @@ void OS::forceInfect(int powerOfAttack)
 	mPowerOfVirus = powerOfAttack;
 }
 
+void OS::releaseVirus()
+{
+	mCanInfect = true;
+}
+
+bool OS::canInfect()
+{
+	return mCanInfect;
+}
+
 OS::OS()
 {
 	mInfected = false;
 	mPowerOfVirus = 0;
+	mCanInfect = 0;
 }

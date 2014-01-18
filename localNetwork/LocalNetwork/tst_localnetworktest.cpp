@@ -70,15 +70,9 @@ void LocalNetworkTest::testInfection()
 {
 	QVERIFY2(countInfected() == 1, "error");
 	makeTurn();
-	QVERIFY2(countInfected() == 3, "error");
+	QVERIFY2(countInfected() == 1, "error");
 	makeTurn();
 	QVERIFY2(countInfected() == 3, "error");
-	makeTurn();
-	QVERIFY2(countInfected() == 4, "error");
-	makeTurn();
-	QVERIFY2(countInfected() == 4, "error");
-	makeTurn();
-	QVERIFY2(countInfected() == 4, "error");
 	makeTurn();
 	QVERIFY2(countInfected() == 5, "error");
 }
