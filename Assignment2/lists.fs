@@ -10,6 +10,20 @@ let rec powersOfTwo = function
 
 let firstFivePowerOfTwo = reverse (powersOfTwo 5)
 
-let countProduct number =
-  let letters = string number
+let splitString (str: string) =
+  List.init str.Length (fun index -> string str.[index])
+
+// type needed to avoid cases, when user calls function with non-integer, but conversible to string type, because this can cause an exception
+let countProduct (number: int) =
+  let strNum = string number
+  strNum |> splitString |> (List.fold (fun init x -> init * (System.Int32.Parse x)) 1)
   
+let getFirstPosition elem lst =
+  let rec helper lst_helper n =
+    match lst_helper with
+      | [] -> None
+      | x :: tail when (x = elem) -> Some n
+      | x :: xs -> helper xs (n + 1)
+  helper lst 0
+
+let isPalindrom str = str = (str |> splitString |> reverse |> (List.reduce (fun a b -> a + b)))
