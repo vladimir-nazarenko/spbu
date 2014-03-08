@@ -46,13 +46,15 @@ let doSave db =
 let doLoad db =
   printfn "Enter filename, please"
   let name = System.Console.ReadLine()
-//  if not <| System.IO.File.Exists name then printfn "Sorry, file doesn't exist" ; (2, db)
-  let lines = List.ofArray <| System.IO.File.ReadAllLines name
-  let processLine db: Map<string, string> -> str: string -> Map<string, string> =
-    let parts = str.Split [|'|'|]
-    db.Add (parts.[0], parts.[1])
-  let modifiedDB = List.fold (processLine) db lines
-  (1, modifiedDB)
+  match System.IO.File.Exists name with
+    | false -> printfn "Sorry, file doesn't exist" ; (2, db)
+    | true ->
+      let lines = List.ofArray <| System.IO.File.ReadAllLines name
+      let processLine (db: Map<string, string>, str: string) =
+        let parts = str.Split [|'|'|]
+        db.Add (parts.[0], parts.[1])
+      let modifiedDB = List.fold (fun acc elem -> processLine(acc, elem)) db lines
+      (1, modifiedDB)
 
 let doPrintError db =
   printfn "%s" strings.["invalidCommand"]
