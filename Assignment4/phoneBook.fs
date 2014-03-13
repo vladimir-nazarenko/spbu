@@ -2,6 +2,12 @@ module PhoneBook
 
 exception InvalidState of int
 
+type Message =
+  | DBModified
+  | DBUnmodified
+  | NeedExit
+  | Error
+
 // stores strings for messages
 let strings = [
   ("initial", "Hello! Welcome to Phone Book Interface!\nPlease, enter the command(h to help)...");
@@ -11,11 +17,11 @@ let strings = [
 
 let printHelp db =
   printfn "%s" strings.["help"]
-  (0, db)
+  (DBUnmodified, db)
 
 let doExit db =
   printfn "%s" strings.["goodbye"]
-  (-1, db)
+  (NeedExit, db)
 
 let doAdd (db: Map<string, string>) =
   printf "Enter the name: "
@@ -24,14 +30,14 @@ let doAdd (db: Map<string, string>) =
   let number = System.Console.ReadLine()
   let modifiedDB = db.Add (name, number)
   printfn "Record succesfully added!"
-  (1, modifiedDB)
+  (DBModified, modifiedDB)
 
 let doFind db =
   printf "Enter the name: "
   let name = System.Console.ReadLine()
   match Map.tryFindKey (fun key value -> key = name) db with
-    | None -> printfn "Nothing was found, sorry..."; (0, db)
-    | Some key -> printfn "Number of %s is %s" key db.[key]; (0, db)
+    | None -> printfn "Nothing was found, sorry..."; (DBUnmodified, db)
+    | Some key -> printfn "Number of %s is %s" key db.[key]; (DBUnmodified, db)
 
 let doSave db =
   printfn "Enter filename, please"
@@ -40,32 +46,27 @@ let doSave db =
   Map.iter (fun key value -> fs.WriteLine (key + "|" + value)) db
   fs.Close()
   printfn "Phone Book was succesfully written into %s" path
-  (0, db)
+  (DBUnmodified, db)
   
 
 let doLoad db =
   printfn "Enter filename, please"
   let name = System.Console.ReadLine()
   match System.IO.File.Exists name with
-    | false -> printfn "Sorry, file doesn't exist" ; (2, db)
+    | false -> printfn "Sorry, file doesn't exist" ; (Error, db)
     | true ->
       let lines = List.ofArray <| System.IO.File.ReadAllLines name
       let processLine (db: Map<string, string>, str: string) =
         let parts = str.Split [|'|'|]
         db.Add (parts.[0], parts.[1])
       let modifiedDB = List.fold (fun acc elem -> processLine(acc, elem)) db lines
-      (1, modifiedDB)
+      (DBModified, modifiedDB)
 
 let doPrintError db =
   printfn "%s" strings.["invalidCommand"]
-  (0, db)
+  (DBModified, db)
 
 // interprets input symbol to function call
-// each function returns number from -1 to 2
-// -1 - exit
-// 0 - all is OK, db unmodified
-// 1 - all is OK, db modified
-// 2 - command finished with errors
 let handleCommand command db =
   match command with
     | "h" -> printHelp(db)
@@ -83,9 +84,9 @@ let rec init (status:string, db:Map<string, string>) =
   printf ">>"
   let input = System.Console.ReadLine()
   match handleCommand <| input <| db with
-    | (0, _) -> init("continue", db)
-    | (1, modifiedDB) | (2, modifiedDB) -> init("continue", modifiedDB)
-    | (-1, _) -> ()
-    | (x, _) -> raise (InvalidState x)
+    | (DBUnmodified, _) | (Error, _) -> init("continue", db)
+    | (DBModified, mdb) -> init("continue", mdb)
+    | (NeedExit, _) -> ()
+   // | (Error, _) -> raise (InvalidState x)
       
 init("start", Map.empty)
