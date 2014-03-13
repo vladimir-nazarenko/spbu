@@ -12,7 +12,7 @@ type Message =
 let strings = [
   ("initial", "Hello! Welcome to Phone Book Interface!\nPlease, enter the command(h to help)...");
   ("help", "Phone Book Interface Help.\nh - print this message\ne - exit\na - add record to database\nf - find record in database\ns - save database into file\nl - load database from file");
-  ("invalidComand", "Invalid input, type h to get help");
+  ("invalidCommand", "Invalid input, type h to get help");
   ("goodbye", "Thank you for using this app. Goodbye!")] |> Map.ofList
 
 let printHelp db =
@@ -32,12 +32,12 @@ let doAdd (db: Map<string, string>) =
   printfn "Record succesfully added!"
   (DBModified, modifiedDB)
 
-let doFind db =
+let doFind db = //db:Map<string, string> =
   printf "Enter the name: "
   let name = System.Console.ReadLine()
-  match Map.tryFindKey (fun key value -> key = name) db with
+  match Map.tryFind name db with
     | None -> printfn "Nothing was found, sorry..."; (DBUnmodified, db)
-    | Some key -> printfn "Number of %s is %s" key db.[key]; (DBUnmodified, db)
+    | Some value -> printfn "Number of %s is %s" name value; (DBUnmodified, db)
 
 let doSave db =
   printfn "Enter filename, please"
