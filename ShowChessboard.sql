@@ -1,0 +1,1 @@
+SELECT * FROM Chessboard JOIN Figures on Chessboard.cid = Figures.cid;
