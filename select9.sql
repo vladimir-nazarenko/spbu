@@ -1,6 +1,11 @@
 USE m12nvv;
 GO
-SELECT figuresOnBoard.type, COUNT(*) AS figureCount
-FROM (SELECT Figures.type AS type FROM Chessboard, Figures WHERE Chessboar.cid = Figures.cid)
-GROUP BY type
-WHERE figureCount >= 2
+SELECT * FROM (
+	SELECT figuresOnBoard.type, COUNT(*) AS figureCount
+	FROM (
+		SELECT Figures.type AS type 
+		FROM Chessboard, Figures 
+		WHERE Chessboard.cid = Figures.cid
+	) AS FiguresOnBoard
+	GROUP BY type) AS types
+WHERE types.figureCount >= 2
