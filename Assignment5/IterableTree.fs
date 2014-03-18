@@ -49,25 +49,40 @@ type ItTree<'a when 'a: comparison>() =
   member t.find elem = findInTree tree elem
   member t.insert elem = tree <- addIntoTree tree elem
   member t.remove elem = tree <- deleteFromTree tree elem
-  type TreeEnum<'a>() =
+  type TreeEnum<'a>(tr: Tree<'a> option) =
     let mutable stack = []
-    let buildStack tree st =
+    let rec buildStack tree st =
       match tree with
         | None -> []
         | Some(Leaf x) -> (Leaf x) :: st
-        | Some(Tree x l r) -> (Tree x l r) :: (buildStack l)
-    stack <- buildStack tree stack
+        | Some(Tree(x, l, r)) -> buildStack l ((Tree(x, l, r)) :: st)
+    let rec getNext stack =
+      match stack with
+        | [] -> raise IteratorException
+        | x :: xs ->
+          match x with
+            | Leaf u -> (xs, u)
+            | Tree(v, l, r) ->
+              if r.IsSome then getNext(buildStack r (x :: xs)) else (xs , v)
+    do
+      stack <- buildStack tr stack
+    let mutable cur = None
+    let tryGetElem =
+      match cur with
+        | None -> raise IteratorException
+        | Some y -> y
     interface IEnumerator<'a> with
-      member e.Current =
-        match stack with
-          | [] -> raise IteratorException
-          | x :: xs ->
-            match x with
-              | Leaf u -> stack <- stack.Tail; u
-              | Tree(v l r) -> if 
-      member e.MoveNext() = true
-      member e.Dispose() = ()
-      member e.Reset() = ()
+      member e.Current with get() = tryGetElem
+      member e.MoveNext() =
+        try
+          let (st, elem) = getNext stack
+          stack <- st
+          cur <- Some elem
+          true
+        with
+          | IteratorException -> cur <- None; false
+      member e.Dispose() = () // Have no idea, what should I dispose here
+      member e.Reset() = stack <- buildStack tr []
 
 
     
