@@ -96,6 +96,6 @@ type ItTree<'a when 'a: comparison>() =
   member t.insert elem = tree <- addIntoTree tree elem
   member t.remove elem = tree <- deleteFromTree tree elem
   interface IEnumerable<'a> with
-    member t.GetEnumerator = () // ???
+    member t.GetEnumerator = fun () -> new TreeEnum<'a>(tree)
 
     
