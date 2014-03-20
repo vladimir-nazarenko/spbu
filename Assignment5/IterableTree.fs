@@ -1,6 +1,7 @@
 module IterableTree
 
 open System.Collections.Generic
+open System.Collections
 
 // Binary tree representation
 type Tree<'a> =
@@ -67,12 +68,12 @@ type ItTree<'a when 'a: comparison>() =
     do
       stack <- buildStack tr stack
     let mutable cur = None
-    let tryGetElem =
+    let tryGetElem() =
       match cur with
         | None -> raise IteratorException
         | Some y -> y
     interface IEnumerator<'a> with
-      member e.Current with get() = tryGetElem
+      member e.Current = tryGetElem()
       member e.MoveNext() =
         try
           let (st, elem) = getNext stack
