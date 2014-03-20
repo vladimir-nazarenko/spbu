@@ -43,14 +43,17 @@ let rec deleteFromTree t x =
         elif r.IsSome then r
         else None
 
+// raise when no element in current
 exception IteratorException
 
+// buld stack from left most branch of the tree and join it to the given stack(st)
 let rec buildStack tree st =
   match tree with
     | None -> []
     | Some(Leaf x) -> (Leaf x) :: st
     | Some(Tree(x, l, r)) -> buildStack l ((Tree(x, l, r)) :: st)
 
+// get element from stack and modify the stack
 let rec getNext stack =
   match stack with
     | [] -> raise IteratorException
@@ -60,15 +63,19 @@ let rec getNext stack =
         | Tree(v, l, r) ->
           if r.IsSome then getNext(buildStack r (x :: xs)) else (xs , v)
 
+// get element or raise an exception
 let tryGetElem opt =
   match opt with
     | None -> raise IteratorException
     | Some y -> y
 
+// Enumerator for tree
 type TreeEnum<'a>(tr: Tree<'a> option) =
   let mutable stack = []
   do
+    // Build stack of tree
     stack <- buildStack tr stack
+  // current element
   let mutable cur = None
   interface IEnumerator<'a> with
     member e.Current with get () = tryGetElem cur
@@ -88,6 +95,7 @@ type ItTree<'a when 'a: comparison>() =
   member t.find elem = findInTree tree elem
   member t.insert elem = tree <- addIntoTree tree elem
   member t.remove elem = tree <- deleteFromTree tree elem
-
+  interface IEnumerable<'a> with
+    member t.GetEnumerator = () // ???
 
     
