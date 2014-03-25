@@ -45,9 +45,9 @@ def visualize_number(number, number_of_rows=28, number_of_columns=28):
     display(img)
 
 
-def spoil_pixels(pixels, ratio):
+def spoil_pixels(pixels, ratio, contains_label=False):
     """Gets list of image pixels and for pixels * ratio of them sets random ones to be white"""
-    pix_len = len(pixels)
+    pix_len = len(pixels) if not contains_label else len(pixels) - 1
     positions = list(range(pix_len))
     random.shuffle(positions)
     positions = positions[0:int(pix_len * ratio)]
@@ -79,7 +79,9 @@ def writeintoarff(images, labels, noise_rate, name='MNIST', numberofcolumns=28, 
     arff_writer.pytypes[str] = set([str(i) for i in range(10)])
     # write features into file
     for i in range(NUMBER_OF_IMAGES_TO_LOAD):
-        arff_writer.write(read_one_image(images, labels))
+        pixels = read_one_image(images, labels)
+        spoil_pixels(pixels, noise_rate, contains_label=True)
+        arff_writer.write(pixels)
     arff_writer.close()
 
 
