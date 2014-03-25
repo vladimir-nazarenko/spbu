@@ -9,7 +9,9 @@ from wand.color import Color
 from wand.drawing import Drawing
 
 
-NUMBER_OF_IMAGES_TO_LOAD = 2000
+NUMBER_OF_IMAGES_TO_LOAD = 10000
+NUMBER_OF_EXPERIMENTS = 3
+STEP = 0.1
 
 
 def convert_bytes_to_int32(data):
@@ -99,12 +101,10 @@ def main():
         magicnumberlabels = convert_bytes_to_int32(train_labels.read(4))
         numberoflabels = convert_bytes_to_int32(train_labels.read(4))
         assert numberofimages == numberoflabels
-        writeintoarff(train_images, train_labels, 0.0)
-        writeintoarff(train_images, train_labels, 0.4)
-        writeintoarff(train_images, train_labels, 0.8)
-
-
-
+        rate = 0.0
+        for i in range(NUMBER_OF_EXPERIMENTS):
+            writeintoarff(train_images, train_labels, rate)
+            rate += STEP
 
 
 if __name__ == '__main__':
