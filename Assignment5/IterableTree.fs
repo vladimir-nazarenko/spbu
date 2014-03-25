@@ -64,10 +64,10 @@ let rec getNext stack =
           if r.IsSome then getNext(buildStack r (x :: xs)) else (xs , v)
 
 // get element or raise an exception
-let tryGetElem opt =
-  match opt with
-    | None -> raise IteratorException
-    | Some y -> y
+let getElem tree =
+  match tree with
+    | Tree(el, _, _) -> el
+    | Leaf el -> el
 
 // Enumerator for tree
 type TreeEnum<'a>(tr: Tree<'a> option) =
@@ -76,26 +76,31 @@ type TreeEnum<'a>(tr: Tree<'a> option) =
     // Build stack of tree
     stack <- buildStack tr stack
   // current element
-  let mutable cur = None
-  interface IEnumerator<'a> with
-    member e.Current with get () = tryGetElem cur
+  let mutable isAccessible = false
+  interface IEnumerator with
+    member e.Current with get () = if isAccessible && not stack.IsEmpty then box <| getElem(stack.Head) else raise IteratorException
     member e.MoveNext() =
       try
         let (st, elem) = getNext stack
         stack <- st
-        cur <- Some elem
+        isAccessible <- true
         true
       with
-        | IteratorException -> cur <- None; false
-    member e.Dispose() = () // Have no idea, what should I dispose here
+        | IteratorException -> isAccessible <- false; false
     member e.Reset() = stack <- buildStack tr []
+  interface IEnumerator<'a> with
+    member e.Current with get () = if isAccessible && not stack.IsEmpty then getElem(stack.Head) else raise IteratorException
+    member e.Dispose() = () // Have no idea, what should I dispose here
+
 
 type ItTree<'a when 'a: comparison>() =
   let mutable tree: Tree<'a> option = None
   member t.find elem = findInTree tree elem
   member t.insert elem = tree <- addIntoTree tree elem
   member t.remove elem = tree <- deleteFromTree tree elem
+  interface IEnumerable with
+    member t.GetEnumerator() = (new TreeEnum<'a>(tree) :> IEnumerator)
   interface IEnumerable<'a> with
-    member t.GetEnumerator = fun () -> new TreeEnum<'a>(tree)
+    member t.GetEnumerator() = (new TreeEnum<'a>(tree) :> IEnumerator<'a>)
 
     
