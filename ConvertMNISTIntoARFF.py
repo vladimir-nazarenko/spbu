@@ -8,10 +8,10 @@ from wand.display import display
 from wand.color import Color
 from wand.drawing import Drawing
 
-
-NUMBER_OF_IMAGES_TO_LOAD = 10000
-NUMBER_OF_EXPERIMENTS = 3
-STEP = 0.1
+# Set to -1 if you want to use constant from file
+NUMBER_OF_IMAGES_TO_LOAD = -1
+NUMBER_OF_FILES_TO_GENERATE = 1
+STEP_OF_CHANGING_NOISE_RATE = 0.1
 
 
 def convert_bytes_to_int32(data):
@@ -68,9 +68,10 @@ def make_squared(pixels, number_of_rows=28, number_of_columns=28):
     return num
 
 
-def writeintoarff(images, labels, noise_rate, name='MNIST', numberofcolumns=28, numberofrows=28):
-    print(noise_rate)
-    filename = '%s%iNoiseRate%f.arff' % (name, NUMBER_OF_IMAGES_TO_LOAD, noise_rate)
+def writeintoarff(images, labels, noise_rate, numberofimages, name='MNIST', numberofcolumns=28, numberofrows=28):
+    """Converts information from images and labels to arff"""
+    filename = '%s-NoiseRate%1.2f.arff' % (name, noise_rate)
+    print('Writing %s' % filename)
     col_names = []
     for i in range(numberofcolumns):
         for j in range(numberofrows):
@@ -80,31 +81,45 @@ def writeintoarff(images, labels, noise_rate, name='MNIST', numberofcolumns=28, 
     # set trigger: if we have str in column, interpret it as a class with such values
     arff_writer.pytypes[str] = set([str(i) for i in range(10)])
     # write features into file
-    for i in range(NUMBER_OF_IMAGES_TO_LOAD):
-        pixels = read_one_image(images, labels)
-        spoil_pixels(pixels, noise_rate, contains_label=True)
-        arff_writer.write(pixels)
+    if NUMBER_OF_IMAGES_TO_LOAD != -1:
+        if NUMBER_OF_IMAGES_TO_LOAD < numberofimages:
+            numberofimages = NUMBER_OF_IMAGES_TO_LOAD
+        else:
+            print("NUMBER_OF_IMAGES_TO_LOAD constant is too big, using images count from file")
+    try:
+        for i in range(numberofimages):
+            pixels = read_one_image(images, labels)
+            spoil_pixels(pixels, noise_rate, contains_label=True)
+            arff_writer.write(pixels)
+        print('OK\n')
+    except IndexError:
+        print('Error while reading from file\n')
     arff_writer.close()
+
+
+def process_dataset(images_path, labels_path, spoil_rate=0.0):
+    with open(images_path, 'rb') as images, open(labels_path, 'rb') as labels:
+        # Read values from images file
+        magicnumberimages = convert_bytes_to_int32(images.read(4))
+        numberofimages = convert_bytes_to_int32(images.read(4))
+        numberofrows = convert_bytes_to_int32(images.read(4))
+        numberofcolumns = convert_bytes_to_int32(images.read(4))
+
+        # read values from labels file
+        magicnumberlabels = convert_bytes_to_int32(labels.read(4))
+        numberoflabels = convert_bytes_to_int32(labels.read(4))
+        assert numberofimages == numberoflabels
+        for i in range(NUMBER_OF_FILES_TO_GENERATE):
+            writeintoarff(images, labels, spoil_rate, numberofimages)
+            spoil_rate += STEP_OF_CHANGING_NOISE_RATE
 
 
 def main():
     train_images_path = 'train-images-idx3-ubyte'
     train_labels_path = 'train-labels-idx1-ubyte'
-    with open(train_images_path, 'rb') as train_images, open(train_labels_path, 'rb') as train_labels:
-        # Read values from images file
-        magicnumberimages = convert_bytes_to_int32(train_images.read(4))
-        numberofimages = convert_bytes_to_int32(train_images.read(4))
-        numberofrows = convert_bytes_to_int32(train_images.read(4))
-        numberofcolumns = convert_bytes_to_int32(train_images.read(4))
-
-        # read values from labels file
-        magicnumberlabels = convert_bytes_to_int32(train_labels.read(4))
-        numberoflabels = convert_bytes_to_int32(train_labels.read(4))
-        assert numberofimages == numberoflabels
-        rate = 0.0
-        for i in range(NUMBER_OF_EXPERIMENTS):
-            writeintoarff(train_images, train_labels, rate)
-            rate += STEP
+    test_images_path = 't10k-images-idx3-ubyte'
+    test_labels_path = 't10k-labels-idx1-ubyte'
+    process_dataset(images_path=test_images_path, labels_path=test_labels_path)
 
 
 if __name__ == '__main__':
