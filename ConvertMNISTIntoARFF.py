@@ -2,7 +2,7 @@ __author__ = 'vladimir'
 import struct
 import arff
 import random
-import time
+#import time
 from wand.image import Image
 from wand.display import display
 from wand.color import Color
@@ -54,7 +54,7 @@ def spoil_pixels(pixels, ratio, contains_label=False):
     random.shuffle(positions)
     positions = positions[0:int(pix_len * ratio)]
     for i in positions:
-        pixels[i] = 255
+        pixels[i] = 255 * random.randint(0, 1)
 
 
 def make_squared(pixels, number_of_rows=28, number_of_columns=28):
