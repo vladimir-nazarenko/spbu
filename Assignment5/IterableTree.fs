@@ -3,74 +3,47 @@ module IterableTree
 open System.Collections.Generic
 open System.Collections
 
-// Binary tree representation
 type Tree<'a> =
   | Tree of 'a * Tree<'a> * Tree<'a>
   | Leaf of 'a option
 
-// I believe, there is no need to make this function tail-recursive, while it can't cause stack overflow
-let rec addIntoTree t x =
-  match t with
-    | Leaf None -> Leaf x
-    | Some(Leaf y) -> if x > y then Some(Tree(y, None, Some(Leaf x))) else Some(Tree(y, Some(Leaf x), None))
-    | Some(Tree(z, l, r)) -> if x > z then Some(Tree(z, l, addIntoTree r x)) else Some(Tree(z, addIntoTree l x, r))
-
-let rec findInTree t x =
-  match t with
-    | None -> false
-    | Some(Leaf y) -> x = y
-    | Some(Tree(z, l, r)) -> if x > z then findInTree r x else findInTree l x
-
-let rec deleteFromTree t x =
-  let rec rightmost t =
-    match t with
-      | None -> None
-      | Some(Leaf x) -> Some(Leaf x)
-      | Some(Tree(y, l, r)) -> if r.IsSome then rightmost r else Some(Tree(y, l, r))
-  match t with
-    | None -> None
-    | Some(Leaf y) -> if x = y then None else Some (Leaf y)
-    | Some(Tree(z, l, r)) ->
-      if x > z then deleteFromTree r x
-      elif x < z then deleteFromTree l x
-      else
-        if l.IsSome && r.IsSome then
-          match rightmost l with
-            | None -> None
-            | Some(Leaf u) -> Some(Tree(u, l, r))
-            | Some(Tree(z', l', r')) -> Some(Tree(z', deleteFromTree l z', r))
-        elif l.IsSome then l
-        elif r.IsSome then r
-        else None
-
 // raise when no element in current
 exception IteratorException
 
-// buld stack from left most branch of the tree and join it to the given stack(st)
-let rec buildStack tree st =
-  match tree with
-    | None -> []
-    | Some(Leaf x) -> (Leaf x) :: st
-    | Some(Tree(x, l, r)) -> buildStack l ((Tree(x, l, r)) :: st)
-
-// get element from stack and modify the stack
-let rec getNext stack =
-  match stack with
-    | [] -> raise IteratorException
-    | x :: xs ->
-      match x with
-        | Leaf u -> (xs, u)
-        | Tree(v, l, r) ->
-          if r.IsSome then getNext(buildStack r (x :: xs)) else (xs , v)
-
-// get element or raise an exception
-let getElem tree =
-  match tree with
-    | Tree(el, _, _) -> el
-    | Leaf el -> el
+exception DeleteException of string
 
 // Enumerator for tree
-type TreeEnum<'a>(tr: Tree<'a> option) =
+type TreeEnum<'a>(tr: Tree<'a>) =
+  // buld stack from left most branch of the tree and join it to the given stack(st)
+  // stack consists of left most branch
+  let rec buildStack tree st =
+    match tree with
+      | Leaf None -> []
+      | Leaf (Some x) as leaf -> leaf :: st
+      | Tree(x, l, r) as branch -> buildStack l (branch :: st)
+
+  // get element from stack and modify the stack
+  // makes possible traversing stack in order
+  let rec getNext stack =
+    match stack with
+      // empty stack
+      | [] -> raise IteratorException
+      | x :: xs ->
+        match x with
+          | Leaf None -> raise IteratorException
+          | Leaf (Some u) -> (xs, u)
+          | Tree(v, l, r) ->
+            match r with
+              | Leaf None -> (xs, v)
+              | _ -> getNext(buildStack r (x :: xs))
+
+  // get element or raise an exception
+  let getElem tree =
+    match tree with
+      | Tree(el, _, _) -> el
+      | Leaf (Some el) -> el
+      | Leaf None -> raise IteratorException
+      
   let mutable stack = []
   do
     // Build stack of tree
@@ -94,7 +67,61 @@ type TreeEnum<'a>(tr: Tree<'a> option) =
 
 
 type ItTree<'a when 'a: comparison>() =
-  let mutable tree: Tree<'a> option = None
+  // I believe, there is no need to make this function tail-recursive, while it can't cause stack overflow
+  let rec addIntoTree t x =
+    match t with
+      | Leaf None -> Leaf <| Some x
+      | Leaf (Some y) ->
+        if x > y then
+          Tree(y, Leaf None, Leaf <| Some x) else
+            Tree(y, Leaf <| Some x, Leaf None)
+      | Tree(z, l, r) ->
+        if x > z then
+          Tree(z, l, addIntoTree r x) else
+            Tree(z, addIntoTree l x, r)
+
+  let rec findInTree t x =
+    match t with
+      | Leaf None -> false
+      | Leaf (Some y) -> x = y
+      | Tree(z, l, r) -> if x > z then findInTree r x else findInTree l x
+
+  // returns just Leaf or exception is raised
+  let rec rightmost t =
+    match t with
+      | Leaf None as empty -> raise <| DeleteException "rightmost of nothing"
+      | Leaf (Some x) as leaf -> leaf
+      | Tree(y, l, r) as tree ->
+        match r with
+          | Leaf None as empty -> tree
+          | _ -> rightmost r
+
+  let rec deleteFromTree t x =
+    match t with
+      | Leaf None -> Leaf None
+      | Leaf(Some y) -> if x = y then Leaf None else Leaf (Some y)
+      | Tree(z, l, r) ->
+        if x > z then Tree(z, l, deleteFromTree r x)
+        elif x < z then Tree(z, deleteFromTree l x, r)
+        else
+          match r with
+            | Leaf None ->
+              // then l in not none - invariant
+              // has just left
+              l
+            | _ ->
+              match l with
+                | Leaf None ->
+                  // has just right
+                  r
+                | _ ->
+                  // has both
+                  match rightmost l with
+                    // asserted l is not null
+                    | Leaf None | Tree(_, _, _) -> raise <|  DeleteException "rightmost can't be nothing or Tree"
+                    | Leaf(Some u) -> Tree(u, deleteFromTree l u, r)
+
+  let mutable tree: Tree<'a> = Leaf None
   member t.find elem = findInTree tree elem
   member t.insert elem = tree <- addIntoTree tree elem
   member t.remove elem = tree <- deleteFromTree tree elem
@@ -102,5 +129,3 @@ type ItTree<'a when 'a: comparison>() =
     member t.GetEnumerator() = (new TreeEnum<'a>(tree) :> IEnumerator)
   interface IEnumerable<'a> with
     member t.GetEnumerator() = (new TreeEnum<'a>(tree) :> IEnumerator<'a>)
-
-    
