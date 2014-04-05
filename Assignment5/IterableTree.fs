@@ -5,13 +5,13 @@ open System.Collections
 
 // Binary tree representation
 type Tree<'a> =
-  | Tree of 'a * Tree<'a> option* Tree<'a> option
-  | Leaf of 'a
+  | Tree of 'a * Tree<'a> * Tree<'a>
+  | Leaf of 'a option
 
 // I believe, there is no need to make this function tail-recursive, while it can't cause stack overflow
 let rec addIntoTree t x =
   match t with
-    | None -> Some(Leaf x)
+    | Leaf None -> Leaf x
     | Some(Leaf y) -> if x > y then Some(Tree(y, None, Some(Leaf x))) else Some(Tree(y, Some(Leaf x), None))
     | Some(Tree(z, l, r)) -> if x > z then Some(Tree(z, l, addIntoTree r x)) else Some(Tree(z, addIntoTree l x, r))
 
