@@ -9,16 +9,16 @@ let pcs = [new PC(new Linux(fakeGenerator), 1);
 let connectPCs(plist: PC list) =
   match plist with
     | [] -> ()
-    | x :: y :: ys -> x.connect y
-    | [z] -> z.connect plist.Head
+    | x :: y :: ys -> x.Connect y
+    | [z] -> z.Connect plist.Head
 
 connectPCs pcs
 
-pcs.Head.getOpSys.forceInfect 0.3
+pcs.Head.GetOpSys.ForceInfect 0.3
 
-let printState(p: PC) = printf "%b\n" (p.getOpSys.isInfected)
+let printState(p: PC) = printf "%b\n" (p.GetOpSys.IsInfected)
 
-let interact(p: PC) = p.startup
+let interact(p: PC) = p.Startup
 
 List.iter (printState) pcs
 
