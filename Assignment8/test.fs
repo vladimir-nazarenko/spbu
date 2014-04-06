@@ -9,53 +9,44 @@ open System.Text.RegularExpressions
 let getContent(url: string) =
   async {
     let req = WebRequest.Create(url)
-    let! res = req.AsyncGetResponse()
+    use! res = req.AsyncGetResponse()
     let encStr = (res :?> System.Net.HttpWebResponse).CharacterSet
     let enc = Encoding.GetEncoding(encStr)
-    let stream = res.GetResponseStream()
+    use stream = res.GetResponseStream()
     let reader = new StreamReader(stream, enc)
     return reader.ReadToEnd()
   }
 
 let countSymbols(url: string) =
   async {
-//    printf "started %s" url
-    let req = (WebRequest.Create(url))
-    let! res = req.AsyncGetResponse()
-    // note that len could be -1, if server doesn't send the length
-    // e.g. google doen't
-    // Possible solution is to use HttpClient class
-    let len = res.ContentLength
-    if len <> -1L
-    then return len
-    else
-      let lenOfStr = (Async.RunSynchronously(getContent url)).Length
-      return int64(lenOfStr)
+    let req = WebRequest.Create(url)
+    use! res = req.AsyncGetResponse()
+    let! code = getContent url
+    let lenOfStr = code.Length
+    return int64(lenOfStr)
   }
 
-printfn "%s" <| Async.RunSynchronously(getContent "http://google.com").Substring(0, 100)
+//printfn "%s" <| Async.RunSynchronously(getContent "http://google.com").Substring(0, 100)
 
-printfn "\n\n %i" <| Async.RunSynchronously(countSymbols "http://google.com")
+//printfn "\n\n %i" <| Async.RunSynchronously(countSymbols "http://google.com")
 
 printf "\n"
 
-let url = "http://google.com"
+//let urls = List.toSeq[|"http://google.com"; "http://habrahabr.ru"|]
 
-Async.RunSynchronously <|
+let countRefs url =
   async {
+    do printf "1"
     let! page = getContent url
-    let regex = new Regex("a href=\"http://[^< ]*\"")
+    let regex = new Regex("a href=(\"http://([^\"]*\")|\'[^\']*\')")
     let matches = regex.Matches(page)
     let links = matches |> Seq.cast<Match> |> Seq.map (fun x -> x.Value.Substring(8, x.Value.Length - 9))
-//    do Seq.iter (fun x -> printf "\n%s" x) links
-//    do Seq.iter (fun x -> printf "Link %s has length %i" x (Async.RunSynchronously(countSymbols x))) links
+    Seq.iter(fun x -> printf "\n%s\n" x) links
     let workers = Seq.map (fun x -> countSymbols x) links
+    printf "I was here"
     let! results = Async.Parallel workers
-    Array.iter (fun x -> printf "%i" x) results
-    //let asyncs = Seq.map (fun x -> 
-//      do printf "I'm alive %i" <| matches.Count
-//      let! results = Async.Parallel asyncs
-//      for i in 0..results.Length do printfn "lol"
-    
-    }
+    let res = Seq.zip links (Array.toSeq results)
+    do Seq.iter (fun (l, c) -> printf "link %s has size %i" l c) res
+  }
 
+ignore (Async.RunSynchronously <| countRefs "http://google.com")
