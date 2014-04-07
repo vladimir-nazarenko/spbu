@@ -22,8 +22,6 @@ let getContent(url: string) =
 
 let countSymbols(url: string) =
   async {
-    let req = WebRequest.Create(url)
-    use! res = req.AsyncGetResponse()
     let! code = getContent url
     let lenOfStr = code.Length
     return int64(lenOfStr)
@@ -38,7 +36,7 @@ let countRefs url =
     let workers = Seq.map (fun x -> countSymbols x) links
     let! results = Async.Parallel workers
     let res = Seq.zip links (Array.toSeq results)
-    do Seq.iter (fun (l, c) -> printf "link %s has size %i" l c) res
+    do Seq.iter (fun (l, c) -> printf "link %s has size %i\n" l c) res
   }
 
 // Async.Start throws out output
