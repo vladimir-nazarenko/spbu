@@ -9,7 +9,6 @@ open System.Text.RegularExpressions
 let getContent(url: string) =
   async {
     let req = WebRequest.Create(url)
-    // bug in this line, try changing use to let or let to use
     let! res = req.AsyncGetResponse()
     use htres = res :?> System.Net.HttpWebResponse
     let encStr = htres.CharacterSet
