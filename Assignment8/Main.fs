@@ -29,7 +29,7 @@ let countSymbols(url: string) =
 let countRefs url =
   async {
     let! page = getContent url
-    let regex = new Regex(@"a href=""http://?(\w|((?!\s|'|"")\W))*""")
+    let regex = new Regex("a href=(\"http://([^\"]*\")|\'[^\']*\')")
     let matches = regex.Matches(page)
     let links = matches |> Seq.cast<Match> |> Seq.map (fun x -> x.Value.Substring(8, x.Value.Length - 9))
     let workers = Seq.map (fun x -> countSymbols x) links
