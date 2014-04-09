@@ -1,5 +1,7 @@
 USE m12nvv;
 GO
+initChessboard;
+GO
 
 EXEC dbo.PrintChessboard
 GO
@@ -14,8 +16,8 @@ GO
 SELECT * FROM GetAllOfColor('b');
 GO
 
-SELECT dbo.Eaten('w');
+SELECT dbo.Eaten('w', 'pawn');
 GO
-
-SELECT * FROM dbo.GetAllEatable(8);
+initChessboard;
+SELECT * FROM dbo.GetAllEatable(24);
 GO

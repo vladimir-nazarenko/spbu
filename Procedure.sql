@@ -9,7 +9,6 @@ GO
 CREATE PROCEDURE dbo.CheckPosition(@x_old int, @y_old varchar(1), @x_new int, @y_new varchar(1), @result int OUTPUT)
 AS
 BEGIN
-	EXEC InitChessboard	
 	IF (SELECT COUNT(*) FROM Chessboard WHERE Chessboard.x = @x_old AND Chessboard.y = @y_old) <> 1 SET @result = 0
 	IF (SELECT COUNT(*) FROM Chessboard WHERE Chessboard.x = @x_new AND Chessboard.y = @y_new) = 0 
 	BEGIN
