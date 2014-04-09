@@ -4,6 +4,7 @@ GO
 IF OBJECT_ID('dbo.GetAllEatable', 'TF') IS NOT NULL DROP FUNCTION dbo.GetAllEatable;
 GO
 
+--WORKS JUST FOR ROOK!
 CREATE FUNCTION GetAllEatable(@id int)
 RETURNS @eatable TABLE
 (
