@@ -1,3 +1,5 @@
+from doctest import _SpoofOut
+
 __author__ = 'vladimir'
 import struct
 import arff
@@ -10,10 +12,10 @@ from wand.color import Color
 from wand.drawing import Drawing
 
 # Set to -1 if you want to use constant from file
-NUMBER_OF_IMAGES_TO_LOAD = -1
-NUMBER_OF_FILES_TO_GENERATE = 1
+NUMBER_OF_IMAGES_TO_LOAD = 10000
+NUMBER_OF_FILES_TO_GENERATE = 10
 START_FROM_NOISE_RATE = 0.0
-STEP_OF_CHANGING_NOISE_RATE = 0.1
+STEP_OF_CHANGING_NOISE_RATE = 0.05
 
 
 def convert_bytes_to_int32(data):
@@ -32,6 +34,7 @@ def read_one_image(images_file, labels_file=None, number_of_rows=28, number_of_c
         img.append(label)
     return img
 
+
 # TODO: make usable in thread
 def visualize_number(number, number_of_rows=28, number_of_columns=28):
     """Show picture of number in grey scale. Gets list of bytes, defining pixels in grey scale"""
@@ -48,7 +51,7 @@ def visualize_number(number, number_of_rows=28, number_of_columns=28):
             draw.fill_color = Color('#' + 3 * skip_extra_parts(hex(grey_scale)))
             draw.line((c, r), (c, r))
     draw(img)
-    display(img)
+    img.save(filename="digits.jpg")
 
 
 def spoil_pixels(pixels, ratio, contains_label=False):
@@ -83,7 +86,7 @@ def writeintoarff(images, labels, noise_rate, numberofimages, name='MNIST', numb
         for j in range(numberofrows):
             col_names.append('x=%iy=%i' % (j, i))
     col_names.append('class')
-    arff_writer = arff.Writer(filename, relation='MNISTNoise%i' % noise_rate, names=col_names)
+    arff_writer = arff.Writer(filename, relation='MNISTNoise%1.2f' % noise_rate, names=col_names)
     # set trigger: if we have str in column, interpret it as a class with such values
     arff_writer.pytypes[str] = set([str(i) for i in range(10)])
     # write features into file
@@ -119,6 +122,7 @@ def visualize_first_n_images(images_path, n):
             read_images = []
             for j in range(n):
                 read_images.append(read_one_image(images))
+                spoil_pixels(read_images[j], 0.1)
             for i in range(28):
                 for k in range(n):
                     resultimage += read_images[k][28 * i: 28 * i + 28]
@@ -126,32 +130,33 @@ def visualize_first_n_images(images_path, n):
         # print(len(resultimage))
         # print(len(resultimage))
 
+
 def process_dataset(images_path, labels_path, spoil_rate=0.0):
     assert 0 <= spoil_rate <= 1.0
-    with open(images_path, 'rb') as images, open(labels_path, 'rb') as labels:
-        # Read values from images file
-        magicnumberimages = convert_bytes_to_int32(images.read(4))
-        numberofimages = convert_bytes_to_int32(images.read(4))
-        numberofrows = convert_bytes_to_int32(images.read(4))
-        numberofcolumns = convert_bytes_to_int32(images.read(4))
+    for i in range(NUMBER_OF_FILES_TO_GENERATE):
+        with open(images_path, 'rb') as images, open(labels_path, 'rb') as labels:
+            # Read values from images file
+            magicnumberimages = convert_bytes_to_int32(images.read(4))
+            numberofimages = convert_bytes_to_int32(images.read(4))
+            numberofrows = convert_bytes_to_int32(images.read(4))
+            numberofcolumns = convert_bytes_to_int32(images.read(4))
 
-        # read values from labels file
-        magicnumberlabels = convert_bytes_to_int32(labels.read(4))
-        numberoflabels = convert_bytes_to_int32(labels.read(4))
-        assert numberofimages == numberoflabels
-        for i in range(NUMBER_OF_FILES_TO_GENERATE):
+            # read values from labels file
+            magicnumberlabels = convert_bytes_to_int32(labels.read(4))
+            numberoflabels = convert_bytes_to_int32(labels.read(4))
+            assert numberofimages == numberoflabels
             writeintoarff(images, labels, spoil_rate, numberofimages)
             spoil_rate += STEP_OF_CHANGING_NOISE_RATE
 
 
 def main():
+    start_time = time.time()
     train_images_path = 'train-images-idx3-ubyte'
     train_labels_path = 'train-labels-idx1-ubyte'
     test_images_path = 't10k-images-idx3-ubyte'
     test_labels_path = 't10k-labels-idx1-ubyte'
-    # process_dataset(images_path=test_images_path, labels_path=test_labels_path, spoil_rate=START_FROM_NOISE_RATE)
-    start_time = time.time()
-    visualize_first_n_images(test_images_path, 10)
+    # process_dataset(images_path=train_images_path, labels_path=train_labels_path, spoil_rate=START_FROM_NOISE_RATE)
+    visualize_first_n_images(test_images_path, 5)
     print("Exceeded %1.2f seconds" % (time.time() - start_time))
 
 
