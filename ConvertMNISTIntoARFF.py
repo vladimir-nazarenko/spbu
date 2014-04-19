@@ -46,7 +46,7 @@ class MNISTConverter:
     def write_into_arff_with_constant_noise_rate(self, noise_rate, number_to_load, name='MNIST'):
         """Converts information from images and labels to arff"""
         assert 0 <= noise_rate <= 1.0
-        full_name = name + '-Noise-' + str(noise_rate)
+        full_name = name + '-Noise-%1.2f' % noise_rate
         writer = ArffWriter(full_name, full_name + '.arff',
                             n_cols=self.dataset.col_count, n_rows=self.dataset.row_count)
         number_of_images = self.dataset.image_count
@@ -65,7 +65,7 @@ class MNISTConverter:
     def write_into_arff_with_unnoised_trainset(self, noise_rate, number_to_load, name='MNIST'):
         """Converts information from images and labels to arff"""
         assert 0 <= noise_rate <= 1.0
-        full_name = name + '-.66Unnoised-Noise-' + str(noise_rate)
+        full_name = name + '-.66Unnoised-Noise-%1.2f' % noise_rate
         writer = ArffWriter(full_name, full_name + '.arff',
                             n_cols=self.dataset.col_count, n_rows=self.dataset.row_count)
         number_of_images = self.dataset.image_count
@@ -74,7 +74,7 @@ class MNISTConverter:
         try:
             for i in range(2 * int(number_of_images / 3)):
                 pixels = self.dataset.read_one_image()
-                self.writer.write_next_row(pixels)
+                writer.write_next_row(pixels)
             for i in range(int(number_of_images / 3)):
                 pixels = self.dataset.read_one_image()
                 pixels[:len(pixels) - 1] = self.manipulator.noise_pixels(pixels[:len(pixels) - 1], noise_rate)
@@ -90,9 +90,9 @@ class MNISTConverter:
 
 def main():
     start_time = time.time()
-    for i in range(2):
+    for i in range(20):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
-        converter.write_into_arff_with_constant_noise_rate(0.05 * i, 5000)
+        converter.write_into_arff_with_unnoised_trainset(0.05 * i, 5000)
     print("Exceeded %1.2f seconds" % (time.time() - start_time))
 
 

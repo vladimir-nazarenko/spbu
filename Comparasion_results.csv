@@ -1,11 +1,38 @@
-"","Dataset","NaiveBayes","RandomTree","SMO"
-"1","MNISTNoise0.00",72.32,68.35,89.85
-"2","MNISTNoise0.05",73.59,58.71,89.09
-"3","MNISTNoise0.10",79.18,52.74,86.65
-"4","MNISTNoise0.15",79.24,47.74,85.85
-"5","MNISTNoise0.20",78.91,41.32,83.53
-"6","MNISTNoise0.25",77.47,38.47,80.62
-"7","MNISTNoise0.30",76,34.06,77.35
-"8","MNISTNoise0.35",74.76,27.09,75.09
-"9","MNISTNoise0.40",73.74,24.18,72.65
-"10","MNISTNoise0.45",72.15,20.88,68.41
+Tester:     weka.experiment.PairedCorrectedTTester
+Analysing:  Percent_correct
+Datasets:   20
+Resultsets: 3
+Confidence: 0.05 (two tailed)
+Sorted by:  -
+Date:       4/19/14 5:46 AM
+
+
+Dataset,[1],[2],'',[3],''
+MNIST-Noise-0.00,74.47,66.00,' ',91.00,' '
+MNIST-Noise-0.05,61.94,58.88,' ',90.88,' '
+MNIST-Noise-0.10,77.41,52.06,' ',88.59,' '
+MNIST-Noise-0.15,79.24,46.35,' ',87.24,' '
+MNIST-Noise-0.20,78.53,39.06,' ',84.71,' '
+MNIST-Noise-0.25,78.18,35.76,' ',82.12,' '
+MNIST-Noise-0.30,76.88,28.65,' ',80.18,' '
+MNIST-Noise-0.35,75.82,25.12,' ',76.12,' '
+MNIST-Noise-0.40,72.53,25.65,' ',73.18,' '
+MNIST-Noise-0.45,72.88,21.29,' ',69.06,' '
+MNIST-Noise-0.50,69.41,17.35,' ',64.65,' '
+MNIST-Noise-0.55,67.06,13.76,' ',58.47,' '
+MNIST-Noise-0.60,61.06,13.82,' ',54.06,' '
+MNIST-Noise-0.65,57.35,13.82,' ',47.71,' '
+MNIST-Noise-0.70,49.41,12.82,' ',38.53,' '
+MNIST-Noise-0.75,40.53,12.24,' ',31.12,' '
+MNIST-Noise-0.80,31.47,10.88,' ',25.24,' '
+MNIST-Noise-0.85,22.35,10.94,' ',19.12,' '
+MNIST-Noise-0.90,17.41,11.06,' ',15.76,' '
+MNIST-Noise-0.95,10.94,10.12,' ',9.94,' '
+'[v/ /*]','','',[0/20/0],'',[0/20/0]
+
+
+Key,
+[1],'bayes.NaiveBayes \'\' 5995231201785697655'
+[2],'trees.RandomTree \'-K 0 -M 1.0 -S 1\' 8934314652175299374'
+[3],'functions.SMO \'-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \\\"functions.supportVector.PolyKernel -C 250007 -E 1.0\\\"\' -6585883636378691736'
+

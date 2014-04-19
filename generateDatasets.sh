@@ -1,7 +1,7 @@
 #!/bin/sh
 
-rm -rf datasets
-mkdir datasets
+rm -rf unnoised-train-datasets
+mkdir unnoised-train-datasets
 python3 ConvertMNISTIntoARFF.py
-mv *.arff datasets/
+mv *.arff unnoised-train-datasets/
 
