@@ -48,13 +48,12 @@ class ImageManipulator:
         assert len(img1) == len(img2)
         big_img = []
         for r in range(len(img1)):
-            assert len(img1[r]) == len(img2[r])
             big_img.append(img1[r] + img2[r])
         return big_img
 
     @staticmethod
     def join_vertically(img1, img2):
-        assert len(img1) == len(img2)
+        assert len(img1[0]) == len(img2[0])
         return img1 + img2
 
     @staticmethod

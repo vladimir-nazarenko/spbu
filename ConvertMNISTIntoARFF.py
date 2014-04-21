@@ -88,11 +88,41 @@ class MNISTConverter:
         self.dataset.close()
 
 
-def main():
-    start_time = time.time()
+def generate_images():
+    def get_row(noise):
+        img_row = manip.normalize_image(manip.noise_pixels(data.read_one_image(), noise), data.row_count, data.col_count)
+        for k in range(4):
+            pixels = data.read_one_image()[:data.row_count * data.col_count]
+            pixels = manip.noise_pixels(pixels, noise)
+            img = manip.normalize_image(pixels, data.row_count, data.col_count)
+            img_row = manip.join_horizontally(img_row, img)
+        return img_row
+    manip = ImageManipulator()
+    for i in range(20):
+        data = DatasetWrapper(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
+        table = get_row(i / 20)
+        for j in range(5):
+            table = manip.join_vertically(table, get_row(i / 20))
+        manip.write_image_into_file(table, 'digits-nr%1.2f' % (i / 20))
+        data.close()
+
+
+
+def generate_usual_datasets():
+    for i in range(20):
+        converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
+        converter.write_into_arff_with_constant_noise_rate(0.05 * i, 5000)
+
+
+def generate_datasets_with_unnoised_train():
     for i in range(20):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
         converter.write_into_arff_with_unnoised_trainset(0.05 * i, 5000)
+
+
+def main():
+    start_time = time.time()
+    generate_images()
     print("Exceeded %1.2f seconds" % (time.time() - start_time))
 
 
