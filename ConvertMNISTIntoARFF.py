@@ -103,9 +103,8 @@ def generate_images():
         table = get_row(i / 20)
         for j in range(5):
             table = manip.join_vertically(table, get_row(i / 20))
-        manip.write_image_into_file(table, 'digits-nr%1.2f' % (i / 20))
+        manip.write_image_into_file(table, 'digits-nr%i' % (i * 5))
         data.close()
-
 
 
 def generate_usual_datasets():
