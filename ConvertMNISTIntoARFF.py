@@ -107,21 +107,21 @@ def generate_images():
         data.close()
 
 
-def generate_usual_datasets():
+def generate_usual_datasets(count):
     for i in range(20):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
-        converter.write_into_arff_with_constant_noise_rate(0.05 * i, 5000)
+        converter.write_into_arff_with_constant_noise_rate(0.05 * i, count)
 
 
-def generate_datasets_with_unnoised_train():
+def generate_datasets_with_unnoised_train(count):
     for i in range(20):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
-        converter.write_into_arff_with_unnoised_trainset(0.05 * i, 5000)
+        converter.write_into_arff_with_unnoised_trainset(0.05 * i, count)
 
 
 def main():
     start_time = time.time()
-    generate_images()
+    generate_datasets_with_unnoised_train(15000)
     print("Exceeded %1.2f seconds" % (time.time() - start_time))
 
 
