@@ -13,4 +13,4 @@ INSERT INTO movements SELECT inserted.cid AS cid, deleted.x AS x_old,
 					  FROM inserted JOIN deleted ON inserted.cid = deleted.cid
 GO
 
-UPDATE dbo.Chessboard SET x = 3, y = 'd' WHERE x = 3 AND y = 'c';
+UPDATE dbo.Chessboard SET x = 6, y = 'b' WHERE x = 5 AND y = 'b';
