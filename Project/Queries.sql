@@ -30,8 +30,8 @@ WHERE DATEDIFF(DAY, Tasks.FinishedDate, GETDATE()) < 30 AND DATEDIFF(DAY, Tasks.
 GROUP BY Employees.Surname
 
 -- Вывод заданий на текущий рабочий день электрику Электронову в доме.
-SELECT Tasks.AssignDate, Tasks.Class, Tasks.DeadlineDate, Tasks.Description, Rooms.Number, Buildings.Adress 
-FROM Tasks JOIN Employees ON Tasks.EmployeeID = Employees.ID JOIN Rooms ON Tasks.RoomID = Rooms.ID JOIN Buildings ON Buildings.ID = Rooms.ID
+SELECT Tasks.AssignDate, Tasks.Class, Tasks.DeadlineDate, Tasks.Description, Rooms.Number, Buildings.Adress, Employees.Surname
+FROM Tasks JOIN Employees ON Tasks.EmployeeID = Employees.ID JOIN Rooms ON Tasks.RoomID = Rooms.ID JOIN Buildings ON Buildings.ID = Rooms.BuildingID
 WHERE Employees.Surname='Electronov' AND Tasks.Class='electricity' AND Tasks.FinishedDate IS NULL
 
 
