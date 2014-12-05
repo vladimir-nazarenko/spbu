@@ -1,0 +1,9 @@
+.gitignore
+.#.gitignore
+*~
+octave-workspace
+*.out
+*.csv
+*.jpg
+*.arff
+*.pyc
