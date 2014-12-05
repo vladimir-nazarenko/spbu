@@ -8,6 +8,11 @@ from tk import FilenameDialog
 from os import rename, remove
 from Tkinter import *
 from math import floor
+import csv
+from training import Classifier
+import time
+from thread import start_new_thread
+from threading import Thread
 
 class Main:
     def __init__(self):
@@ -18,8 +23,8 @@ class Main:
         # cv2.createTrackbar('max value', 'Thresholded', self._max_value, 255, self.set_maxvalue)
         # self.bgs = cv2.BackgroundSubtractorMOG2(10, 16, False)
         self.write_statistics = False
-        self.classifier = cv2.SVM()
-        self.classifier.load('classifier.xml')
+        self.classifier = Classifier()
+        self.classifier.start()
 
 
 
@@ -75,7 +80,7 @@ class Main:
                 remove(save_dialog.result)
             except OSError:
                 pass
-            rename('tmp', save_dialog.result)
+            rename('tmp', save_dialog.result + '.out')
         else:
             self.output = open('tmp', 'w')
         self.write_statistics = not self.write_statistics
@@ -94,6 +99,15 @@ class Main:
             far = tuple(cnt[f][0])
             cv2.line(drawing, start, end, [0, 255, 0], 2)
             cv2.circle(drawing, far, 5, [0, 0, 255], 2)
+
+    def print_thresh(self, img):
+        root = Tk()
+        root.wm_title("Filename dialog")
+        root.withdraw()
+        save_dialog = FilenameDialog(root)
+        root.wait_window(save_dialog.top)
+        cv2.imwrite(save_dialog.result + '.jpg', self.thresh(img))
+
 
     def log_defects(self, rect, cnt, defects):
         # center = ((rect[0] + rect[2]) / 2., (rect[1] + rect[3]) / 2.)
@@ -128,32 +142,39 @@ class Main:
             ceil = [int(floor(p[0] * 10)), int(floor(p[1] * 10))]
             ceil = [c if not c == 10 else 9 for c in ceil]
             feature_vector[ceil[1] * 10 + ceil[0]] = calc_dist(p, centers[ceil[0]][ceil[1]])
-        return self.classifier.predict(np.asfarray(feature_vector, dtype=np.float32))
+        if not self.classifier.trained:
+            time.sleep(0.01)
+        return self.classifier.predict(feature_vector)
 
     def get_result(self, img):
         drawing = np.zeros(img.shape, np.uint8)
         for_proc = self.thresh(img)
         cnt = self.largest_contour(self.contours(for_proc))
-        if not cnt is None:
-            hull = cv2.convexHull(cnt)
-            # center, radius = cv2.minEnclosingCircle(cnt)
-            r = cv2.boundingRect(cnt)
-            cv2.rectangle(drawing, (r[0], r[1]), (r[0] + r[2], r[1] + r[3]), (255, 0, 255), 2)
-            cv2.drawContours(drawing, [cnt], 0, (0, 255, 0), 2)
-            cv2.drawContours(drawing, [hull], 0, (0, 0, 255), 2)
-            # cv2.circle(drawing, (int(center[0]), int(center[1])), int(radius), [255, 0, 255], 4)
-            defects = self.get_defects(cnt)
-            if not defects is None:
-                self.draw_defects(cnt, defects, drawing)
-                if self.write_statistics:
-                    self.log_defects(r, cnt, defects)
-                txt = np.zeros((300, 300, 3), np.uint8)
-                res = int(self.recognize(r, cnt, defects))
-                cv2.putText(txt, str(res), (0, 300), cv2.FONT_HERSHEY_COMPLEX, 14, (100, 200, 30), 10)
-                cv2.imshow('Recognition', txt)
+        try:
+            if not cnt is None:
+                hull = cv2.convexHull(cnt)
+                # center, radius = cv2.minEnclosingCircle(cnt)
+                r = cv2.boundingRect(cnt)
+                cv2.rectangle(drawing, (r[0], r[1]), (r[0] + r[2], r[1] + r[3]), (255, 0, 255), 2)
+                cv2.drawContours(drawing, [cnt], 0, (0, 255, 0), 2)
+                cv2.drawContours(drawing, [hull], 0, (0, 0, 255), 2)
+                # cv2.circle(drawing, (int(center[0]), int(center[1])), int(radius), [255, 0, 255], 4)
+                defects = self.get_defects(cnt)
+                if not defects is None:
+                    self.draw_defects(cnt, defects, drawing)
+                    if self.write_statistics:
+                        self.log_defects(r, cnt, defects)
+                    # res_im = np.zeros(img.shape, np.uint8)
+                    res = self.recognize(r, cnt, defects)
+                    # cv2.putText(res_im, str(res), (0, 300), cv2.FONT_HERSHEY_COMPLEX, 14, (100, 200, 30), 10)
+                    res_im = cv2.imread(str(res) + '.jpg')
+                    cv2.imshow('Recognition', res_im)
+        except:
+            pass
         return drawing
 
     def bring_the_action(self):
+
         while self.cap.isOpened():
             img = self.capture()
             # cv2.imshow('Camera input', img)
@@ -165,6 +186,8 @@ class Main:
                 break
             elif k == 32:
                 self.change_logging()
+            elif k == ord('p'):
+                self.print_thresh(img)
         if not self.output is None and not self.output.closed:
             self.output.close()
 
