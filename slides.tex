@@ -1,0 +1,193 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{latexsym} 
+\usepackage{cmap}
+\usepackage[russian, english]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usetheme{Warsaw}
+\usecolortheme{whale}
+\begin{document}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\title[Сравнение алгоритмов классификации]{Сравнение алгоритмов классификации на предмет устойчивости к зашумлению входных данных}
+\author[Владимир Назаренко]{Владимир Назаренко\\{\scriptsize Научный руководитель: \\ \vspace{-2mm} д.ф.-м.н., проф. Б.А. Новиков}}
+\institute{Санкт-Петербургский Государственный Университет\\
+Математико-механический факультет}
+\date{Санкт-Петербург\\ 2014}
+\subject{Алгоритмы классификации}
+
+\large
+\frame{\titlepage}
+\setbeamerfont{page number in head/foot}{size=\normalsize}
+\setbeamertemplate{footline}[frame number]
+
+\begin{frame}
+    \frametitle{Обзор предметной области}
+    %Здесь про машинное обучение в целом
+    \begin{itemize}
+    	\item{Машинное обучение находит своё применение в большом количестве 				задач}
+    	\item{Обучение с учителем}
+    	\item{Классификация}
+    	\item{Данные часто ошибочны}
+	   	\item{Некорректные данные влекут увеличение количества ошибок 				классификации}
+    	\item{Средство анализа данных Weka}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Постановка задачи}
+    \begin{itemize}
+
+    	\item{Выполнить сравнение качества работы некоторых алгоритмов классификации при наличии шумов в тестовом множестве, где мерой качества является количество верно классифицированных элементов в тестовом множестве}
+    	
+    	\item{Провести анализ изменений качества работы алгоритмов при увеличении интенсивности шума и провести анализ причин изменений качества работы}
+    	
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Работы в данной области}
+    %Здесь про машинное обучение в целом
+    \begin{itemize}
+    	\item{Ассиметричное зашумление аттрибутов(Mannino et al. 2009)}
+    	\item{Деградация алгоритма "наивный байес" на зашумленных данных(Glick et al. 2004)}
+    \end{itemize}
+  \end{frame}
+  
+  
+  
+  \begin{frame}
+  \frametitle{Описание классификаторов (1)}
+    \framesubtitle{Классификатор на основе дерева выбора}
+    \begin{itemize}
+    	\item{Дерево выбора}
+    	\item{Применение дерева выбора в классификации}
+    	\item{Проблема выбора разделения}
+    	\item{Random Tree}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+  \frametitle{Описание классификаторов (2)}
+    \framesubtitle{Наивный байесовский классификатор}
+    \begin{itemize}
+    	\item{Теорема Байеса}
+    		$P(y=C|x)=\frac{P(C) P(x|y=C)}{P(x)}$
+    	\item{Следствия независимости свойств объекта\\}
+    	$$P(y=C|x)=\frac{P(C) \prod_{i=1}^n{P(x_i|y=C)}}{\prod_{i=1}^n{P(x_i)}}$$
+    	$$\max_{C \in \{C_1,..,C_n\}}P(y=C|x)$$
+    	\item{Naive Bayes}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+  \frametitle{Описание классификаторов (3)}
+    \framesubtitle{Классификатор на основе метода опорных векторов}
+    \begin{itemize}
+    	\item{Объект представляется точкой}
+    	\item{Нужно найти лучшую разделяющую плоскость}
+    	\item{Проблема максимального запаса}
+    	\item{SMO}
+    \end{itemize}
+    \begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{graphics/SVM_margins}
+  \end{figure}
+  \end{frame}
+  
+  
+  
+  \begin{frame}
+    \frametitle{Описание эксперимента}
+    	\begin{itemize}
+    	\item{В качестве набора данных был выбран MNIST Database}
+    	\item{На вектор свойств наносился шум случайным образом}
+    	\begin{figure}[ht!b]
+		\centering
+		\begin{minipage}{.25\textwidth}
+			\includegraphics[width=\textwidth]{graphics/digits-nr0.jpg}
+			\captionsetup{justification=centering}
+			\caption*{Изображения без\\ шума}
+		\end{minipage}
+		\begin{minipage}{.25\textwidth}
+			\includegraphics[width=\textwidth]{graphics/digits-nr30.jpg}
+			\captionsetup{justification=centering}
+			\caption*{ 30\% пикселей\\ испорчены}
+		\end{minipage}
+		\begin{minipage}{.25\textwidth}
+			\includegraphics[width=\textwidth]{graphics/digits-nr60.jpg}
+			\captionsetup{justification=centering}
+			\caption*{ 60\% пикселей\\ испорчены}
+		\end{minipage}
+		\label{fig:noise}
+		\end{figure}
+		\item{Выбранные алгоритмы тестировались в двух ситуациях}
+    		\begin{itemize}
+    		\item{Зашумлено только тестовое множество}
+    		\item{И тестовое, и тренировочное множество зашумлены}
+    		\end{itemize}
+    \end{itemize}
+  \end{frame}
+  
+  
+  \begin{frame}
+  	\frametitle{Технические детали}
+  		\begin{itemize}
+  		\item{Для нанесения шумов и конвертации набора данных использовался скрипт 					на Python}
+    	\item{Все параметры алгоритмов были оставлены стандартными, кроме 					параметра complexity для SMO}
+		\item{Для SMO параметр complexity был подобран}
+		\begin{figure}[ht!]
+		\includegraphics[width=\textwidth]{graphics/c_param.pdf}
+		\captionsetup{justification=centering}
+		\label{fig:SMO_qual}
+		\end{figure}
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Результаты эксперимента(1)}
+    \begin{figure}[ht!]
+	\includegraphics[width=\textwidth]{graphics/Perf_noised.pdf}
+	\captionsetup{justification=centering}
+	\caption{Эффективность алгоритмов при построении модели на зашумленных 			данных}
+	\label{fig:perf1}
+	\end{figure}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Результаты эксперимента(2)}
+    \begin{figure}[ht!]
+	\includegraphics[width=\textwidth]{graphics/Perf_unnoised.pdf}
+	\captionsetup{justification=centering}
+	\caption{Эффективность алгоритмов при построении модели на незашумленных 			данных}
+	\label{fig:perf2}
+	\end{figure}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Выводы}
+    \begin{itemize}
+	\item{Алгоритм ``Random Tree'' оказался неустойчив к шуму}
+	\item{Алгоритм ``Naive Bayes'' показал удовлетворительные результаты при обучении на зашумленном множестве и неудовлетворительные при обучении на незашумленном}
+	\item{Классификатор ``SMO'' показал лучшие результаты из представленных алгоритмов}
+	\end{itemize}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Результаты}
+    \begin{itemize}
+
+		\item{Выполнено сравнение трёх популярных алгоритмов классификации на 				предмет устойчивости к шумам в тестовом множестве}
+		
+    	\item{Проведён анализ причин устойчивости/неустойчивости алгоритмов к 					шумам}
+    	
+    	\item{Построено тестовое окружение, позволяющее легко воспроизвести 				эксперимент}
+    	
+    \end{itemize}
+  \end{frame}
+  
+\end{document}
