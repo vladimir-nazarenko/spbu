@@ -7,16 +7,21 @@ import cv2
 from tk import FilenameDialog
 from os import rename, remove
 from Tkinter import *
-
+from math import floor
 
 class Main:
     def __init__(self):
         self.cap = cv2.VideoCapture(0)
         cv2.namedWindow('Thresholded')
+        cv2.namedWindow('Recognition')
         cv2.createTrackbar('threshold', 'Thresholded', self._threshold, 255, self.set_threshold)
         # cv2.createTrackbar('max value', 'Thresholded', self._max_value, 255, self.set_maxvalue)
         # self.bgs = cv2.BackgroundSubtractorMOG2(10, 16, False)
         self.write_statistics = False
+        self.classifier = cv2.SVM()
+        self.classifier.load('classifier.xml')
+
+
 
     _threshold = 30
     _max_value = 255
@@ -102,6 +107,29 @@ class Main:
             self.output.write('{0},{1};'.format(norm_x, norm_y))
         self.output.write('\n')
 
+    def recognize(self, rect, cnt, defects):
+        def calc_dist(x1y1, x2y2):
+            return (x1y1[0] - x2y2[0]) ** 2 + (x1y1[1] - x2y2[1]) ** 2
+        pts = []
+        for i in range(defects.shape[0]):
+            s, e, f, d = defects[i, 0]
+            far = tuple(cnt[f][0])
+            x = (far[0] - rect[0])
+            y = (far[1] - rect[1])
+            norm_x = x / float(rect[2])
+            norm_y = y / float(rect[3])
+            pts.append([norm_x, norm_y])
+        centers = [[0 for _ in range(10)] for _ in range(10)]
+        for r in range(0, 10):
+            for c in range(0, 10):
+                centers[r][c] = [c * 0.1 + 0.05, r * 0.1 + 0.05]
+        feature_vector = [100 for _ in range(100)]
+        for p in pts:
+            ceil = [int(floor(p[0] * 10)), int(floor(p[1] * 10))]
+            ceil = [c if not c == 10 else 9 for c in ceil]
+            feature_vector[ceil[1] * 10 + ceil[0]] = calc_dist(p, centers[ceil[0]][ceil[1]])
+        return self.classifier.predict(np.asfarray(feature_vector, dtype=np.float32))
+
     def get_result(self, img):
         drawing = np.zeros(img.shape, np.uint8)
         for_proc = self.thresh(img)
@@ -115,9 +143,14 @@ class Main:
             cv2.drawContours(drawing, [hull], 0, (0, 0, 255), 2)
             # cv2.circle(drawing, (int(center[0]), int(center[1])), int(radius), [255, 0, 255], 4)
             defects = self.get_defects(cnt)
-            self.draw_defects(cnt, defects, drawing)
-            if self.write_statistics:
-                self.log_defects(r, cnt, defects)
+            if not defects is None:
+                self.draw_defects(cnt, defects, drawing)
+                if self.write_statistics:
+                    self.log_defects(r, cnt, defects)
+                txt = np.zeros((300, 300, 3), np.uint8)
+                res = int(self.recognize(r, cnt, defects))
+                cv2.putText(txt, str(res), (0, 300), cv2.FONT_HERSHEY_COMPLEX, 14, (100, 200, 30), 10)
+                cv2.imshow('Recognition', txt)
         return drawing
 
     def bring_the_action(self):

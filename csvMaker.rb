@@ -1,7 +1,18 @@
 require 'matrix'
 
-f = File.open("palm_test", 'r')
-o = File.open("normpalm_test", 'w')
+if ARGV.count < 2 then raise "Few arguments: #{ARGV.count}" end
+nextArgument = 0
+addHeader = false
+if ARGV[nextArgument] == "h" then
+  nextArgument += 1
+  addHeader = true
+  puts "Adding header to file"
+  if ARGV.count < 3 then raise "Few arguments: #{ARGV.count}" end
+end
+sample_class = ARGV[nextArgument].to_i
+nextArgument += 1
+f = File.open("#{ARGV[nextArgument]}", 'r')
+o = File.open("#{ARGV[nextArgument]}.csv", 'w')
 text = f.read
 lines = text.each_line
 puts "Lines count: #{lines.count}"
@@ -22,8 +33,6 @@ pts = lines.map{|l|
 def calcDist(x1y1, x2y2)
   (x1y1[0] - x2y2[0]) ** 2 + (x1y1[1] - x2y2[1]) ** 2
 end
-
-
 def findNearestIndexes(arr)
   minDist = 100000
   i1 = nil
@@ -59,8 +68,10 @@ pts.map{|vector| aggregateToLength(avg.to_i - 3, vector)}
 # p pts
 # pts.each{|c| puts c.size}
 # pts.each{|ln| ln.each{|pt| o.write("#{pt[0]},#{pt[1]}\n")}}
-names = (0...10).to_a.repeated_permutation(2).to_a.map{|pair| pair.join("_")}.join(',')
-o.write("#{names},label\n")
+if addHeader then
+  names = (0...10).to_a.repeated_permutation(2).to_a.map{|pair| pair.join("_")}.join(',')
+  o.write("#{names},label\n")
+end
 centers = Matrix.build(10, 10){|row, col| [col * 0.1 + 0.05, row * 0.1 + 0.05]}
 features = pts.map{|pvector|
   featureVector = Array.new(100)
@@ -71,6 +82,6 @@ features = pts.map{|pvector|
   }
   featureVector.map{|val| if val.nil? then 100 else val end}  
 }
-features.each{|ln| o.write("#{ln.join(',')},1\n")}
+features.each{|ln| o.write("#{ln.join(',')},#{sample_class}\n")}
 f.close
 o.close
