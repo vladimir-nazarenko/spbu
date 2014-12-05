@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{318AAF82-8862-454D-8B96-B5CC2B661825}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Homework8Tests</RootNamespace>
+    <AssemblyName>Homework8Tests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="SetTests.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Homework8\Homework8.csproj">
+      <Project>{E4F2C4C4-332D-4386-AD2F-B58DB78A1552}</Project>
+      <Name>Homework8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
+      <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
+      <Name>MyClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Homework_5\UniqueList\UniqueList.csproj">
+      <Project>{742CD356-C113-4CE3-AF2A-F69EA467EC6E}</Project>
+      <Name>UniqueList</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

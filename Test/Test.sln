@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PQueue", "Test\PQueue.csproj", "{3E911D7E-0F52-4960-ABB5-9EA016F26A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityQueue.Tests", "PriorityQueue.Tests\PriorityQueue.Tests.csproj", "{BFF7243F-1EEB-480E-BAB3-96A958919D8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E911D7E-0F52-4960-ABB5-9EA016F26A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E911D7E-0F52-4960-ABB5-9EA016F26A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E911D7E-0F52-4960-ABB5-9EA016F26A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E911D7E-0F52-4960-ABB5-9EA016F26A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF7243F-1EEB-480E-BAB3-96A958919D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Test\PQueue.csproj
+	EndGlobalSection
+EndGlobal

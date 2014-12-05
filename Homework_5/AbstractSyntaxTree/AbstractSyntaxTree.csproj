@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE38F304-0DF1-4199-A1E0-E1A9625BFD5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AbstractSyntaxTree</RootNamespace>
+    <AssemblyName>AbstractSyntaxTree</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <Package>mono-nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="AbstractSyntaxTree.cs" />
+    <Compile Include="Operand.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="INode.cs" />
+    <Compile Include="ExtraNodeException.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

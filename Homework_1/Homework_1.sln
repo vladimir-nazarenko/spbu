@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClasses", "..\MyClasses\MyClasses\MyClasses.csproj", "{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factorial", "Factorial\Factorial.csproj", "{FF4E7A54-6332-4325-8A50-3DD150963512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{FB8FE16F-8508-40FE-86E0-D0755DB470D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factorial.Tests", "Factorial.Tests\Factorial.Tests.csproj", "{DF603847-4C7A-4C90-941E-29EBD278A263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci.Tests", "Fibonacci.Tests\Fibonacci.Tests.csproj", "{79304B80-1807-416B-AB52-C225E9A19A22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.ActiveCfg = Debug|x86
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Debug|x86.Build.0 = Debug|x86
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|x86.ActiveCfg = Release|x86
+		{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}.Release|x86.Build.0 = Release|x86
+		{79304B80-1807-416B-AB52-C225E9A19A22}.Debug|x86.ActiveCfg = Debug|x86
+		{79304B80-1807-416B-AB52-C225E9A19A22}.Debug|x86.Build.0 = Debug|x86
+		{79304B80-1807-416B-AB52-C225E9A19A22}.Release|x86.ActiveCfg = Release|x86
+		{79304B80-1807-416B-AB52-C225E9A19A22}.Release|x86.Build.0 = Release|x86
+		{DF603847-4C7A-4C90-941E-29EBD278A263}.Debug|x86.ActiveCfg = Debug|x86
+		{DF603847-4C7A-4C90-941E-29EBD278A263}.Debug|x86.Build.0 = Debug|x86
+		{DF603847-4C7A-4C90-941E-29EBD278A263}.Release|x86.ActiveCfg = Release|x86
+		{DF603847-4C7A-4C90-941E-29EBD278A263}.Release|x86.Build.0 = Release|x86
+		{FB8FE16F-8508-40FE-86E0-D0755DB470D9}.Debug|x86.ActiveCfg = Debug|x86
+		{FB8FE16F-8508-40FE-86E0-D0755DB470D9}.Debug|x86.Build.0 = Debug|x86
+		{FB8FE16F-8508-40FE-86E0-D0755DB470D9}.Release|x86.ActiveCfg = Release|x86
+		{FB8FE16F-8508-40FE-86E0-D0755DB470D9}.Release|x86.Build.0 = Release|x86
+		{FF4E7A54-6332-4325-8A50-3DD150963512}.Debug|x86.ActiveCfg = Debug|x86
+		{FF4E7A54-6332-4325-8A50-3DD150963512}.Debug|x86.Build.0 = Debug|x86
+		{FF4E7A54-6332-4325-8A50-3DD150963512}.Release|x86.ActiveCfg = Release|x86
+		{FF4E7A54-6332-4325-8A50-3DD150963512}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Factorial\Factorial.csproj
+	EndGlobalSection
+EndGlobal

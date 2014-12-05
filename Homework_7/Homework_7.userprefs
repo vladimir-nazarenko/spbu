@@ -1,0 +1,46 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Homework_3/StackCalculator/StackCalculator.cs">
+    <Files>
+      <File FileName="Homework_7/Evaluator.cs" Line="18" Column="9" />
+      <File FileName="../Homework_3/StackCalculator/StackCalculator.cs" Line="75" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedStack.cs" Line="52" Column="1" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="187" Column="1" />
+      <File FileName="Clock/Main.cs" Line="6" Column="12" />
+      <File FileName="Clock/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Homework_7/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Homework_7/Main.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="Clock" expanded="True" />
+          <Node name="Homework_7" expanded="True" />
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True" />
+          </Node>
+          <Node name="StackCalculator" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="StackCalculator.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True">
+          <Option id="PublicApiOnly" value="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalExam", "FinalExam\FinalExam.csproj", "{12317C5C-623E-4F07-B711-723962A546F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalExamTests", "FinalExamTests\FinalExamTests.csproj", "{AD2A68C9-B7AD-49B0-8474-D7BB613BC073}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12317C5C-623E-4F07-B711-723962A546F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12317C5C-623E-4F07-B711-723962A546F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12317C5C-623E-4F07-B711-723962A546F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12317C5C-623E-4F07-B711-723962A546F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2A68C9-B7AD-49B0-8474-D7BB613BC073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2A68C9-B7AD-49B0-8474-D7BB613BC073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2A68C9-B7AD-49B0-8474-D7BB613BC073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2A68C9-B7AD-49B0-8474-D7BB613BC073}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = FinalExam\FinalExam.csproj
+	EndGlobalSection
+EndGlobal

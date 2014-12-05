@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43C201BA-B4A9-490D-A0DC-2F3959CEE062}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Homework_7</RootNamespace>
+    <AssemblyName>Homework_7</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glade-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="gtk-gui\MainWindow.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Evaluator.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Homework_3\StackCalculator\StackCalculator.csproj">
+      <Project>{5BD27337-84F3-45E3-B416-F14A879B30DC}</Project>
+      <Name>StackCalculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
+      <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
+      <Name>MyClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,59 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniqueListTests/UniqueListTests.cs">
+    <Files>
+      <File FileName="AbstractSyntaxTree/INode.cs" Line="7" Column="9" />
+      <File FileName="UniqueList/UniqueList.cs" Line="49" Column="2" />
+      <File FileName="UniqueListTests/UniqueListTests.cs" Line="26" Column="40" />
+      <File FileName="UniqueListTests/AssemblyInfo.cs" Line="1" Column="21" />
+      <File FileName="AbstractSyntaxTree/Operand.cs" Line="26" Column="10" />
+      <File FileName="AbstractSyntaxTree/AbstractSyntaxTree.cs" Line="78" Column="10" />
+      <File FileName="AbstractSyntaxTree/Operation.cs" Line="53" Column="35" />
+      <File FileName="AbstractSyntaxTree/ExtraNodeException.cs" Line="17" Column="10" />
+      <File FileName="../MyClasses/MyClasses/Exceptions/EmptyArrayException.cs" Line="5" Column="49" />
+      <File FileName="AbstractSyntaxTreeTests/AbstractSyntaxTreeTests.cs" Line="11" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="AbstractSyntaxTree" expanded="True" />
+          <Node name="AbstractSyntaxTreeTests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True" />
+            <Node name="Exceptions" expanded="True" />
+            <Node name="Interfaces" expanded="True" />
+            <Node name="Strategies" expanded="True">
+              <Node name="HashFunctions" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="UniqueList" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="UniqueListTests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="UniqueListTests.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True">
+          <Node name="MyClasses" expanded="True">
+            <Node name="MyClasses" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,43 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SpiralTraverse.Tests/SpiralTraverseTests.cs">
+    <Files>
+      <File FileName="SpiralTraverse/SpiralTraverse.cs" Line="17" Column="43" />
+      <File FileName="SpiralTraverse.Tests/SpiralTraverseTests.cs" Line="11" Column="15" />
+      <File FileName="matrixSort/MatrixSort.cs" Line="40" Column="29" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="MatrixSort" expanded="True" />
+          <Node name="MatrixSort.Tests" expanded="True" />
+          <Node name="MyClasses" expanded="True">
+            <Node name="Parsing" expanded="True" />
+          </Node>
+          <Node name="SpiralTraverse" expanded="True" />
+          <Node name="SpiralTraverse.Tests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="SpiralTraverseTests.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True">
+          <Option id="PublicApiOnly" value="True" />
+          <Node name="MatrixSort" expanded="True" />
+          <Node name="SpiralTraverse" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

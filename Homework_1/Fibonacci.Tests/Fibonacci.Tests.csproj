@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{79304B80-1807-416B-AB52-C225E9A19A22}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Fibonacci.Tests</RootNamespace>
+    <AssemblyName>Fibonacci.Tests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Fibonacci\Fibonacci.csproj">
+      <Project>{FB8FE16F-8508-40FE-86E0-D0755DB470D9}</Project>
+      <Name>Fibonacci</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MyClasses\MyClasses\MyClasses.csproj">
+      <Project>{4B150044-E2E3-4D10-B02B-6D1A6AEB35B5}</Project>
+      <Name>MyClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FibonacciTests.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,39 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CursorControl/Mover.cs">
+    <Files>
+      <File FileName="CursorControl/Mover.cs" Line="1" Column="6" />
+      <File FileName="CursorControl/KeyLoop.cs" Line="19" Column="41" />
+      <File FileName="CursorControl/Main.cs" Line="8" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="CursorControl" expanded="True">
+            <Node name="Mover.cs" selected="True" />
+          </Node>
+          <Node name="ExtendedLinkedList" expanded="True" />
+          <Node name="ExtendedLinkedList.Tests" expanded="True" />
+          <Node name="TruTest" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State selected="True">
+          <Option id="PublicApiOnly" value="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>Console.CursorLeft</Value>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

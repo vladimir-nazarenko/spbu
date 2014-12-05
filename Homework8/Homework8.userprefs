@@ -1,0 +1,51 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Homework8/Set.cs">
+    <Files>
+      <File FileName="Homework8/Set.cs" Line="159" Column="1" />
+      <File FileName="Homework8Tests/SetTests.cs" Line="53" Column="16" />
+      <File FileName="Homework8/AssemblyInfo.cs" Line="8" Column="32" />
+      <File FileName="../MyClasses/MyClasses/Data_structures/LinkedList.cs" Line="279" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Homework8" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Set.cs" selected="True" />
+          </Node>
+          <Node name="Homework8Tests" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="MyClasses" expanded="True">
+            <Node name="Data_structures" expanded="True" />
+          </Node>
+          <Node name="UniqueList" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True">
+          <Node name="MyClasses" expanded="True">
+            <Node name="MyClasses" expanded="True">
+              <Node name="DataStructures" expanded="True">
+                <Node name="MyClasses.DataStructures.LinkedList" expanded="True">
+                  <Node name="Add" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
