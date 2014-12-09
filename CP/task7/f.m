@@ -1,7 +1,9 @@
 function res = f(x=NaN)
   if isnan(x)
-     puts "Function is sin(x)\n";
+     puts "Function is cos(x)\n";
   else
-    res = sin(x);
+    res = cos(x);
+#    res = sqrt(1 - x .^ 2);
+#    res = exp(-x .^ 4) - 2 * x;
   endif
 endfunction

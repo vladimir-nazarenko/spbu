@@ -1,6 +1,4 @@
-__author__ = 'vladimir'
-import numpy as np
-import cv2.cv as cv
+__author__ = 'vladimir nazarenko'
 import cv2
 import csv
 import numpy as np
@@ -8,6 +6,7 @@ from threading import Thread
 
 
 class Classifier(Thread):
+    """Decorator for bayes classifier from open cv"""
     def __init__(self):
         super(Classifier, self).__init__()
         self.daemon = True

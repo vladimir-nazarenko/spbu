@@ -2,6 +2,7 @@ from Tkinter import *
 
 
 class FilenameDialog:
+    """Simple input dialog window"""
     def __init__(self, parent):
         top = self.top = Toplevel(parent)
         Label(top, text="Enter filename").pack()

@@ -1,21 +1,19 @@
 #!/usr/bin/env python
 
-__author__ = 'vladimir'
+__author__ = 'vladimir nazarenko'
 import numpy as np
-import cv2.cv as cv
 import cv2
 from tk import FilenameDialog
 from os import rename, remove
 from Tkinter import *
 from math import floor
-import csv
 from training import Classifier
 import time
-from thread import start_new_thread
-from threading import Thread
+
 
 class Main:
     def __init__(self):
+        """Initializes an object of type Main and starts training classifier"""
         self.cap = cv2.VideoCapture(0)
         cv2.namedWindow('Thresholded')
         cv2.namedWindow('Recognition')
@@ -26,30 +24,31 @@ class Main:
         self.classifier = Classifier()
         self.classifier.start()
 
-
-
     _threshold = 30
-    _max_value = 255
     output = None
 
     def capture(self):
+        """Returns image from webcam"""
         ret, img = self.cap.read()
         return img
 
     def thresh(self, image):
+        """Returns black-white image after using threshold algorithm"""
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray, (5, 5), 0)
-        ret, thresh = cv2.threshold(blur, self._threshold, self._max_value, cv2.THRESH_BINARY)
+        ret, thresh = cv2.threshold(blur, self._threshold, 255, cv2.THRESH_BINARY)
         # thresh = cv2.adaptiveThreshold(blur, self._max_value, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 5, 1)
         return thresh
 
     @staticmethod
     def contours(image):
+        """Returns list of recognized contours on the given image"""
         contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_TC89_KCOS)
         return contours
 
     @staticmethod
     def largest_contour(contours):
+        """Returns the largest contour of the given list of contours"""
         max_area = 0
         cnt = None
         for i in contours:
@@ -65,10 +64,8 @@ class Main:
     def set_threshold(self, x):
         self._threshold = x
 
-    def set_maxvalue(self, x):
-        self._max_value = x
-
     def change_logging(self):
+        """Start or stop logging"""
         if self.write_statistics:
             root = Tk()
             root.wm_title("Filename dialog")
@@ -87,6 +84,7 @@ class Main:
 
     @staticmethod
     def get_defects(cnt):
+        """Returns list of defect points for contour"""
         hull = cv2.convexHull(cnt, returnPoints=False)
         return cv2.convexityDefects(cnt, hull)
 
@@ -101,6 +99,7 @@ class Main:
             cv2.circle(drawing, far, 5, [0, 0, 255], 2)
 
     def print_thresh(self, img):
+        """Save threshold of the img into file"""
         root = Tk()
         root.wm_title("Filename dialog")
         root.withdraw()
@@ -108,8 +107,8 @@ class Main:
         root.wait_window(save_dialog.top)
         cv2.imwrite(save_dialog.result + '.jpg', self.thresh(img))
 
-
     def log_defects(self, rect, cnt, defects):
+        """Write defects of the hull of the recognized largest contour into file for further processing"""
         # center = ((rect[0] + rect[2]) / 2., (rect[1] + rect[3]) / 2.)
         for i in range(defects.shape[0]):
             s, e, f, d = defects[i, 0]
@@ -122,6 +121,10 @@ class Main:
         self.output.write('\n')
 
     def recognize(self, rect, cnt, defects):
+        """
+        Use the trained classifier to predict a gesture
+        See gestures.csv to get list of supported gestures and names of theirs labels
+        """
         def calc_dist(x1y1, x2y2):
             return (x1y1[0] - x2y2[0]) ** 2 + (x1y1[1] - x2y2[1]) ** 2
         pts = []
@@ -147,6 +150,10 @@ class Main:
         return self.classifier.predict(feature_vector)
 
     def get_result(self, img):
+        """
+        Returns modified image, containing only convex hull of the largest contour,
+        the contour itself, bounding rectangle and convexity defects
+        """
         drawing = np.zeros(img.shape, np.uint8)
         for_proc = self.thresh(img)
         cnt = self.largest_contour(self.contours(for_proc))
@@ -174,7 +181,7 @@ class Main:
         return drawing
 
     def bring_the_action(self):
-
+        """Starts main loop and displays images"""
         while self.cap.isOpened():
             img = self.capture()
             # cv2.imshow('Camera input', img)

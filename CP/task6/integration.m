@@ -1,11 +1,11 @@
 format long
 puts "Task 6. Formulas of the highest degree of precision\n";
 f(NaN);
-a = 0; #input("Enter the left margin: ");
-b = 1; #input("Enter the right margin: ");
-N = 3; #input("Enter the number of notes for formula: ");
+a = input("Enter the left margin: ");
+b = input("Enter the right margin: ");
+N = input("Enter the number of notes for formula: ");
 assert(N > 0);
-# Comoute coefficients for ortagonal polynomial
+# Compute coefficients for ortagonal polynomial
 A = zeros(N);
 for i = 1:N
     for j = 1:N
@@ -30,7 +30,11 @@ disp(X);
 Ak = rts \ getMoment(0:N-1, a, b)';
 puts "Coefficients of formula: \n";
 disp(Ak);
-puts "Result: ";
-calc = Ak' * f(X);
-disp(calc)
+function y = fw(x)
+  y = f(x) .* abs(1 ./ sqrt(x));
+endfunction
+printf("%-40s %3.16f\n%-40s %3.16f\n%-40s %3.16f\n", 
+       "Method gave the result", Ak' * f(X),
+       "while the value calculated by octave is", quad(@fw, a, b), 
+       "so the error is", abs(Ak' * f(X) - quad(@fw, a, b)));
 format short
