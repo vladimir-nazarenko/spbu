@@ -13,6 +13,6 @@ n -- label for class
 
 processfiles.sh contains an example of the script for generating a dataset from gathered data
 
-trainSet.csv contains of the gestures
+trainSet.csv contains training data for the gestures
 
 gestures.csv contains description of the gestures supported in the trainSet dataset
