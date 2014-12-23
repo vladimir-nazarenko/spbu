@@ -36,7 +36,7 @@ class Main:
         """Returns black-white image after using threshold algorithm"""
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray, (5, 5), 0)
-        ret, thresh = cv2.threshold(blur, self._threshold, 255, cv2.THRESH_BINARY)
+        ret, thresh = cv2.threshold(blur, self._threshold, 255, cv2.THRESH_OTSU)
         # thresh = cv2.adaptiveThreshold(blur, self._max_value, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 5, 1)
         return thresh
 
