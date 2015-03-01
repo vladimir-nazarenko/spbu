@@ -21,7 +21,7 @@ left = 0;
 right = 1;
 assert(left < right);
 N = 10;
-h = (right - left) / N;
+h = (right - left) / N
 # computing the 3-diagonal matrix
 a = zeros(1, N);
 b = zeros(1, N);
@@ -44,7 +44,7 @@ c(1) = alpha(2);
 d(1) = A * h;
 d(N) = B * h;
 # get the result
-y1 = solve3(c, b, a, d);
+y1 = solve3(c, b, a, d, true);
 # computing edge values with presicion O(h^2)
 a(N) = -beta(2) * (4 + b(N-1) / a(N-1));
 b(1) = 2 * h * alpha(1) + alpha(2) * (a(2) / c(2) - 3);
@@ -52,7 +52,7 @@ b(N) = 2 * h * beta(1) + 3 * beta(2) - beta(2) * c(N-1) / a(N-1);
 c(1) = alpha(2) * (b(2) / c(2) + 4);
 d(1) = 2 * h * A + alpha(2) * d(2) / c(2);
 d(N) = 2 * h * B - beta(2) * d(N-1) / a(N-1);
-y2 = solve3(c, b, a, d);
+y2 = solve3(c, b, a, d, true);
 puts "Approximate solutions:\n";
 printf("%10s%10s%10s\n", "point", "O(h)", "O(h^2)");
 disp([pts', y1, y2]);
