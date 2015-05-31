@@ -13,7 +13,7 @@ from enum import Enum
 # Set to -1 if you want to use constant from file
 IMAGES_PATH = 'train-images-idx3-ubyte'
 LABELS_PATH = 'train-labels-idx1-ubyte'
-NUMBER_OF_IMAGES_TO_LOAD = 10000
+NUMBER_OF_IMAGES_TO_LOAD = 15000
 NUMBER_OF_FILES_TO_GENERATE = 10
 START_FROM_NOISE_RATE = 0.0
 STEP_OF_CHANGING_NOISE_RATE = 0.05
@@ -108,20 +108,21 @@ def generate_images():
 
 
 def generate_usual_datasets(count):
-    for i in range(20):
+    for i in range(NUMBER_OF_FILES_TO_GENERATE):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
-        converter.write_into_arff_with_constant_noise_rate(0.05 * i, count)
+        converter.write_into_arff_with_constant_noise_rate(STEP_OF_CHANGING_NOISE_RATE * i, count)
 
 
 def generate_datasets_with_unnoised_train(count):
-    for i in range(20):
+    for i in range(NUMBER_OF_FILES_TO_GENERATE):
         converter = MNISTConverter(images_path=IMAGES_PATH, labels_path=LABELS_PATH)
-        converter.write_into_arff_with_unnoised_trainset(0.05 * i, count)
+        converter.write_into_arff_with_unnoised_trainset(STEP_OF_CHANGING_NOISE_RATE * i, count)
 
 
 def main():
     start_time = time.time()
-    generate_datasets_with_unnoised_train(15000)
+    generate_datasets_with_unnoised_train(NUMBER_OF_IMAGES_TO_LOAD)
+    #generate_usual_datasets(NUMBER_OF_IMAGES_TO_LOAD)
     print("Exceeded %1.2f seconds" % (time.time() - start_time))
 
 
